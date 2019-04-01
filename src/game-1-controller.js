@@ -7,7 +7,7 @@ class Food extends React.Component{
     
     render(){
         // console.log('healthy ?'+this.isHealthy);
-        console.log('img-id',this.props.img_id,this.props.isHealthy);
+        // console.log('img-id',this.props.img_id,this.props.isHealthy);
         if(this.props.isHealthy)
             return(
                 <div className='food' style={{backgroundImage:'url(../images/Foods/Healthy-foods/'+this.props.img_id+'.png)',backgroundRepeat:'no-repeat',backgroundSize:'cover',backgroundPosition:'center'}} onClick={this.updateClick.bind(this,true)}></div>
@@ -83,6 +83,7 @@ class Game_1 extends React.Component
         }
         this.state = {score:10,seq:0};
         this.updateClick = this.updateClick.bind(this);
+        this.restart = this.restart.bind(this);
         this.h_food_idx=0;
         this.u_food_idx=0;
     }
@@ -92,19 +93,38 @@ class Game_1 extends React.Component
             [arr[i], arr[j]] = [arr[j], arr[i]];
           }
     }
+    restart(){
+        document.getElementById('overlay').hidden=true;        
+        this.setState({score:10,seq:0});
+    }
     updateClick(isHealthy){       
         if(this.u_food_idx>=17){
             this.shuffle(this.unhealthy_food_arr);
             this.u_food_idx=0;
-            console.log(this.unhealthy_food_arr);
+            // console.log(this.unhealthy_food_arr);
         }
         if(this.h_food_idx>=24){
             this.shuffle(this.healthy_food_arr);
             this.h_food_idx=0;
-            console.log(this.healthy_food_arr);
+            // console.log(this.healthy_food_arr);
         }
-        isHealthy == true ? this.setState((state)=>{return{score:state.score+10 , seq:state.seq+1}}) : 
-        this.setState((state)=>{return{score:state.score-5 , seq:state.seq+1}});
+        if(isHealthy){
+            if(this.state.score+10>100)
+            {
+                this.setState((state)=>{return{score:100 , seq:state.seq+1}});
+                document.getElementById('overlay').hidden = false;
+            }
+                
+            else
+                this.setState((state)=>{return{score:state.score+10 , seq:state.seq+1}});
+        }
+        else{
+            if(this.state.score>5)
+                this.setState((state)=>{return{score:state.score-5 , seq:state.seq+1}});
+            else
+            this.setState((state)=>{return{score:5 , seq:state.seq+1}});
+        }
+        
         // console.log(this.state.score+' score');
         // console.log('seq '+this.state.seq);
     } 
@@ -124,7 +144,7 @@ class Game_1 extends React.Component
         }
         
         this.shuffle(food_arr);
-        console.log(food_arr);
+        // console.log(food_arr);
         return(
             <div>
             <div id='plate1' className="game-col-2">
@@ -140,22 +160,7 @@ class Game_1 extends React.Component
  
         );
                
-        // if(Math.random()>0.6)
-        // {
-        //     // console.log(this.healthy_food_arr[(this.h_food_idx + 1) % 23]+' h-f-img-id');
-        //     // console.log(this.healthy_food_arr);
-        //     return(
-        //         <Food img_id={this.healthy_food_arr[++this.h_food_idx % 23]} isHealthy={true} updateClick={this.updateClick} />                
-        //     );
-        // }        
-        // else
-        // {
-        //     // console.log(this.unhealthy_food_arr[(this.u_food_idx + 1)% 16]+ ' u-f-img-id');
-        //     // console.log(this.unhealthy_food_arr);
-        //     return(
-        //         <Food img_id={this.unhealthy_food_arr[++this.u_food_idx % 16] } isHealthy={false} updateClick={this.updateClick} />
-        //     );
-        // }
+    
             
     }
     
@@ -164,19 +169,13 @@ class Game_1 extends React.Component
         return(
             
             <div className="page" >
-                <script src='./resize.js' type="text/javascript"></script>
-                <div className="game-nav">
-                <div className="game-nav-tile">
-                    <a href="#Home">Home</a>
+                <div id="overlay" className="overlay" hidden>
+                    <a href="#">
+                    <img className='restart-button' src='../images/sprites/restart.png' onClick={this.restart}></img>
+                    </a>                    
                 </div>
-                <div className="game-nav-tile">
-                    <a href="#">About</a>
-                </div>
-                <div className="game-nav-tile">
-                    <a href="#">Back</a>
-                </div>
-            </div>
-            <div className="game-1-area">
+                <script src='./resize.js' type="text/javascript"></script>                
+            <div className="game-1-area">                
                 <div className="game-row">
                     <div className="game-col-1" >
                 </div>
@@ -189,10 +188,10 @@ class Game_1 extends React.Component
             <div className="game-footer">
                 <div className="game-health">            
                 </div>
-                <div className=" game-progress-bar progress">
+                <div className="  progress game-progress-bar">
                         <ProgressBar score = {this.state.score} />        
                 </div>
-            </div>
+            </div>            
         </div>            
         );
     }
