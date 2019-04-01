@@ -1,0 +1,129 @@
+
+.page {
+  position: absolute;
+  height: 100%;
+  width:100%;
+}
+.game-1-area{    
+  background:url(../images/Bakcground/Background_without_plates.png);
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  position: relative;
+  width:100%;
+  min-width: 600px;
+  height:80%;
+  top:7%;
+  min-height: 200px;
+}
+.game-row{
+  position: absolute;
+  width: 100%;
+  height: 50%;
+}
+
+.game-col-1{
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  
+}
+.game-col-2{
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  left:25%;
+  background:url(../images/Bakcground/plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.game-col-3{
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  left:50%;
+  background:url(../images/Bakcground/plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.game-col-4{
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  left:75%;
+  background:url(../images/Bakcground/plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.game-char{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left:35%;
+}
+.game-nav{
+  position: absolute;
+  height: 7%;
+  width: 100%;
+  background-color: #333;
+  text-align: center;
+}
+
+.game-nav-tile{
+  display: inline-block;
+  color:white;
+  width: 25%;
+  height:100%;
+}
+.game-row-2{
+  top:50%;
+}
+
+
+.game-nav-tile a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  height: 50%;
+  margin: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.game-nav-tile a:hover {
+  background-color: rgb(212, 107, 9);
+}
+
+.food{
+  position: absolute;  
+  width: 100%;
+  height: 100%;
+}
+
+.game-footer{
+  position: absolute;
+  height: 13%;
+  width: 100%;
+  top:87%;
+  background-color: #333;
+}
+.game-health{
+  background:url(../images/sprites/red_cross.png);
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  position: absolute;
+  width: 10%;
+  height: 100%;
+}
+.game-progress-bar{
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  width: 90%;
+  left:10%
+}
