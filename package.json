@@ -32,6 +32,7 @@
     "webpack-dev-server": "^3.2.1"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^5.0.2"
+    "copy-webpack-plugin": "^5.0.2",
+    "react-router-html-webpack-plugin": "^0.2.1"
   }
 }

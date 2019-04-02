@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   module: {
     rules: [
@@ -38,5 +39,8 @@ module.exports = {
     new CopyWebpackPlugin([
         {from:'./images',to:'images'} 
     ])
-  ]
+
+  ],
+  devServer: {
+    historyApiFallback: true}
 };

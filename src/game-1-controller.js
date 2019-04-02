@@ -6,6 +6,7 @@ let audio_w = new Audio('../sound/res_w_s.wav');
 let audio_win = new Audio('../sound/win.wav');
 
 import React from "react";
+import {Link} from 'react-router-dom';
 class Food extends React.Component{
     constructor(props){
         super(props);                      
@@ -196,7 +197,11 @@ class Game_1 extends React.Component
             <div className="game-1-area">                
                 <div className="game-row">
                     <div className="game-col-1" >
-                </div>
+                    <div className='back' style={{backgroundImage:'url(../images/sprites/back.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>                        
+                        <a href='/'>
+                        </a>
+                    </div>
+                    </div>
                 {this.render_food()}
                 </div>
                 <div id='char' className="game-row game-row-2" >
