@@ -1,3 +1,10 @@
+let char_upgrade_1 = new Audio("../sound/char_up2.wav");
+let char_upgrade_2 = new Audio('../sound/char_up3.wav');
+let char_upgrade_3 = new Audio('../sound/char_up4.wav');
+let audio_c = new Audio('../sound/res_c_s.wav');
+let audio_w = new Audio('../sound/res_w_s.wav');
+let audio_win = new Audio('../sound/win.wav');
+
 import React from "react";
 class Food extends React.Component{
     constructor(props){
@@ -96,6 +103,7 @@ class Game_1 extends React.Component
     restart(){
         document.getElementById('overlay').hidden=true;        
         this.setState({score:10,seq:0});
+        
     }
     updateClick(isHealthy){       
         if(this.u_food_idx>=17){
@@ -108,17 +116,27 @@ class Game_1 extends React.Component
             this.h_food_idx=0;
             // console.log(this.healthy_food_arr);
         }
+        let old_score = this.state.score;
         if(isHealthy){
+            audio_c.play();
             if(this.state.score+10>100)
             {
                 this.setState((state)=>{return{score:100 , seq:state.seq+1}});
+                audio_win.play();
                 document.getElementById('overlay').hidden = false;
             }
                 
             else
                 this.setState((state)=>{return{score:state.score+10 , seq:state.seq+1}});
+            if(old_score>=15 && old_score<25)
+                char_upgrade_1.play();
+            else if (old_score>=40 && old_score<50)
+                char_upgrade_2.play();
+            else if (old_score>=65 && old_score<75)
+                char_upgrade_3.play();
         }
         else{
+            audio_w.play();
             if(this.state.score>5)
                 this.setState((state)=>{return{score:state.score-5 , seq:state.seq+1}});
             else
