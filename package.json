@@ -4,7 +4,7 @@
   "description": "Website for educating kids about healthy eating by using games",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development --port 8080",
+    "start": "webpack-dev-server  --mode development --port 8080",
     "build": "webpack"
   },
   "keywords": [
