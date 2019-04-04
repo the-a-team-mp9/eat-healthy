@@ -68,7 +68,7 @@ class ProgressBar extends React.Component{
 
     render(){
         return(
-            <div className="progress-bar bg-danger" style={{width:this.props.score+'%'}}>
+            <div className="progress-bar  bg-danger" style={{width:this.props.score+'%',backgroundColor:' #ff0066'}}>
                             {this.props.score}
             </div>
         );
@@ -185,15 +185,14 @@ class Game_1 extends React.Component
     
     render(){
 
-        return(
-            
-            <div className="page" >
-                <div id="overlay" className="overlay" hidden>
+        return(            
+            <div className="page" >                
+                <div id="overlay" className="overlay-msg" hidden>
                     <a href="#">
                     <img className='restart-button' src='../images/sprites/restart.png' onClick={this.restart}></img>
                     </a>                    
                 </div>
-                <script src='./resize.js' type="text/javascript"></script>                
+                                
             <div className="game-1-area">                
                 <div className="game-row">
                     <div className="game-col-1" >
@@ -219,7 +218,9 @@ class Game_1 extends React.Component
         );
     }
     componentDidMount(){
-        
+        let nav = document.getElementById('navBar');
+        console.log('mount',nav);
+        nav.hidden=true;
     }
 }
 
