@@ -7,96 +7,149 @@ class Info extends React.Component {
     render() {
         return (
             <div>
-                <section className="intro" id="intro">
+                <section className="intro" id="intro" style={{ backgroundAttachment: 'fixed' }}>
                     <div className="container">
                         <h1 style={{ textAlign: "center", color: "#fff", paddingTop: "20px" }}>
-                            Why we must begin to care the kid's food
+                            Why we must begin to care about a healthy diet for our children
 					</h1>
                         <h2 style={{ textAlign: "center", color: "#fff" }}>
-                            ONE-QUARTER of children OVERWEIGHT or OBESE!
+                            Childhood Obesity is on the rise!
 					</h2>
                         <div className="container" style={{ filter: "alpha(opacity=0)" }} >
-                            <div className="col-md-6" style={{ width: "50%" }}>
-                                <p style={{ color: "#fff" }}>
-                                    In 2014-15, 20% children aged 2-4 were overwither or obese - 11% were overwight, 9% were obese.
-							</p>
-                                <p style={{ color: "#fff", paddingTop: "20px" }}>
-                                    Aboout 1 in 4(27%) children aged 5-17 were overwieght or obese - 20% were overwight, and 7% were boese.
-							</p>
-                                <p style={{ color: "#fff", paddingTop: "20px" }}>
-                                    Unfortunateley，the trend is become worse and worese.
-							</p>
-                            </div>
-                            <div className="col-md-6" style={{ width: "50%" }}>
-                                <div className="img">
-                                    <img src="../images/Visuals/dataview1.png" alt="Data" /></div>
-                            </div>
-                        </div>
-                        <div className="container" style={{ filter: "alpha(opacity=0)", paddingTop: "20px" }} >
-                            <div className="col-md-6" style={{ width: "50%" }}>
-                                <div className="img">
-                                    <img src="../images/Visuals/dataview2.png" alt="Data" />
+                            <div className='row'>
+                                <div className="col-md-6">
+                                    <p style={{ color: "#fff" }}>
+                                        In 2014-15, 20% children aged 2-4 were either overwither or obese.
+                                        The rate of obesity increases with age and girls are affected the most
+                                </p>
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        Aboout 1 in 4(27%) children aged 5-17 were overwieght or obese.
+
+                                </p>
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        80% of overweight/obese children retain their problems as they grow up as adults.
+                                </p>
+                                </div>
+                                <div className="col-md-6" >
+                                    <img className='img-responsive' src="../images/Visuals/dataview1.png" alt="Data" />
                                 </div>
                             </div>
-                            <div className="col-md-6" style={{ width: "50%" }}>
-                                <p style={{ color: "#fff", paddingTop: "20px" }}>
-                                    The table is the left is the Australia’s ranking among 35 OECD(countries of the Organisation for Economic Co-operation and Development (OECD) countries for selected health measures.
+
+                        </div>
+                        <div className="container" style={{ filter: "alpha(opacity=0)", paddingTop: "20px" }} >
+                            <div className='row'>
+                                <div className="col-md-6" >
+                                    <img className='img-responsive' src="../images/Visuals/dataview2.png" alt="Data" />
+                                </div>
+                                <div className="col-md-6" >
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        The trend of childhood obesity has consistently incresed through the years.
 						</p>
-                                <p style={{ color: "#fff", paddingTop: "20px" }}>
-                                    Australia ranked in the worst third of OECD countries for obesity among people aged 15 and over
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        In 2017, about 25-30% of children aged 2-11 suffered from obesity or overweight issues.
 						</p>
+                                </div>
                             </div>
                         </div>
 
-                        <h1 style={{ textAlign: "center", color: "#fff", paddingTop: "20px" }}>
-                            The common things you may not have awareness!
-				</h1>
-                        <h2 style={{ textAlign: "center", color: "#fff" }}>
-                            Why your kids refuse to eat?
-				</h2>
-                        <div className="container" style={{ filter: "alpha(opacity=0)" }}>
-                            <div className="col-md-6" style={{ width: "50%" }}>
-                                <h1 style={{ textAlign: "center", color: "#fff" }}>
-                                    The Sensory Connection
-						</h1>
-                                <p style={{ color: "#fff" }}>
-                                    We decide what we’re going to eat based on our senses.
+
+                        <h2 style={{ textAlign: "center", color: "#fff", paddingTop: '20px', marginBottom: '0' }}>
+                            Food and eating habits are major contributors for obesity
+    				    </h2>
+                        <div className="container" style={{ filter: "alpha(opacity=0)", paddingTop: "20px" }} >
+                            <div className='row'>
+                                <div className="col-md-6" >
+
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        World Health Organization recommends atleast 2 servings of vegetables for daily consuption.
 						</p>
-                                <p style={{ textAlign: "center", color: "#fff", paddingTop: "20px" }}>
-                                    Even us grown-ups, if you think about it, we decide what we’re going to eat based on how it looks, how it smells, how it feels, how it tastes.
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        Data from Australian Bureau of Statistics indicates nearly half of children aged 4-8 years are not getting the minimum recommended intake of
+                                        vegetables on a daily basis.
 						</p>
-                                <p style={{ textAlign: "center", color: "#fff", paddingTop: "20px" }}>
-                                    However , for children, there’s no avoiding that eating is a very sensory-rich experience!
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        About 15% of children get less than half a serving of vegetables every day.
+                                        This is only a quarter of the recommended intake.
 						</p>
-                                <p style={{ textAlign: "center", color: "#fff", paddingTop: "20px" }}>
-                                    The junk food, have the good smell, good taste, easy to catch children's attetntion.
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        Healthy foods are being replaced by energy-dense foods that are high in fat.
 						</p>
-                            </div>
-                            <div className="col-md-6" style={{ width: "50%" }}>
-                                <div className="img">
-                                    <img src="../images/Visuals/dataview3.png" alt="Data" />
+                                </div>
+                                <div className="col-md-6" >
+                                    <img className='img-responsive' src="../images/Visuals/dataview2.png" alt="Data" />
                                 </div>
                             </div>
                         </div>
-                        <div className="container" style={{ filter: "alpha(opacity=0)", paddingTop: "20px" }}>
-                            <div className="col-md-6" style={{ width: "50%" }}>
-                                <div className="img">
-                                    <img src="../images/Visuals/dataview4.png" alt="Data" />
+
+                        <h2 style={{ textAlign: 'center', paddingTop: '20px' }}>
+                            Why does my child refuse healthy food? !!
+                        </h2>
+                        <h2 style={{ textAlign: "center", color: "#fff" }}>
+                            The Sensory Connection
+						</h2>
+                        <div className="container" style={{ filter: "alpha(opacity=0)" }}>
+                            <div className='row'>
+                                <div className="col-md-6" >
+
+                                    <p style={{ color: "#fff" }}>
+                                        We decide what we’re going to eat based on our senses.
+                                        Our choice of foods is based on how it looks, how it smells, how it feels and how it tastes.
+           </p>
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        Junk foods are energy dense. They trigger an increased appetite in children due
+                                        to our primal insticts to survive. With everyday exposure to junk foods, kids develop
+                                        an aversion to more healthy alternatives like vegetables.
+           </p>
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        Children tend to continue eating junk food even after they feel full.
+                                        The reward children feel after eating junk foods is a huge motivation for them to demand
+                                        unhealthy foods insted of healthy foods.
+           </p>
+                                </div>
+                                <div className="col-md-6">
+                                    <img className='img-responsive' src="../images/Visuals/dataview3.png" alt="Data" />
                                 </div>
                             </div>
-                            <div className="col-md-6" style={{ width: "50%" }}>
-                                <h1 style={{ textAlign: "center", color: "#fff", paddingTop: "20px" }}>
-                                    Obesity in childhood leads to obesity in adulthood!
-					</h1>
-                                <p style={{ color: "#fff", paddingTop: "20px" }}>
-                                    Overweight or obese children are more likely to remain obese as adolescents and become overweight or obese adults.
+                        </div>
+
+                        <h2>
+                            Can our child learn to like healthy foods? !!
+                        </h2>
+                        <div className="container" style={{ filter: "alpha(opacity=0)", paddingTop: "20px" }}>
+                            <div className='row'>
+                                <div className="col-md-6" >
+                                    <div className="img">
+                                        <img src="../images/Visuals/dataview4.png" alt="Data" />
+                                    </div>
+                                </div>
+                                <div className="col-md-6" >
+                                    <p style={{ color: "#fff" }}>
+                                        Children can educated to choose healthy foods by increased rewards for eating them.
+                                        If external incentives apart from the satisfaction of eating healthy foods outweigh the
+                                        satisfaction of eating unhealthy foods, children voluntarily choose to eat healthy.
 					</p>
-                                <p style={{ color: "#fff", paddingTop: "20px" }}>
-                                    About 80 per cent of obese adolescents will become obese adults
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        Games are a very good rewarding mechanisms that can be used to correct and shape children's
+                                        behaviour.
 					</p>
+                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                        We have designed 3 interesting video games, which teach kids to identify healthy and unhealthy
+                                        foods. The games provide rewards for choosing to eat healthy foods and penalise for eating
+                                        unhealthy foods. This provides the incentive to slowly reduce the ressistance in children to eating healthy
+                                        foods.
+					</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='row'>
+                            <div className='col-md-12 text-center'>
+                                <a href='/games' className='learn-more-btn'>
+                                    Jump to Game Zone
+                            </a>
                             </div>
                         </div>
                     </div>
+
                 </section>
             </div>
         );

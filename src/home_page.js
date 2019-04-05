@@ -39,6 +39,11 @@ class Home extends React.Component{
                     <a href="/info" className="learn-more-btn">Learn More</a>
                     </div>
                 </div>
+                <div className="row">
+                    <div className="col-md-12  text-center">
+                    <a href="/games" className="learn-more-btn">Jumo to Game Zone</a>
+                    </div>
+                </div>
                 </div>
 			</div>      
             

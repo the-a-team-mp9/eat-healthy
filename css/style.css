@@ -63,6 +63,16 @@
   height: 100%;
   left:35%;
 }
+.score-disp{
+  color: white;
+  background-color: #333;
+}
+.game-fb{
+  position: absolute;
+  width: 20%;
+  height: auto;
+  left:3%;
+}
 
 .game-row-2{
   top:50%;
@@ -104,9 +114,11 @@
   height: 100%;
 }
 .back{
-  position: absolute;  
-  width: 100%;
-  height: 70%;
+  position: absolute;
+  top:5%;
+  left:5%;  
+  width: 40%;
+  height: 55%;
 }
 .back a{
   position: absolute;

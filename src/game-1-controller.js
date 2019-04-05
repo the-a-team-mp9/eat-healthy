@@ -7,6 +7,8 @@ let audio_win = new Audio('../sound/win.wav');
 
 import React from "react";
 import {Link} from 'react-router-dom';
+
+
 class Food extends React.Component{
     constructor(props){
         super(props);                      
@@ -89,8 +91,9 @@ class Game_1 extends React.Component
             let j = Math.floor(Math.random() * (i + 1));
             [this.unhealthy_food_arr[i], this.unhealthy_food_arr[j]] = [this.unhealthy_food_arr[j], this.unhealthy_food_arr[i]];
         }
-        this.state = {score:10,seq:0};
+        this.state = {score:10,h_seq:0,u_seq:0};
         this.updateClick = this.updateClick.bind(this);
+        this.save_progress = this.save_progress.bind(this);
         this.restart = this.restart.bind(this);
         this.h_food_idx=0;
         this.u_food_idx=0;
@@ -102,8 +105,10 @@ class Game_1 extends React.Component
           }
     }
     restart(){
-        document.getElementById('overlay').hidden=true;        
-        this.setState({score:10,seq:0});
+        document.getElementById('overlay').hidden=true;
+        this.save_progress();
+        this.setState({score:10,h_seq:0,u_seq:0});
+        
         
     }
     updateClick(isHealthy){       
@@ -120,15 +125,15 @@ class Game_1 extends React.Component
         let old_score = this.state.score;
         if(isHealthy){
             audio_c.play();
-            if(this.state.score+10>100)
+            if(this.state.score+10>=100)
             {
-                this.setState((state)=>{return{score:100 , seq:state.seq+1}});
+                this.setState((state)=>{return{score:100 , h_seq:state.h_seq+1, u_seq:this.state.u_seq}});
                 audio_win.play();
                 document.getElementById('overlay').hidden = false;
             }
                 
             else
-                this.setState((state)=>{return{score:state.score+10 , seq:state.seq+1}});
+                this.setState((state)=>{return{score:state.score+10 , h_seq:state.h_seq+1, u_seq:this.state.u_seq}});
             if(old_score>=15 && old_score<25)
                 char_upgrade_1.play();
             else if (old_score>=40 && old_score<50)
@@ -139,14 +144,26 @@ class Game_1 extends React.Component
         else{
             audio_w.play();
             if(this.state.score>5)
-                this.setState((state)=>{return{score:state.score-5 , seq:state.seq+1}});
+                this.setState((state)=>{return{score:state.score-5 , h_seq:state.h_seq, u_seq:this.state.u_seq+1}});
             else
-            this.setState((state)=>{return{score:5 , seq:state.seq+1}});
+            this.setState((state)=>{return{score:5 , h_seq:state.h_seq, u_seq:this.state.u_seq+1}});
         }
         
+
         // console.log(this.state.score+' score');
         // console.log('seq '+this.state.seq);
     } 
+    save_progress(){
+        console.log('u_clicks',this.state.u_seq);
+        console.log('h_click',this.state.h_seq);
+        let scores=JSON.parse(localStorage.getItem(document.title+"game-1-scores"));
+        if (scores)
+            scores.push({h_score:this.state.h_seq,u_score:this.state.u_seq});
+        else
+            scores = [{h_score:this.state.h_seq,u_score:this.state.u_seq}];
+        localStorage.setItem(document.title+'game-1-scores',JSON.stringify(scores));
+
+    }
     render_food(){
         let food_arr = Array(3);
         
@@ -189,15 +206,15 @@ class Game_1 extends React.Component
             <div className="page" >                
                 <div id="overlay" className="overlay-msg" hidden>
                     <a href="#">
-                    <img className='restart-button' src='../images/sprites/restart.png' onClick={this.restart}></img>
+                    <img className='restart-button' src='../images/sprites/replay_button.png' onClick={this.restart}></img>
                     </a>                    
                 </div>
                                 
             <div className="game-1-area">                
                 <div className="game-row">
                     <div className="game-col-1" >
-                    <div className='back' style={{backgroundImage:'url(../images/sprites/back.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>                        
-                        <a href='/'>
+                    <div className='back' style={{backgroundImage:'url(../images/sprites/goBack_button.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}} onClick={this.save_progress.bind(this)}>                        
+                        <a href='/' >
                         </a>
                     </div>
                     </div>

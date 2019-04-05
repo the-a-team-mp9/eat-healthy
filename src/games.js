@@ -8,7 +8,7 @@ class Games extends React.Component {
         return (
             <div className='page'>
                 <section className=" game" id="game">
-                    <div className="col-md-4 wp2 animated fadeInUp">
+                    <div className="col-md-4 wp2 animated fadeInUp" style={{textAlign:'center'}}>
                         <div className="img">
                             <a href="/game-1">
                                 <img src="../images/Game_Icons/Gameicon1.png" alt="Game 1" />
@@ -18,6 +18,9 @@ class Games extends React.Component {
                         <p style={{textAlign:"center"}}>Learn to identify good foods</p>
                         <p style={{textAlign:"center"}}>Choose good foods to gain points</p>
                         <p style={{textAlign:"center"}}>Level up as you eat good foods</p>
+                        <a href='/game-1-results' className='learn-more-btn'>
+                                    Game 1 Scores
+                        </a>
                     </div>
                     <div className="col-md-4 wp2 delay-05s animated fadeInUp">
                         <div className="img">

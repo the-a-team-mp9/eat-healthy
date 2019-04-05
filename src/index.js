@@ -7,6 +7,7 @@ import {Home} from './home_page';
 import {Info} from './intro';
 import {Games} from './games';
 import {About} from './about';
+import {Game1Results} from './game1Results'
 
 class App extends React.Component
 {
@@ -25,6 +26,7 @@ class App extends React.Component
         <Route path='/games' exact component={Games}/>
         <Route path='/about' exact component={About}/>
         <Route path='/game-1' exact component={Game_1} />
+        <Route path='/game-1-results' exact component={Game1Results} />
       </Router>
       </div>
              
