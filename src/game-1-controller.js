@@ -214,7 +214,7 @@ class Game_1 extends React.Component
                 <div className="game-row">
                     <div className="game-col-1" >
                     <div className='back' style={{backgroundImage:'url(../images/sprites/goBack_button.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}} onClick={this.save_progress.bind(this)}>                        
-                        <a href='/' >
+                        <a href='/games' >
                         </a>
                     </div>
                     </div>
