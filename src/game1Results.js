@@ -30,7 +30,7 @@ class Game1Results extends React.Component{
         else
             return(
                 <div className='page hero'>
-                    <h1>
+                    <h1 style={{color:'white',textAlign:'center'}}>
                         No scores recorded.
                     </h1>
                     <div style={{textAlign:'center'}} >
