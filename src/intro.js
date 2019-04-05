@@ -31,7 +31,7 @@ class Info extends React.Component {
                                 </p>
                                 </div>
                                 <div className="col-md-6" >
-                                    <img className='img-responsive' src="../images/Visuals/dataview1.png" alt="Data" />
+                                    <img className='img-responsive' style={{maxHeight:'480px'}} src="../images/Visuals/obesity-proportion.jpg" alt="Data" />
                                 </div>
                             </div>
 
@@ -39,7 +39,7 @@ class Info extends React.Component {
                         <div className="container" style={{ filter: "alpha(opacity=0)", paddingTop: "20px" }} >
                             <div className='row'>
                                 <div className="col-md-6" >
-                                    <img className='img-responsive' src="../images/Visuals/dataview2.png" alt="Data" />
+                                    <img className='img-responsive' src="../images/Visuals/obesity-trend.jpg" alt="Data" />
                                 </div>
                                 <div className="col-md-6" >
                                     <p style={{ color: "#fff", paddingTop: "20px" }}>
@@ -76,7 +76,7 @@ class Info extends React.Component {
 						</p>
                                 </div>
                                 <div className="col-md-6" >
-                                    <img className='img-responsive' src="../images/Visuals/dataview2.png" alt="Data" />
+                                    <img className='img-responsive' src="../images/Visuals/Veg-consumption.jpg" alt="Data" />
                                 </div>
                             </div>
                         </div>

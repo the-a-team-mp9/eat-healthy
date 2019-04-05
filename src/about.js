@@ -24,11 +24,10 @@ class About extends React.Component {
                     <div className="container" style={{filter:"alpha(opacity=0)"}} >
                         <div className="col-md-6" style={{width:"50%"}}>
                             <p style={{paddingTop:"200px",color:"#fff"}}>
-                                All the website made by "The A" Team.
-								Welcome to contact with us if you have any questions!
+                                The website is built by the 'A team'
 							</p>
                             <p style={{paddingTop:"200px",color:"#fff"}}>
-                                Email:The-A-Team@monash.edu.cn (Example)
+                                Email:The-A-Team@monash.edu
 							</p>
                         </div>
                         <div className="col-md-6" style={{width:"50%"}}>				
