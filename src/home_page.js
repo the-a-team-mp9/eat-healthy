@@ -41,7 +41,7 @@ class Home extends React.Component{
                 </div>
                 <div className="row">
                     <div className="col-md-12  text-center">
-                    <a href="/games" className="learn-more-btn">Jumo to Game Zone</a>
+                    <a href="/games" className="learn-more-btn">Jump to Game Zone</a>
                     </div>
                 </div>
                 </div>
