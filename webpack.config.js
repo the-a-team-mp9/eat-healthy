@@ -43,6 +43,9 @@ module.exports = {
   ],
   devServer: {
     historyApiFallback: true,
-    disableHostCheck: true
+    disableHostCheck: true,
+    allowedHosts: [
+      '.amazonaws.com'
+  ]
   }
 };
