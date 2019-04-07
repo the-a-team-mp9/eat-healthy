@@ -45,7 +45,7 @@ class Games extends React.Component {
     }
     componentDidMount(){        
         let nav = document.getElementById('navBar');
-        console.log('mount',nav);
+        // console.log('mount',nav);
         nav.hidden=false;
         let home = document.getElementById('home');
         home.classList.remove('active');
@@ -55,6 +55,17 @@ class Games extends React.Component {
         team.classList.remove('active');
         let game = document.getElementById('games');
         game.classList.add('active');
+
+        let width = window.screen.availWidth;
+        let height = window.screen.availHeight;        
+        if (height>width)
+            alert('For the best browsing experience, please rotate your device');
+        window.addEventListener('resize', function(){
+            width = window.screen.availWidth;
+            height = window.screen.availHeight;
+            if (height>width)
+            alert('For the best browsing experience, please rotate your device')});
+            
     }
 }
 
