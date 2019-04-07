@@ -1,4 +1,6 @@
 import React from 'react';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 
 class Info extends React.Component {
     constructor(props) {
@@ -17,40 +19,46 @@ class Info extends React.Component {
 					</h2>
                         <div className="container" style={{ filter: "alpha(opacity=0)" }} >
                             <div className='row'>
-                                <div className="col-md-6">
+                                <div className="col-md-6">                                
+
                                     <p style={{ color: "#fff" }}>
-                                        In 2014-15, 20% children aged 2-4 were either overwither or obese.
-                                        The rate of obesity increases with age and girls are affected the most
+                                        In 2014-15, 20% children aged 2-4 were either overweight or obese.
+                                        The rate of obesity increases with age and girls are affected the most.
+                                </p>
+                                <p style={{ color: "#fff" }}>
+                                Children are considered over weight if their Body Mass Index (BMI) is in the range 25 to 29.9. 
+                                Children with BMI 30 or greater are considered obese
                                 </p>
                                     <p style={{ color: "#fff", paddingTop: "20px" }}>
-                                        Aboout 1 in 4(27%) children aged 5-17 were overwieght or obese.
+                                        About 1 in 4 (27%) children aged 5-17 were either overwieght or obese.
 
                                 </p>
                                     <p style={{ color: "#fff", paddingTop: "20px" }}>
-                                        80% of overweight/obese children retain their problems as they grow up as adults.
+                                        80% of overweight and obese children retain their problems as they grow up as adults.
                                 </p>
-                                </div>
-                                <div className="col-md-6" >
-                                    <img className='img-responsive' style={{maxHeight:'480px'}} src="../images/Visuals/obesity-proportion.jpg" alt="Data" />
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className="container" style={{ filter: "alpha(opacity=0)", paddingTop: "20px" }} >
-                            <div className='row'>
-                                <div className="col-md-6" >
-                                    <img className='img-responsive' src="../images/Visuals/obesity-trend.jpg" alt="Data" />
-                                </div>
-                                <div className="col-md-6" >
-                                    <p style={{ color: "#fff", paddingTop: "20px" }}>
+                                <p style={{ color: "#fff", paddingTop: "20px" }}>
                                         The trend of childhood obesity has consistently incresed through the years.
-						</p>
+						        </p>
                                     <p style={{ color: "#fff", paddingTop: "20px" }}>
                                         In 2017, about 25-30% of children aged 2-11 suffered from obesity or overweight issues.
-						</p>
+						        </p>
+                                </div>
+                                <div className="col-md-6" >
+                                    <Carousel autoPlay showThumbs={false} showArrows={true} infiniteLoop={true}>
+                                        <div>
+                                            <img className='img-responsive' src="../images/Visuals/bmi-dist.jpg" alt="Data" />
+                                            {/* <p className='legend'> BMI of Children in different age groups</p> */}
+                                        </div>
+                                        <div>
+                                            <img className='img-responsive' src="../images/Visuals/obesity-trend.jpg" alt="Data" />
+                                            {/* <p className='legend'> Obesity Trend</p> */}
+                                        </div>
+                                    </Carousel>
+                                    
                                 </div>
                             </div>
-                        </div>
+
+                        </div>                        
 
 
                         <h2 style={{ textAlign: "center", color: "#fff", paddingTop: '20px', marginBottom: '0' }}>
@@ -61,28 +69,28 @@ class Info extends React.Component {
                                 <div className="col-md-6" >
 
                                     <p style={{ color: "#fff", paddingTop: "20px" }}>
-                                        World Health Organization recommends atleast 2 servings of vegetables for daily consuption.
+                                    World Health Organization recommends at least 4 servings or 340g of vegetables for daily consumption for 4-8 yaer old children.
 						</p>
                                     <p style={{ color: "#fff", paddingTop: "20px" }}>
-                                        Data from Australian Bureau of Statistics indicates nearly half of children aged 4-8 years are not getting the minimum recommended intake of
+                                        Data from Australian Bureau of Statistics indicates nearly 96% of children aged 4-8 years are not getting the minimum recommended intake of
                                         vegetables on a daily basis.
 						</p>
                                     <p style={{ color: "#fff", paddingTop: "20px" }}>
                                         About 15% of children get less than half a serving of vegetables every day.
-                                        This is only a quarter of the recommended intake.
+                                        This is only 1/8th of the recommended intake.
 						</p>
                                     <p style={{ color: "#fff", paddingTop: "20px" }}>
                                         Healthy foods are being replaced by energy-dense foods that are high in fat.
 						</p>
                                 </div>
                                 <div className="col-md-6" >
-                                    <img className='img-responsive' src="../images/Visuals/Veg-consumption.jpg" alt="Data" />
+                                    <img className='img-responsive' src="../images/Visuals/consumption-of-foods.jpg" alt="Data" />
                                 </div>
                             </div>
                         </div>
 
                         <h2 style={{ textAlign: 'center', paddingTop: '20px' }}>
-                            Why does my child refuse healthy food? !!
+                            Why does my child refuse healthy food? 
                         </h2>
                         <h2 style={{ textAlign: "center", color: "#fff" }}>
                             The Sensory Connection
@@ -112,15 +120,13 @@ class Info extends React.Component {
                             </div>
                         </div>
 
-                        <h2>
-                            Can our child learn to like healthy foods? !!
+                        <h2 style={{textAlign:'center'}}>
+                            Can our child learn to like healthy foods? 
                         </h2>
                         <div className="container" style={{ filter: "alpha(opacity=0)", paddingTop: "20px" }}>
                             <div className='row'>
-                                <div className="col-md-6" >
-                                    <div className="img">
-                                        <img src="../images/Visuals/dataview4.png" alt="Data" />
-                                    </div>
+                                <div className="col-md-6" >                                    
+                                        <img className='img-responsive' src="../images/Visuals/dataview4.png" alt="Data" />
                                 </div>
                                 <div className="col-md-6" >
                                     <p style={{ color: "#fff" }}>

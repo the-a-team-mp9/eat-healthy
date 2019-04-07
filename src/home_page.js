@@ -22,9 +22,10 @@ class Home extends React.Component{
         let height = window.screen.availHeight;   
 
         let hero = document.getElementById('hero');
-        // console.log('hero h',hero.style.height);
-        // console.log('height',height);
-        if(hero.style.height<height)
+        let container = document.getElementById('container');
+        // console.log('hero h',hero.clientHeight);        
+        // console.log('height',container.clientHeight);
+        if(hero.clientHeight<container.clientHeight)
             hero.classList.remove('page');
 
              
@@ -35,11 +36,20 @@ class Home extends React.Component{
             height = window.screen.availHeight;
             if (height>width)
             alert('For the best browsing experience, please rotate your device')});
+            // hero = document.getElementById('hero');
+            // container = document.getElementById('container');
+            // console.log('hero h',hero.clientHeight);        
+            // console.log('height',container.clientHeight);
+            // if(hero.clientHeight<container.clientHeight)
+            //     hero.classList.remove('page');
+            // else
+            //     hero.classList.add('page');
             }
+            
     render(){
         return(                               
-            <div id='hero' className="page hero" id="hero" >           
-            <div className="container">
+            <div id='hero' className="page hero " id="hero" >           
+            <div id='container' className="container">
                 <div className="row">
 
                 </div>

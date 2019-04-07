@@ -24,7 +24,7 @@ class Games extends React.Component {
                     </div>
                     <div className="col-md-4 wp2 delay-05s animated fadeInUp">
                         <div className="img">
-                            <a href="Team-MP9.html">
+                            <a href="coming-soon">
                                 <img src="../images/Game_Icons/Gameicon2.png" alt="Game 2" />
                             </a>
                         </div>
@@ -33,7 +33,9 @@ class Games extends React.Component {
                     </div>
                     <div className="col-md-4 wp2 delay-1s animated fadeInUp">
                         <div className="img">
+                        <a href='coming-soon'>
                             <img src="../images/Game_Icons/Gameicon2.png" alt="Game 3" />
+                        </a>                            
                         </div>
                         <h2 style={{textAlign:"center"}}>Coming Soon...</h2>
                         <p></p>
