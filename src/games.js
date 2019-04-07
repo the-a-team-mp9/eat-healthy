@@ -14,11 +14,11 @@ class Games extends React.Component {
                                 <img src="../images/Game_Icons/Gameicon1.png" alt="Game 1" />
                             </a>
                         </div>
-                        <h2 style={{textAlign:"center"}}>Welcome to Game Zone!</h2>
-                        <p style={{textAlign:"center"}}>Learn to identify good foods</p>
-                        <p style={{textAlign:"center"}}>Choose good foods to gain points</p>
-                        <p style={{textAlign:"center"}}>Level up as you eat good foods</p>
-                        <a href='/game-1-results' className='learn-more-btn'>
+                        <h2 style={{textAlign:"center"}}>Eat Healthy</h2>
+                        <p style={{textAlign:"center", color:'white'}}>Learn to identify good foods</p>
+                        <p style={{textAlign:"center",color:'white'}}>Choose good foods to gain points</p>
+                        <p style={{textAlign:"center",color:'white'}}>Level up as you eat good foods</p>
+                        <a href='/game-1-results' className='learn-more-btn' style={{marginTop:'30px'}}>
                                     Game 1 Scores
                         </a>
                     </div>
