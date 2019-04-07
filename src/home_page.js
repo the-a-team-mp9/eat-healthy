@@ -30,7 +30,7 @@ class Home extends React.Component{
             }
     render(){
         return(                               
-            <div className="page hero" id="hero" >           
+            <div className=" hero" id="hero" >           
             <div className="container">
                 <div className="row">
 
