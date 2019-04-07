@@ -19,7 +19,15 @@ class Home extends React.Component{
         game.classList.remove('active');
 
         let width = window.screen.availWidth;
-        let height = window.screen.availHeight;        
+        let height = window.screen.availHeight;   
+
+        let hero = document.getElementById('hero');
+        // console.log('hero h',hero.style.height);
+        // console.log('height',height);
+        if(hero.style.height<height)
+            hero.classList.remove('page');
+
+             
         if (height>width)
             alert('For the best browsing experience, please rotate your device');
         window.addEventListener('resize', function(){
@@ -30,7 +38,7 @@ class Home extends React.Component{
             }
     render(){
         return(                               
-            <div className=" hero" id="hero" >           
+            <div id='hero' className="page hero" id="hero" >           
             <div className="container">
                 <div className="row">
 

@@ -10,8 +10,8 @@ class Game1Results extends React.Component{
         if (scores){
             const score_list = scores.map((score)=> <Score  h_score={score.h_score} u_score={score.u_score}></Score>)
             return(
-                <div className='page hero'>
-                    <section >
+                <div id='hero' className=' hero'>
+                    <section id='section'>
                         <h1 style={{color:'white',textAlign:'center'}}>
                             Game scores
                         </h1>
@@ -57,7 +57,16 @@ class Game1Results extends React.Component{
         game.classList.add('active');
 
         let width = window.screen.availWidth;
-        let height = window.screen.availHeight;        
+        let height = window.screen.availHeight; 
+        
+        // let hero = document.getElementById('hero');
+        // let section = document.getElementById('section');
+        // console.log(hero.style.height);
+        // console.log('hero h',hero.style.height);
+        // console.log('section h',section.style.height);
+        // if(section.style.height>hero.style.height)
+        //     hero.classList.remove('page');
+
         if (height>width)
             alert('For the best browsing experience, please rotate your device');
         window.addEventListener('resize', function(){
