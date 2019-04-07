@@ -248,6 +248,8 @@ class Game_1 extends React.Component
             height = window.screen.availHeight;
             if (height>width)
             alert('For the best browsing experience, please rotate your device')});
+        if(!localStorage.getItem('scores'))
+            alert('Please enable sound for the best experience');
             
     }
 }

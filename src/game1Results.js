@@ -10,20 +10,21 @@ class Game1Results extends React.Component{
         if (scores){
             const score_list = scores.map((score)=> <Score  h_score={score.h_score} u_score={score.u_score}></Score>)
             return(
-                <div id='hero' className=' hero'>
+                <div id='hero' className='page hero'>
                     <section id='section'>
                         <h1 style={{color:'white',textAlign:'center'}}>
                             Game scores
                         </h1>
                         <div className='container'>
                         {score_list}                                                
-                        </div>                    
+                        </div> 
+                        <div style={{textAlign:'center'}} >
+                        <a href='/games' className='learn-more-btn'>
+                                        Jump to Game Zone
+                        </a>
+                        </div>                   
                     </section>
-                    <div style={{textAlign:'center'}} >
-                    <a href='/games' className='learn-more-btn'>
-                                    Jump to Game Zone
-                            </a>
-                    </div>
+                    
                 </div>
             );
         }
@@ -59,13 +60,11 @@ class Game1Results extends React.Component{
         let width = window.screen.availWidth;
         let height = window.screen.availHeight; 
         
-        // let hero = document.getElementById('hero');
-        // let section = document.getElementById('section');
-        // console.log(hero.style.height);
-        // console.log('hero h',hero.style.height);
-        // console.log('section h',section.style.height);
-        // if(section.style.height>hero.style.height)
-        //     hero.classList.remove('page');
+        let hero = document.getElementById('hero');
+        let section = document.getElementById('section');
+        console.log(hero.clientHeight,'h h');
+        if(section.clientHeight>hero.clientHeight)
+            hero.classList.remove('page');
 
         if (height>width)
             alert('For the best browsing experience, please rotate your device');
@@ -74,7 +73,10 @@ class Game1Results extends React.Component{
             height = window.screen.availHeight;
             if (height>width)
             alert('For the best browsing experience, please rotate your device')});
-            
+            if(document.getElementById('hero').clientHeight<document.getElementById('section'))
+                document.getElementById('hero').classList.remove('page');
+            // else if()
+            // document.getElementById('hero').classList.add('page');
 
     }
 
