@@ -29,13 +29,21 @@ class Home extends React.Component{
             hero.classList.remove('page');
 
              
-        if (height>width)
-            alert('For the best browsing experience, please rotate your device');
+        if (height>width){
+            if(!navigator.userAgent.toLowerCase().indexOf('safari/') > -1)
+                alert('For the best browsing experience, please rotate your device');
+
+        }
+            
         window.addEventListener('resize', function(){
             width = window.screen.availWidth;
             height = window.screen.availHeight;
             if (height>width)
-            alert('For the best browsing experience, please rotate your device')});
+            {
+                if(!navigator.userAgent.toLowerCase().indexOf('safari/') > -1)
+                alert('For the best browsing experience, please rotate your device');
+            }
+            });
             // hero = document.getElementById('hero');
             // container = document.getElementById('container');
             // console.log('hero h',hero.clientHeight);        

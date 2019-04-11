@@ -153,3 +153,9 @@
   height: 90%;
   left:10%
 }
+
+@media only screen and (orientation: landscape) {
+  .modal1 {
+    display: none;
+  }
+}
