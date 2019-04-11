@@ -32,17 +32,18 @@ class Home extends React.Component{
         if (height>width){
             if(!navigator.userAgent.toLowerCase().indexOf('safari/') > -1)
                 alert('For the best browsing experience, please rotate your device');
+                alert(navigator.userAgent.toLowerCase());
 
         }
             
         window.addEventListener('resize', function(){
             width = window.screen.availWidth;
             height = window.screen.availHeight;
-            if (height>width)
-            {
-                if(!navigator.userAgent.toLowerCase().indexOf('safari/') > -1)
-                alert('For the best browsing experience, please rotate your device');
-            }
+            // if (height>width)
+            // {
+            //     if(!navigator.userAgent.toLowerCase().indexOf('safari/') > -1)
+            //     alert('For the best browsing experience, please rotate your device');
+            // }
             });
             // hero = document.getElementById('hero');
             // container = document.getElementById('container');
