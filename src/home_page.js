@@ -30,7 +30,7 @@ class Home extends React.Component{
 
              
         if (height>width){
-            if(!navigator.userAgent.toLowerCase().indexOf('safari/') > -1)
+            if(!(navigator.userAgent.toLowerCase().indexOf('safari/') > -1))
                 alert('For the best browsing experience, please rotate your device');
                 alert(navigator.userAgent.toLowerCase().indexOf('safari/') > -1);
 
