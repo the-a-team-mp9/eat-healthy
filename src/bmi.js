@@ -56,7 +56,7 @@ class BMI extends React.Component {
         event.preventDefault();
         console.log('hinm',hinMeters);
         console.log('winK',winKg);
-        let bMi = winKg/(hinMeters*hinMeters).toFixed(2);
+        let bMi = (winKg/(hinMeters*hinMeters)).toFixed(2);
         if(bMi<18.5)
             bmiCat='Underweight';
         else if(bMi>=18.5 && bMi<25)
@@ -132,7 +132,7 @@ class BMI extends React.Component {
                             <label id='hlabel' htmlFor='height' style={{ paddingRight: '5px', width: '25%', marginTop: '15px' }}>
                                 Height
                                     </label>
-                            <input onChange={this.handleHeightChange} id='height' type='number' min='5' required max='150' placeholder='height' style={{ width: '50%', left: '25%', marginTop: '15px',color:'black',maxWidth:'70px' }} />
+                            <input onChange={this.handleHeightChange} id='height' type='number' min='5' required max='170' placeholder='height' style={{ width: '50%', left: '25%', marginTop: '15px',color:'black',maxWidth:'70px' }} />
                             <ButtonToolbar className='cs'>
                                 <ToggleButtonGroup type="radio" name="height" defaultValue={true} onChange={this.changeHUnit}>
                                     <ToggleButton className='pad' value={true} variant='info' className='btn1c'>cm</ToggleButton>
@@ -144,7 +144,7 @@ class BMI extends React.Component {
                             <label id='wlabel' htmlFor='weight' style={{ paddingRight: '5px', width: '25%', marginTop: '15px' }}>
                                 Weight
                                     </label>
-                            <input onChange={this.handleWeightChange} id='weight' type='number' min='1' required max='150' placeholder='weight' style={{ width: '50%', left: '25%', marginTop: '15px',color:'black', maxWidth:'70px' }} />
+                            <input onChange={this.handleWeightChange} id='weight' type='number' min='1' required max='180' placeholder='weight' style={{ width: '50%', left: '25%', marginTop: '15px',color:'black', maxWidth:'70px' }} />
                             <ButtonToolbar className='cs'>
                                 <ToggleButtonGroup type="radio" name="weight" defaultValue={true} onChange={this.changeWUnit}>
                                     <ToggleButton className='btn1c' value={false} variant='info' >lb</ToggleButton>
