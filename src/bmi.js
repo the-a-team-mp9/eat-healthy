@@ -156,8 +156,8 @@ class BMI extends React.Component {
                         <div>
                             <ButtonToolbar className='cs' style={{ marginTop: '30px' }}>
                                 <ToggleButtonGroup type="radio" name="gender" defaultValue={'m'} onChange={this.changeGender}>
-                                    <ToggleButton className='btn1c' value={'m'} variant="info">BOY</ToggleButton>
-                                    <ToggleButton className='btn1c' value={'f'} variant="info">GIRL</ToggleButton>
+                                    <ToggleButton className='btn2c' value={'m'} variant="info">BOY</ToggleButton>
+                                    <ToggleButton className='btn2c' value={'f'} variant="info">GIRL</ToggleButton>
                                 </ToggleButtonGroup>
                             </ButtonToolbar>
                         </div>

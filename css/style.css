@@ -298,6 +298,11 @@ input[type=radio] {
   width: 45px !important;
 }
 
+.btn2c{
+  background-color:white;
+  color:black;
+}
+
 .active button{
   background-color: #098024 !important;
   color:white;
