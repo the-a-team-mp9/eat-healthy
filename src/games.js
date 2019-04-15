@@ -1,18 +1,61 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
 
 class Games extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    showModal(){
+        if(document.getElementById('modal')){
+            console.log('found modal');
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('modal').style.zIndex = 10;
+        }
+        
+    }
+    hideModal(){
+        if(document.getElementById('modal')){
+            document.getElementById('modal').style.display = 'none';
+            document.getElementById('modal').style.zIndex = 0;
+        }
+        
+    }
+
     render() {
         return (
             <div className='page'>
+                <div className='modal1' id='modal'>
+                    <div className='modal1-content' style={{backgroundColor: "#61727b",paddingBottom:'20px',maxWidth:'150px'}} id='caption'> 
+                    <div className='modfull'>
+                            <h2>
+                                Game 1
+                            </h2>
+                        </div> 
+                        <div className='modfull'>
+                            <Button variant='info' >
+                            <a href='/coming-soon'>
+                                View Tutorial
+                            </a>
+                            </Button>
+                        </div> 
+                        <div className='modfull'>                            
+                            <Button variant='success' >
+                            <a href='/game-1'>Jump to game</a>
+                            </Button>
+                        </div>                       
+                        <div className='modfull'>
+                            <Button variant='danger' onClick={this.hideModal}>Close
+                            </Button>
+                        </div>                
+                    </div>
+                </div>   
                 <section className=" game" id="game">
                     <div className="col-md-4 wp2 animated fadeInUp" style={{textAlign:'center'}}>
                         <div className="img">
-                            <a href="/game-1">
+                            <div style={{cursor:'pointer'}} onClick={this.showModal}>
                                 <img src="../images/Game_Icons/Gameicon1.png" alt="Game 1" />
-                            </a>
+                            </div>
                         </div>
                         <h2 style={{textAlign:"center"}}>Eat Healthy</h2>
                         <p style={{textAlign:"center", color:'white'}}>Learn to identify good foods</p>

@@ -106,13 +106,20 @@ class Game1Results extends React.Component{
         }
         
 
-        if (height>width)
-            alert('For the best browsing experience, please rotate your device');
+        if (height>width){
+            if(!(navigator.userAgent.toLowerCase().indexOf('safari/') > -1))
+                alert('For the best browsing experience, please rotate your device');           
+                // alert(navigator.userAgent.toLowerCase().indexOf('safari/') > -1);
+        }
         window.addEventListener('resize', function(){
             width = window.screen.availWidth;
             height = window.screen.availHeight;
             if (height>width)
-            alert('For the best browsing experience, please rotate your device')});
+            {
+                if(!(navigator.userAgent.toLowerCase().indexOf('safari/') > -1))
+                alert('For the best browsing experience, please rotate your device');
+            }
+        });
             // if(document.getElementById('hero').clientHeight<document.getElementById('section'))
             //     document.getElementById('hero').classList.remove('page');
             // // else if()

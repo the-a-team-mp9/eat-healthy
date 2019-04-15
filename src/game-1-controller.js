@@ -71,7 +71,7 @@ class ProgressBar extends React.Component{
     render(){
         return(
             <div className="progress-bar  bg-danger" style={{width:this.props.score+'%',backgroundColor:' #ff0066'}}>
-                            {this.props.score}
+                            {/* {this.props.score} */}
             </div>
         );
     }
@@ -157,7 +157,7 @@ class Game_1 extends React.Component
         console.log('u_clicks',this.state.u_seq);
         console.log('h_click',this.state.h_seq);
         let scores=JSON.parse(localStorage.getItem(document.title+"game-1-scores"));
-        if (scores)
+        if (scores.length>0)
             scores.push({h_score:this.state.h_seq,u_score:this.state.u_seq});
         else
             scores = [{h_score:this.state.h_seq,u_score:this.state.u_seq}];
@@ -248,7 +248,7 @@ class Game_1 extends React.Component
             height = window.screen.availHeight;
             if (height>width)
             alert('For the best browsing experience, please rotate your device')});
-        if(!localStorage.getItem('scores'))
+        if(!(localStorage.getItem(document.title+'game-1-scores')) && localStorage.getItem(document.title+'game-1-scores').length==0)
             alert('Please enable sound for the best experience');
             
     }

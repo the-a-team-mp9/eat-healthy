@@ -41,7 +41,7 @@ class BMI extends React.Component {
         return 'success1'
     }
     handleSubmit(event) {        
-        console.log(this.state);
+        // console.log(this.state);
         let hinMeters;
         let winKg;
         let bmiCat;
@@ -54,8 +54,8 @@ class BMI extends React.Component {
         else
             winKg = this.state.weight*0.453592;
         event.preventDefault();
-        console.log('hinm',hinMeters);
-        console.log('winK',winKg);
+        // console.log('hinm',hinMeters);
+        // console.log('winK',winKg);
         let bMi = (winKg/(hinMeters*hinMeters)).toFixed(2);
         if(bMi<18.5)
             bmiCat='Underweight';

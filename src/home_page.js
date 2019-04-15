@@ -32,6 +32,8 @@ class Home extends React.Component{
         if (height>width){
             if(!(navigator.userAgent.toLowerCase().indexOf('safari/') > -1))
                 alert('For the best browsing experience, please rotate your device');
+            else 
+                alert('For a better browsing experience, use chrome browser');
                 // alert(navigator.userAgent.toLowerCase().indexOf('safari/') > -1);
 
         }
@@ -44,6 +46,8 @@ class Home extends React.Component{
                 if(!(navigator.userAgent.toLowerCase().indexOf('safari/') > -1))
                 alert('For the best browsing experience, please rotate your device');
             }
+            else
+                alert('For a better browsing experience, use chrome browser');
             });
             // hero = document.getElementById('hero');
             // container = document.getElementById('container');
