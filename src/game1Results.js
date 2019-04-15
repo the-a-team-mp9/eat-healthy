@@ -1,14 +1,27 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button'
 
 class Game1Results extends React.Component{
     constructor(props){
         super(props);        
     }
+    clearScores(){
+        let scores=JSON.parse(localStorage.getItem(document.title+"game-1-scores"));
+        if (scores){
+            localStorage.setItem(document.title+'game-1-scores',JSON.stringify([]));
+            window.location.href = "/games";
+        }
+            
+    }
 
     render(){
         let scores=JSON.parse(localStorage.getItem(document.title+"game-1-scores"));
+        // console.log(scores);
         if (scores){
-            const score_list = scores.map((score)=> <Score  h_score={score.h_score} u_score={score.u_score}></Score>)
+
+        
+            if(scores.length>0){
+                const score_list = scores.map((score)=> <Score  h_score={score.h_score} u_score={score.u_score}></Score>)
             return(
                 <div id='hero' className='page hero'>
                     <section id='section'>
@@ -22,15 +35,37 @@ class Game1Results extends React.Component{
                         <a href='/games' className='learn-more-btn'>
                                         Jump to Game Zone
                         </a>
+                        <br />
+                        <Button variant='danger' onClick={this.clearScores} style={{marginTop:'20px'}}>
+                        Clear Scores
+                        </Button>
                         </div>                   
                     </section>
                     
                 </div>
             );
+            }
+            else
+                return(
+                    <div className='page hero'>
+                    <h1 style={{color:'white',textAlign:'center'}}>
+                        No scores recorded.
+                    </h1>
+                    <div style={{textAlign:'center'}} >
+                    <a href='/games' className='learn-more-btn'>
+                                    Jump to Game Zone
+                            </a>
+                    </div>
+                </div>
+                );
+
         }
+            
+            
+        
         else
             return(
-                <div className='page hero'>
+                <div id='hero' className='page hero'>
                     <h1 style={{color:'white',textAlign:'center'}}>
                         No scores recorded.
                     </h1>
@@ -62,9 +97,14 @@ class Game1Results extends React.Component{
         
         let hero = document.getElementById('hero');
         let section = document.getElementById('section');
-        console.log(hero.clientHeight,'h h');
-        if(section.clientHeight>hero.clientHeight)
-            hero.classList.remove('page');
+        // console.log(hero,'h');
+        // console.log(section,'s');
+        if(section && hero){            
+            // console.log(hero.clientHeight,'h h');
+            if(section.clientHeight>hero.clientHeight)
+                hero.classList.remove('page');
+        }
+        
 
         if (height>width)
             alert('For the best browsing experience, please rotate your device');
@@ -73,9 +113,9 @@ class Game1Results extends React.Component{
             height = window.screen.availHeight;
             if (height>width)
             alert('For the best browsing experience, please rotate your device')});
-            if(document.getElementById('hero').clientHeight<document.getElementById('section'))
-                document.getElementById('hero').classList.remove('page');
-            // else if()
+            // if(document.getElementById('hero').clientHeight<document.getElementById('section'))
+            //     document.getElementById('hero').classList.remove('page');
+            // // else if()
             // document.getElementById('hero').classList.add('page');
 
     }
