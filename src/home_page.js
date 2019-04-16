@@ -25,9 +25,10 @@ class Home extends React.Component{
         let container = document.getElementById('container');
         // console.log('hero h',hero.clientHeight);        
         // console.log('height',container.clientHeight);
-        if(hero.clientHeight<container.clientHeight)
-            hero.classList.remove('page');
-
+        if(hero.clientHeight<height)
+            hero.style.height='100vh';
+        else
+            hero.style.height='auto';
             var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
             // console.log('saf',isSafari);
         if (height>width){
@@ -39,30 +40,30 @@ class Home extends React.Component{
 
         }
             
-        window.addEventListener('resize', function(){
-            width = window.screen.availWidth;
-            height = window.screen.availHeight;
-            if (height>width)
-            {
-                if(!(isSafari))
-                alert('For the best browsing experience, please rotate your device');
+            window.addEventListener('resize', function(){
+                width = window.screen.availWidth;
+                height = window.screen.availHeight;
+                if (height>width)
+                {
+                    if(!(isSafari))
+                    alert('For the best browsing experience, please rotate your device');
+                    else
+                    alert('For a better browsing experience, use chrome browser');
+                }
+                console.log('h height',hero.clientHeight);
+                console.log(height);
+                if(hero.clientHeight<window.screen.availHeight)
+                    hero.style.height='100vh';
                 else
-                alert('For a better browsing experience, use chrome browser');
-            }
-            });
-            hero = document.getElementById('hero');
-            container = document.getElementById('container');
-            // console.log('hero h',hero.clientHeight);        
-            // console.log('height',container.clientHeight);
-            if(hero.clientHeight<container.clientHeight)
-                hero.classList.remove('page');
-            else
-                hero.classList.add('page');
-            }
+                    hero.style.height='auto';
+                });
+                
+            
+        }
             
     render(){
         return(                               
-            <div id='hero' className=" hero " id="hero" style={{height:'auto'}}>           
+            <div id='hero' className="page hero " id="hero" style={{height:'auto'}}>           
             <div id='container' className="container">
                 <div className="row">
 
