@@ -42,16 +42,6 @@ class Tutorial extends React.Component{
         let game = document.getElementById('games');
         game.classList.add('active');
 
-        let width = window.screen.availWidth;
-        let height = window.screen.availHeight;        
-        if (height>width)
-            alert('For the best browsing experience, please rotate your device');
-        window.addEventListener('resize', function(){
-            width = window.screen.availWidth;
-            height = window.screen.availHeight;
-            if (height>width)
-            alert('For the best browsing experience, please rotate your device')});
-            
     }
 }
 export {Tutorial};

@@ -28,13 +28,14 @@ class Home extends React.Component{
         if(hero.clientHeight<container.clientHeight)
             hero.classList.remove('page');
 
-             
+            var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+            // console.log('saf',isSafari);
         if (height>width){
-            if(!(navigator.userAgent.toLowerCase().indexOf('safari/') > -1))
+            if(!(isSafari))
                 alert('For the best browsing experience, please rotate your device');
             else 
                 alert('For a better browsing experience, use chrome browser');
-                // alert(navigator.userAgent.toLowerCase().indexOf('safari/') > -1);
+                // alert(navigator.userAgent.toLowerCase());
 
         }
             
@@ -43,25 +44,25 @@ class Home extends React.Component{
             height = window.screen.availHeight;
             if (height>width)
             {
-                if(!(navigator.userAgent.toLowerCase().indexOf('safari/') > -1))
+                if(!(isSafari))
                 alert('For the best browsing experience, please rotate your device');
-            }
-            else
+                else
                 alert('For a better browsing experience, use chrome browser');
+            }
             });
-            // hero = document.getElementById('hero');
-            // container = document.getElementById('container');
+            hero = document.getElementById('hero');
+            container = document.getElementById('container');
             // console.log('hero h',hero.clientHeight);        
             // console.log('height',container.clientHeight);
-            // if(hero.clientHeight<container.clientHeight)
-            //     hero.classList.remove('page');
-            // else
-            //     hero.classList.add('page');
+            if(hero.clientHeight<container.clientHeight)
+                hero.classList.remove('page');
+            else
+                hero.classList.add('page');
             }
             
     render(){
         return(                               
-            <div id='hero' className="page hero " id="hero" >           
+            <div id='hero' className=" hero " id="hero" style={{height:'auto'}}>           
             <div id='container' className="container">
                 <div className="row">
 
