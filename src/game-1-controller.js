@@ -6,7 +6,7 @@ let audio_w = new Audio('../sound/res_w_s.wav');
 let audio_win = new Audio('../sound/win.wav');
 
 import React from "react";
-import {Link} from 'react-router-dom';
+
 
 
 class Food extends React.Component{

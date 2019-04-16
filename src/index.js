@@ -10,6 +10,7 @@ import {About} from './about';
 import {Game1Results} from './game1Results';
 import {ComingSoon} from './coming-soon';
 import {BMI} from './bmi';
+import {Tutorial} from './tutorial1';
 
 class App extends React.Component
 {
@@ -31,6 +32,7 @@ class App extends React.Component
         <Route path='/game-1-results' exact component={Game1Results} />
         <Route path='/coming-soon' exact component = {ComingSoon} />
         <Route path='/bmi' exact component = {BMI} />
+        <Route path='/tutorial1' exact component = {Tutorial} />
       </Router>
       </div>
              

@@ -33,15 +33,15 @@ class Games extends React.Component {
                             </h2>
                         </div> 
                         <div className='modfull'>
-                            <Button variant='info' >
-                            <a href='/coming-soon'>
+                            <Button variant='info' style={{width:'115px'}}>
+                            <a href='/tutorial1' style={{color:'white'}}>
                                 View Tutorial
                             </a>
                             </Button>
                         </div> 
                         <div className='modfull'>                            
-                            <Button variant='success' >
-                            <a href='/game-1'>Jump to game</a>
+                            <Button variant='success' style={{width:'115px'}}>
+                            <a href='/game-1' style={{color:'white'}}>Jump to game</a>
                             </Button>
                         </div>                       
                         <div className='modfull'>
