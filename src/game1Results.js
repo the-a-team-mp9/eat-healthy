@@ -90,25 +90,25 @@ class Game1Results extends React.Component{
 
         var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
         // console.log('saf',isSafari);
-        if (height > width) {
-            if (!(isSafari))
-                alert('For the best browsing experience, please rotate your device');
-            else
-                alert('For a better browsing experience, use chrome browser');
-            // alert(navigator.userAgent.toLowerCase());
+        // if (height > width) {
+        //     if (!(isSafari))
+        //         alert('For the best browsing experience, please rotate your device');
+        //     else
+        //         alert('For a better browsing experience, use chrome browser');
+        //     // alert(navigator.userAgent.toLowerCase());
 
-        }
+        // }
 
-        window.addEventListener('resize', function () {
-            width = window.screen.availWidth;
-            height = window.screen.availHeight;
-            if (height > width) {
-                if (!(isSafari))
-                    alert('For the best browsing experience, please rotate your device');
-                else
-                    alert('For a better browsing experience, use chrome browser');
-            }
-        });
+        // window.addEventListener('resize', function () {
+        //     width = window.screen.availWidth;
+        //     height = window.screen.availHeight;
+        //     if (height > width) {
+        //         if (!(isSafari))
+        //             alert('For the best browsing experience, please rotate your device');
+        //         else
+        //             alert('For a better browsing experience, use chrome browser');
+        //     }
+        // });
 
     }
 

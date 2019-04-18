@@ -58,13 +58,13 @@ class ComingSoon extends React.Component{
             bod.classList.add('bod');
                 
 
-        if (height>width)
-            alert('For the best browsing experience, please rotate your device');
-        window.addEventListener('resize', function(){
-            width = window.screen.availWidth;
-            height = window.screen.availHeight;
-            if (height>width)
-            alert('For the best browsing experience, please rotate your device')});
+        // if (height>width)
+        //     alert('For the best browsing experience, please rotate your device');
+        // window.addEventListener('resize', function(){
+        //     width = window.screen.availWidth;
+        //     height = window.screen.availHeight;
+        //     if (height>width)
+        //     alert('For the best browsing experience, please rotate your device')});
             
 
     }
