@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button'
+import {Button,ProgressBar,Container,Row,Col} from 'react-bootstrap';
 
 class Game1Results extends React.Component{
     constructor(props){
@@ -23,8 +23,8 @@ class Game1Results extends React.Component{
             if(scores.length>0){
                 const score_list = scores.map((score)=> <Score  h_score={score.h_score} u_score={score.u_score}></Score>)
             return(
-                <div id='hero' className='page hero'>
-                    <section id='section'>
+                <div id='hero'>
+                    <section id='section' style={{paddingBottom:'20px'}}>
                         <h1 style={{color:'white',textAlign:'center'}}>
                             Game scores
                         </h1>
@@ -47,7 +47,7 @@ class Game1Results extends React.Component{
             }
             else
                 return(
-                    <div className='page hero'>
+                    <div >
                     <h1 style={{color:'white',textAlign:'center'}}>
                         No scores recorded.
                     </h1>
@@ -65,7 +65,7 @@ class Game1Results extends React.Component{
         
         else
             return(
-                <div id='hero' className='page hero'>
+                <div id='hero'>
                     <h1 style={{color:'white',textAlign:'center'}}>
                         No scores recorded.
                     </h1>
@@ -80,50 +80,35 @@ class Game1Results extends React.Component{
         
     }
     componentDidMount(){        
-        let nav = document.getElementById('navBar');
-        // console.log('mount',nav);
-        nav.hidden=false;
-        let home = document.getElementById('home');
-        home.classList.remove('active');
-        let intro = document.getElementById('intro');
-        intro.classList.remove('active');
-        let team = document.getElementById('team');
-        team.classList.remove('active');
-        let game = document.getElementById('games');
-        game.classList.add('active');
+        let bod = document.getElementById('bod');
+
+        if (bod)
+            bod.classList.add('bod1');
 
         let width = window.screen.availWidth;
         let height = window.screen.availHeight; 
-        
-        let hero = document.getElementById('hero');
-        let section = document.getElementById('section');
-        // console.log(hero,'h');
-        // console.log(section,'s');
-        if(section && hero){            
-            // console.log(hero.clientHeight,'h h');
-            if(section.clientHeight>hero.clientHeight)
-                hero.classList.remove('page');
-        }
-        
 
-        if (height>width){
-            if(!(navigator.userAgent.toLowerCase().indexOf('safari/') > -1))
-                alert('For the best browsing experience, please rotate your device');           
-                // alert(navigator.userAgent.toLowerCase().indexOf('safari/') > -1);
+        var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+        // console.log('saf',isSafari);
+        if (height > width) {
+            if (!(isSafari))
+                alert('For the best browsing experience, please rotate your device');
+            else
+                alert('For a better browsing experience, use chrome browser');
+            // alert(navigator.userAgent.toLowerCase());
+
         }
-        window.addEventListener('resize', function(){
+
+        window.addEventListener('resize', function () {
             width = window.screen.availWidth;
             height = window.screen.availHeight;
-            if (height>width)
-            {
-                if(!(navigator.userAgent.toLowerCase().indexOf('safari/') > -1))
-                alert('For the best browsing experience, please rotate your device');
+            if (height > width) {
+                if (!(isSafari))
+                    alert('For the best browsing experience, please rotate your device');
+                else
+                    alert('For a better browsing experience, use chrome browser');
             }
         });
-            // if(document.getElementById('hero').clientHeight<document.getElementById('section'))
-            //     document.getElementById('hero').classList.remove('page');
-            // // else if()
-            // document.getElementById('hero').classList.add('page');
 
     }
 
@@ -140,7 +125,28 @@ class Score extends React.Component{
         if(tries>0)
         return(
             <div>
-                <div className='row'>
+                <Container>
+                    <Row>
+                        <Col>
+                            <p style={{color:'white',fontSize:'15px',margin:'10px'}}>
+                            Healthy Foods : {this.props.h_score}
+                            </p>
+                            <p style={{color:'white',fontSize:'15px',margin:'10px'}}>
+                                Unhealthy Foods : {this.props.u_score}
+                            </p>
+                            <ProgressBar>
+                                <ProgressBar striped animated variant='success' now={h_pc}>
+                                    {h_pc}
+                                </ProgressBar>
+                                <ProgressBar striped animated variant='danger' now={u_pc}>
+                                    {u_pc}
+                                </ProgressBar>
+                            </ProgressBar>
+                        </Col>
+                    </Row>
+                    <hr />
+                </Container>
+                {/* <div className='row'>
                 <div className='col-md-4 '>
                     <p style={{color:'white',fontSize:'15px',margin:'10px'}}>
                         Healthy Foods : {this.props.h_score}
@@ -158,11 +164,8 @@ class Score extends React.Component{
                             {u_pc}
                         </div>
                     </div>
-                </div>
-            </div>
-            <hr />
-            </div>
-                                
+                </div> */}
+            </div>                                                        
         );
         else
             return(

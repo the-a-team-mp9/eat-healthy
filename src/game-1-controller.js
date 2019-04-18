@@ -235,22 +235,30 @@ class Game_1 extends React.Component
         );
     }
     componentDidMount(){
-        let nav = document.getElementById('navBar');
-        // console.log('mount',nav);
-        nav.hidden=true;
-
+        
         let width = window.screen.availWidth;
         let height = window.screen.availHeight;        
-        if (height>width)
-            alert('For the best browsing experience, please rotate your device');
-        window.addEventListener('resize', function(){
+        var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
+        // console.log('saf',isSafari);
+        if (height > width) {
+            if (!(isSafari))
+                alert('For the best browsing experience, please rotate your device');
+            else
+                alert('For a better browsing experience, use chrome browser');
+            // alert(navigator.userAgent.toLowerCase());
+
+        }
+
+        window.addEventListener('resize', function () {
             width = window.screen.availWidth;
             height = window.screen.availHeight;
-            if (height>width)
-            alert('For the best browsing experience, please rotate your device')});
-        if(!(localStorage.getItem(document.title+'game-1-scores')) && localStorage.getItem(document.title+'game-1-scores').length==0)
-            alert('Please enable sound for the best experience');
-            
+            if (height > width) {
+                if (!(isSafari))
+                    alert('For the best browsing experience, please rotate your device');
+                else
+                    alert('For a better browsing experience, use chrome browser');
+            }
+        });
     }
 }
 

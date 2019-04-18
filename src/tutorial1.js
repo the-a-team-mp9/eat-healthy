@@ -7,7 +7,7 @@ class Tutorial extends React.Component{
 
     render(){
         return(
-            <div className='hero' style={{padding:'20px 0 20px', height:'100vh', textAlign:'center'}}>
+            <div  style={{padding:'20px 0 20px', height:'100vh', textAlign:'center'}}>
                 <div className='embed-container' style={{margin:'7%'}}>
                     <iframe src='https://www.youtube.com/embed//NCJ3XOCGbr0' frameBorder='0' 
                     allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowFullScreen="allowfullscreen"
@@ -30,17 +30,10 @@ class Tutorial extends React.Component{
         );
     }
     componentDidMount(){        
-        let nav = document.getElementById('navBar');
-        // console.log('mount',nav);
-        nav.hidden=false;
-        let home = document.getElementById('home');
-        home.classList.remove('active');
-        let intro = document.getElementById('intro');
-        intro.classList.remove('active');
-        let team = document.getElementById('team');
-        team.classList.remove('active');
-        let game = document.getElementById('games');
-        game.classList.add('active');
+        let bod = document.getElementById('bod');
+
+        if (bod)
+            bod.classList.add('bod1');
 
     }
 }
