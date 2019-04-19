@@ -4,7 +4,7 @@ import {Game_1} from "./game-1-controller";
 import {BrowserRouter as Router,Link} from 'react-router-dom';
 import Route from 'react-router-dom/Route';
 import {Home} from './home_page';
-import {Info} from './intro';
+import {Info} from './info';
 import {Games} from './games';
 import {About} from './about';
 import {Game1Results} from './game1Results';
@@ -25,7 +25,10 @@ class App extends React.Component
         <Router>        
         <Route path='/' exact component={Home}>
         </Route>        
-        <Route path='/info' exact component={Info} />
+        <Route path='/info' exact render={()=>(<Info section_id='0' />)} />
+        <Route path='/info-1' exact render={()=>(<Info section_id='1' />)} />
+        <Route path='/info-2' exact render={()=>(<Info section_id='2' />)} />
+        <Route path='/info-3' exact render={()=>(<Info section_id='3' />)} />
         <Route path='/games' exact component={Games}/>
         <Route path='/about' exact component={About}/>
         <Route path='/game-1' exact component={Game_1} />

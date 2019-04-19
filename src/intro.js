@@ -2,7 +2,7 @@ import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
-class Info extends React.Component {
+class Info1 extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -188,4 +188,4 @@ class Info extends React.Component {
 
 }
 
-export { Info }
+export { Info1 }

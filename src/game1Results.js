@@ -17,9 +17,7 @@ class Game1Results extends React.Component{
     render(){
         let scores=JSON.parse(localStorage.getItem(document.title+"game-1-scores"));
         // console.log(scores);
-        if (scores){
-
-        
+        if (scores){        
             if(scores.length>0){
                 const score_list = scores.map((score)=> <Score  h_score={score.h_score} u_score={score.u_score}></Score>)
             return(

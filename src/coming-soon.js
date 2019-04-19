@@ -20,7 +20,7 @@ class ComingSoon extends React.Component{
                                         <Nav.Link href="/">Home</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item>
-                                        <Nav.Link href="#info">Information</Nav.Link>
+                                        <Nav.Link href="/info">Information</Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item>
                                         <Nav.Link href="/games">Game Zone</Nav.Link>

@@ -409,3 +409,21 @@ input[type=radio] {
   background-size: cover;
   -o-background-size: cover;
 }
+
+.bod2{
+  background: url('../images/Bakcground/intro-bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.info-text{
+  background-color: #e8f8e7;
+    
+}
+
+.info-text p {
+  color:#333;
+  font-size:larger;  
+}
