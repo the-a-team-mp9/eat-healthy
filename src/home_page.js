@@ -64,7 +64,7 @@ class Home extends React.Component{
                     </Navbar.Collapse>
                     </Navbar>                   
                 </div>
-                <div style={{paddingTop:'20vh',minHeight:'83vh'}}>
+                <div style={{paddingTop:'20vh',minHeight:'83vh'}} className='clearfix'>
                     <Container className='align-self-center'>
                         <Row>
                             <Col xs={12} md={12}>
@@ -78,7 +78,7 @@ class Home extends React.Component{
                         </Row>
                         <Row className="justify-content-md-center" style={{textAlign:'center'}}>
                             <Col xs={12} md={12}>
-                                <a href="/info" className="learn-more-btn" style={{width:'273px'}}>Learn More</a>
+                                <a href="#info" className="learn-more-btn" style={{width:'273px'}}>Learn More</a>
                             </Col>                            
                         </Row>
                         <Row className="justify-content-md-center" style={{textAlign:'center',marginBottom:'20px'}}>
@@ -97,7 +97,7 @@ class Home extends React.Component{
                             </Col>
                         </Row>
                     </Container>
-                <div style={{minHeight:'100vh', paddingBottom:'20px'}} id='info'>
+                <div style={{minHeight:'100vh', paddingBottom:'20px'}} id='info' className='clearfix'>
                     <Container>
                         <Row  >
                         <Col xs={12} md={6} lg={3} >
@@ -153,7 +153,8 @@ class Home extends React.Component{
                         </Col>
                         </Row>
                     </Container>
-                </div>                                
+                </div>   
+                <div className='clearfix'></div>                             
             </div>
             
         );
