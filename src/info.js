@@ -85,11 +85,11 @@ class Info extends React.Component{
                                             /> 
                                         </Col>                                        
                                     </Row>
-                                    <Row className="justify-content-md-center">
+                                    {/* <Row className="justify-content-md-center">
                                         <Col md='auto'>
                                         {this.renderPagination()}    
                                         </Col>
-                                    </Row>                                                                                                     
+                                    </Row>                                     */}
                                 </Carousel.Item>
                                 <Carousel.Item>
                                     <h1 style={{textAlign:'center',color:'white'}}>
@@ -118,11 +118,11 @@ class Info extends React.Component{
                                             /> 
                                         </Col>                                        
                                     </Row>
-                                    <Row className="justify-content-md-center">
+                                    {/* <Row className="justify-content-md-center">
                                         <Col md='auto'>
                                         {this.renderPagination()}    
                                         </Col>
-                                    </Row>                                                 
+                                    </Row>                                                  */}
                                 </Carousel.Item>
                                 <Carousel.Item>
                                 <h1 style={{textAlign:'center',color:'white'}}>
@@ -154,11 +154,11 @@ class Info extends React.Component{
                                             /> 
                                         </Col>                                        
                                     </Row>
-                                    <Row className="justify-content-md-center">
+                                    {/* <Row className="justify-content-md-center">
                                         <Col md='auto'>
                                         {this.renderPagination()}    
                                         </Col>
-                                    </Row>       
+                                    </Row>        */}
                                 </Carousel.Item>
                                 <Carousel.Item>
                                 <h1 style={{textAlign:'center',color:'white'}}>
@@ -190,15 +190,16 @@ class Info extends React.Component{
                                             /> 
                                         </Col>                                        
                                     </Row>
-                                    <Row className="justify-content-md-center">
-                                        <Col md='auto'>
-                                        {this.renderPagination()}    
-                                        </Col>
-                                    </Row>       
+                                          
                                 </Carousel.Item>
-                            </Carousel> 
+                            </Carousel>                                 
                         </Col>
-                    </Row>                    
+                    </Row>
+                    <Row className="justify-content-md-center">
+                        <Col md='auto'>
+                        {this.renderPagination()}
+                        </Col>
+                    </Row>                
                 </Container>
                 {/* <Carousel interval={null} wrap={false} indicators={false}>
                                 <Carousel.Item>
