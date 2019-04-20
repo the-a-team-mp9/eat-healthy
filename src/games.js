@@ -91,11 +91,11 @@ class Games extends React.Component {
                             </Col>
                             <Col xs={12} md={6} lg={4} className='wp2 animated fadeInUp' style={{paddingBottom:'20px'}}>
                                 <div className="img">
-                                    <a href="coming-soon">
+                                    <a href="/game-2">
                                         <img src="../images/Game_Icons/Gameicon2.png" alt="Game 2" />
                                     </a>
                                 </div>
-                                <h2 style={{ textAlign: "center" }}>Coming Soon...</h2>
+                                <h2 style={{ textAlign: "center" }}>Eatopoly</h2>
                                 <p></p>
                             </Col>
                             <Col xs={12} md={6} lg={4} className='wp2 animated fadeInUp' style={{paddingBottom:'20px'}}>

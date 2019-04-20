@@ -419,11 +419,228 @@ input[type=radio] {
 }
 
 .info-text{
-  background-color: #e8f8e7;
+  background-color: #282c34;
     
 }
 
 .info-text p {
-  color:#333;
+  color:'white';
   font-size:larger;  
+}
+
+.btn-outline-info a:hover{
+  color:'white'!important;
+}
+.btn-outline-info a{
+  color:'#16a2b8'!important;
+}
+
+.game-2-area{    
+  background:url(../images/Bakcground/Background_foods.png);
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-size: cover;
+  position: relative;
+  width:100vw;
+  min-width: 600px;
+  height:100vh;
+  min-height: 200px;
+}
+
+#plate1{
+  position: absolute;
+  width:10%;
+  height:18%;
+  left:2.4%;
+  top:58.6%;
+  background:url(../images/Bakcground/Square_plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#plate2{
+  position: absolute;
+  width:10%;
+  height:18%;
+  left:13%;
+  top:56.6%;
+  background:url(../images/Bakcground/Square_plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#plate3{
+  position: absolute;
+  width:10%;
+  height:18%;
+  left:23.6%;
+  top:59.56%;
+  background:url(../images/Bakcground/Square_plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#plate4{
+  position: absolute;
+  width:10%;
+  height:18%;
+  left:34.3%;
+  top:56.7%;
+  background:url(../images/Bakcground/Square_plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#plate5{
+  position: absolute;
+  width:10%;
+  height:18%;
+  left:44.9%;
+  top:58.6%;
+  background:url(../images/Bakcground/Square_plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#plate6{
+  position: absolute;
+  width:10%;
+  height:18%;
+  left:55.2%;
+  top:60.4%;
+  background:url(../images/Bakcground/Square_plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#plate7{
+  position: absolute;
+  width:10%;
+  height:18%;
+  left:65.8%;
+  top:56.4%;
+  background:url(../images/Bakcground/Square_plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#plate8{
+  position: absolute;
+  width:10%;
+  height:18%;
+  left:76.4%;
+  top:58.6%;
+  background:url(../images/Bakcground/Square_plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#plate9{
+  position: absolute;
+  width:10%;
+  height:18%;
+  left:87%;
+  top:56%;
+  background:url(../images/Bakcground/Square_plate.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#p1char{
+  position: absolute;
+  width:7%;
+  height:12.3%;
+  top:23%;
+  left:2%;
+  background:url(../images/Pieces/Kid_head.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+}
+
+#p2char{
+  position: absolute;
+  width:7%;
+  height:12.3%;
+  top:23%;
+  left:91%;
+  background:url(../images/Pieces/Robot_head.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+}
+
+#dice{
+  position: absolute;
+  width:9.3%;
+  height:16.5%;
+  top:15.3%;
+  left:44.8%;
+  background:url(../images/Dice_and_Buttons/Dice_3.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#back{
+  position: absolute;
+  width:9%;
+  height:16%;
+  top:4%;
+  left:2.5%;
+  background:url(../images/Dice_and_Buttons/Back.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#yes{
+  position: absolute;
+  width:7.2%;
+  height:12.8%;
+  top:31.9%;
+  left:37.5%;
+  background:url(../images/Dice_and_Buttons/Yes.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#no{
+  position: absolute;
+  width:7.2%;
+  height:12.8%;
+  top:31.9%;
+  left:54.1%;
+  background:url(../images/Dice_and_Buttons/No.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#p1-health{
+  position: absolute;
+  width:22%;
+  height:4%;
+  top:36.4%;
+  left:3.1%;
+}
+
+#p2-health{
+  position: absolute;
+  width:22%;
+  height:4%;
+  top:36.4%;
+  left:74.9%;
 }

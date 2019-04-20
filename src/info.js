@@ -1,19 +1,36 @@
 import React from 'react';
-import {Container,Row,Col,Pagination,Carousel,Navbar,Nav} from 'react-bootstrap';
+import {Container,Row,Col,Pagination,Carousel,Navbar,Nav, ButtonGroup,Button} from 'react-bootstrap';
 
 class Info extends React.Component{
     constructor(props){        
         super(props);
         this.state={section_id:this.props.section_id} 
-        //this.updateActive = this.updateActive.bind(this);       
+        //this.updateActive = this.updateActive.bind(this);
+        // this.selectNext = this.selectNext.bind(this);
+        // this.selectPrev = this.selectNext.bind(this);       
     }
     updateActive(sec_id){
         console.log(sec_id);
-        this.setState({section_id:sec_id});
+        if(sec_id>=0 && sec_id <=3)
+            this.setState({section_id:sec_id});
     }
+    // selectNext(){
+    //     this.setState((old_state)=>( {section_id:old_state.section_id++} ));
+    // }
+    // selectPrev(){
+    //     this.setState((old_state)=>( {section_id:old_state.section_id--} ));        
+    // }
     handleSelect(selectedIndex, e) {        
     }
-
+    renderButtons(){
+        return(
+        <div style={{textAlign:'center'}}>
+            <Button variant='outline-info' disabled={this.state.section_id == 0} onClick={this.updateActive.bind(this,(parseInt(this.state.section_id)-1))}> {'<<'}  </Button>
+            <Button variant='outline-info' style={{marginLeft:'20px',marginRight:'20px'}}><a style={{color:'white'}} href='/'>Home</a>   </Button>
+            <Button variant='outline-info' disabled={this.state.section_id == 3} onClick={this.updateActive.bind(this,(parseInt(this.state.section_id)+1))}>  {'>>'} </Button>
+        </div>)
+        ; 
+    }
     renderPagination(){
         return(
             <Pagination style={{textAlign:'center'}}>                           
@@ -60,19 +77,19 @@ class Info extends React.Component{
                                     <Row style={{textAlign:'center'}}>
                                         <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px'}}>
                                             <div  style={{paddingLeft:'7px',paddingRight:'7px'}}>
-                                                <p style={{textAlign:'justify',paddingTop:'0'}}>
+                                                <p style={{textAlign:'justify',paddingTop:'0',color:'white'}}>
                                                     In 2014-15, 20% children aged 2-4 were either overweight or obese and
                                                     about 1 in 4 (27%) children aged 5-17 were either overweight or obese. 
                                                     The rate of obesity increases with age and girls are affected the most.                                                    
                                                 </p>
-                                                <p style={{textAlign:'justify'}}>
+                                                <p style={{textAlign:'justify',color:'white'}}>
                                                 Children are considered over weight if their Body Mass Index (BMI) is in the range 25 to 29.9. Children with BMI 30 or greater are considered obese.
                                                 </p>
-                                                <p style={{textAlign:'justify'}}>
+                                                <p style={{textAlign:'justify',color:'white'}}>
                                                 80% of overweight and obese children retain their problems as they grow up as adults.
                                                 </p>
-                                                <p style={{textAlign:'justify'}}>
-                                                The trend of childhood obesity has consistently increased through the years. 
+                                                <p style={{textAlign:'justify',color:'white'}}>
+                                                The trend of childhood obesity has <strong style={{color:'#ff5542'}}>consistently</strong>  increased through the years. 
                                                 In 2017, about 25-30% of children aged 2-11 suffered from obesity or overweight issues.
                                                 </p>
                                             </div>                                            
@@ -196,8 +213,8 @@ class Info extends React.Component{
                         </Col>
                     </Row>
                     <Row className="justify-content-md-center">
-                        <Col md='auto'>
-                        {this.renderPagination()}
+                        <Col xs={12} sm={12} md='auto'>
+                        {this.renderButtons()}
                         </Col>
                     </Row>                
                 </Container>
