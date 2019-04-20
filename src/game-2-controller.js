@@ -28,7 +28,7 @@ class Game2 extends React.Component
             document.getElementById('dice-gif').style.display='none';
             document.getElementById(d).style.display='block';
 
-        },2000,choice);
+        },1600,choice);
     }
 
     render(){
