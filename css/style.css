@@ -581,7 +581,31 @@ input[type=radio] {
   
 }
 
-#dice{
+#dice1{
+  position: absolute;
+  width:9.3%;
+  height:16.5%;
+  top:15.3%;
+  left:44.8%;
+  background:url(../images/Dice_and_Buttons/Dice_1.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#dice2{
+  position: absolute;
+  width:9.3%;
+  height:16.5%;
+  top:15.3%;
+  left:44.8%;
+  background:url(../images/Dice_and_Buttons/Dice_2.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#dice3{
   position: absolute;
   width:9.3%;
   height:16.5%;
@@ -592,6 +616,20 @@ input[type=radio] {
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+#dice-gif{
+  position: absolute;
+  width:9.3%;
+  height:16.5%;
+  top:15.3%;
+  left:44.8%;
+  background:url(../images/Dice_and_Buttons/Rollin_dice.gif);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: none;
+}
+
 
 #back{
   position: absolute;
@@ -643,4 +681,19 @@ input[type=radio] {
   height:4%;
   top:36.4%;
   left:74.9%;
+}
+
+@keyframes dice1Roll {
+  0% {
+  opacity:1;
+}
+45% {
+opacity:1;
+}
+55% {
+opacity:0;
+}
+100% {
+opacity:0;
+}
 }
