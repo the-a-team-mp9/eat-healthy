@@ -34,6 +34,8 @@ class Game2 extends React.Component
                 </div>
                 <div id='no'>
                 </div>
+                <div id='back'>
+                </div>
                 <div id='p1-health'>
                     <ProgressBar animated striped variant='danger' now='80'></ProgressBar>
                 </div>
