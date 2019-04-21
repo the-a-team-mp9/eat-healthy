@@ -657,6 +657,7 @@ input[type=radio] {
   background-position: center; 
   background-size: contain;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 #no{
@@ -669,6 +670,7 @@ input[type=radio] {
   background-position: center; 
   background-size: contain;
   background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 #p1-health{
@@ -687,17 +689,62 @@ input[type=radio] {
   left:74.9%;
 }
 
-@keyframes dice1Roll {
-  0% {
-  opacity:1;
+#game-2-msg{  
+  height: 100%; 
+  widows: auto;
+  color: 'white';
+  font-size: xx-large;
 }
-45% {
-opacity:1;
+
+#game-2-msg-wrapper{
+  position: absolute;
+  width:20%;
+  left:40%;
+  top:85%;
+  height: 10%;
+ 
+  text-align: center;
 }
-55% {
-opacity:0;
+
+#p1-start{
+  position: absolute;
+  height: 12.5%;
+  width: 6.9%;
+  top: 44.5%;
+  left: 0%;
 }
-100% {
-opacity:0;
+
+#p2-start{
+  position: absolute;
+  height: 12.5%;
+  width: 6.9%;
+  top: 44.5%;
+  left: 7%;
 }
+
+#end{
+  position: absolute;
+  height: 12.5%;
+  width: 6.9%;
+  top: 76.43%;
+  left: 89.9%;
+}
+
+.p-char{
+  position: relative;
+  margin-top: -60%;
+  height: 100%;
+  width: 100%;
+}
+
+#end-flag{
+  position: absolute;
+  height: 12.5%;
+  width: 6.9%;
+  top: 76.43%;
+  left: 87.2%;
+  background:url(../images/Pieces/End_point.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
 }
