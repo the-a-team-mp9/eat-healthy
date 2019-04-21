@@ -114,7 +114,7 @@ class Games extends React.Component {
             </div>
         );
     }
-    componentDidMount() {
+    componentDidMount() {        
         let bod = document.getElementById('bod');
 
         if (bod)
