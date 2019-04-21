@@ -573,7 +573,7 @@ input[type=radio] {
   width:7%;
   height:12.3%;
   top:23%;
-  left:91%;
+  left:91%;  
   background:url(../images/Pieces/Robot_head.png);
   background-position: center; 
   background-size: contain;
@@ -587,6 +587,7 @@ input[type=radio] {
   height:16.5%;
   top:15.3%;
   left:44.8%;
+  cursor: pointer;
   background:url(../images/Dice_and_Buttons/Dice_1.png);
   background-position: center; 
   background-size: contain;
@@ -599,6 +600,7 @@ input[type=radio] {
   height:16.5%;
   top:15.3%;
   left:44.8%;
+  cursor: pointer;
   background:url(../images/Dice_and_Buttons/Dice_2.png);
   background-position: center; 
   background-size: contain;
@@ -611,6 +613,7 @@ input[type=radio] {
   height:16.5%;
   top:15.3%;
   left:44.8%;
+  cursor: pointer;
   background:url(../images/Dice_and_Buttons/Dice_3.png);
   background-position: center; 
   background-size: contain;
@@ -623,6 +626,7 @@ input[type=radio] {
   height:16.5%;
   top:15.3%;
   left:44.8%;
+  cursor: pointer;
   background:url(../images/Dice_and_Buttons/Rollin_dice.gif);
   background-position: center; 
   background-size: contain;

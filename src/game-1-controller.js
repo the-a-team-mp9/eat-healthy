@@ -81,12 +81,12 @@ class Game_1 extends React.Component
 {
     constructor(props){
         super(props);
-        this.healthy_food_arr = Array.from(Array(24), (x, index) => 0 + index * 1);
+        this.healthy_food_arr = Array.from(Array(27), (x, index) => 0 + index * 1);
         for (let i = this.healthy_food_arr.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
             [this.healthy_food_arr[i], this.healthy_food_arr[j]] = [this.healthy_food_arr[j], this.healthy_food_arr[i]];
         }
-        this.unhealthy_food_arr = Array.from(Array(17), (x, index) => 0 + index * 1);
+        this.unhealthy_food_arr = Array.from(Array(20), (x, index) => 0 + index * 1);
         for (let i = this.unhealthy_food_arr.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
             [this.unhealthy_food_arr[i], this.unhealthy_food_arr[j]] = [this.unhealthy_food_arr[j], this.unhealthy_food_arr[i]];
@@ -112,12 +112,12 @@ class Game_1 extends React.Component
         
     }
     updateClick(isHealthy){       
-        if(this.u_food_idx>=17){
+        if(this.u_food_idx>=21){
             this.shuffle(this.unhealthy_food_arr);
             this.u_food_idx=0;
             // console.log(this.unhealthy_food_arr);
         }
-        if(this.h_food_idx>=24){
+        if(this.h_food_idx>=28){
             this.shuffle(this.healthy_food_arr);
             this.h_food_idx=0;
             // console.log(this.healthy_food_arr);
@@ -168,28 +168,28 @@ class Game_1 extends React.Component
         let food_arr = Array(3);
         
         if(Math.random()>0.5){
-            food_arr[0] = {idx:this.healthy_food_arr[this.h_food_idx++ %23],isHealthy:true};
-            food_arr[1] = {idx:this.healthy_food_arr[this.h_food_idx++ %23],isHealthy:true};
-            food_arr[2] = {idx:this.unhealthy_food_arr[this.u_food_idx++ %16],isHealthy:false};
+            food_arr[0] = {idx:this.healthy_food_arr[this.h_food_idx++ %27],isHealthy:true};
+            food_arr[1] = {idx:this.healthy_food_arr[this.h_food_idx++ %27],isHealthy:true};
+            food_arr[2] = {idx:this.unhealthy_food_arr[this.u_food_idx++ %20],isHealthy:false};
 
         }
         else{
-            food_arr[0] = {idx:this.healthy_food_arr[this.h_food_idx++ %23],isHealthy:true};
-            food_arr[1] = {idx:this.unhealthy_food_arr[this.u_food_idx++ %16],isHealthy:false};
-            food_arr[2] = {idx:this.unhealthy_food_arr[this.u_food_idx++ %16],isHealthy:false};
+            food_arr[0] = {idx:this.healthy_food_arr[this.h_food_idx++ %27],isHealthy:true};
+            food_arr[1] = {idx:this.unhealthy_food_arr[this.u_food_idx++ %20],isHealthy:false};
+            food_arr[2] = {idx:this.unhealthy_food_arr[this.u_food_idx++ %20],isHealthy:false};
         }
         
         this.shuffle(food_arr);
         // console.log(food_arr);
         return(
             <div>
-            <div id='plate1' className="game-col-2">
+            <div  className="game-col-2">
                 <Food img_id={food_arr[0].idx} isHealthy={food_arr[0].isHealthy} updateClick={this.updateClick} />
             </div>
-            <div id='plate2' className="game-col-3">
+            <div  className="game-col-3">
                 <Food img_id={food_arr[1].idx} isHealthy={food_arr[1].isHealthy} updateClick={this.updateClick} />
             </div>
-            <div id='plate3' className="game-col-4">
+            <div  className="game-col-4">
                 <Food img_id={food_arr[2].idx} isHealthy={food_arr[2].isHealthy} updateClick={this.updateClick} />
             </div>
         </div>
