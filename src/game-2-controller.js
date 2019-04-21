@@ -134,6 +134,9 @@ class Game2 extends React.Component
 
     }
 
+    stay(){
+        this.setState({g_state:'roll'})
+    }
 
     modeSelect(mode){
         this.setState({game_mode:mode,disp_modal:false});        
@@ -204,7 +207,7 @@ class Game2 extends React.Component
                 <div>
                     <div id='yes' onClick={this.go.bind(this)}>
                     </div>
-                    <div id='no'>
+                    <div id='no' onClick={this.stay.bind(this)}>
                     </div>
                 </div>
                 
