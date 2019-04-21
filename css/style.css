@@ -691,15 +691,39 @@ input[type=radio] {
 
 #game-2-msg{  
   height: 100%; 
-  widows: auto;
+  width: auto;
   color: 'white';
   font-size: xx-large;
 }
 
+#game-2-comp-msg{
+  height: 100%; 
+  width: auto;
+  color: 'white';
+  font-size: xx-large;
+  display: none;
+}
+
+#game-2-comp-move-msg{
+  height: 100%; 
+  width: auto;
+  color: 'white';
+  font-size: xx-large;
+  display: none;
+}
+
+#game-2-comp-stay-msg{
+  height: 100%; 
+  width: auto;
+  color: 'white';
+  font-size: xx-large;
+  display: none;
+}
+
 #game-2-msg-wrapper{
   position: absolute;
-  width:20%;
-  left:40%;
+  width:40%;
+  left:30%;
   top:85%;
   height: 10%;
  

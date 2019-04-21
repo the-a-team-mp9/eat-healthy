@@ -86,8 +86,10 @@ class Game2 extends React.Component
             let j = Math.floor(Math.random() * (i + 1));
             [this.board[i], this.board[j]] = [this.board[j], this.board[i]];
         }
-        this.state= {g_state:'start', disp_modal:true, game_mode:'pvc', p1_loc:0, p2_loc:0, p1_h:10, p2_h:10, active:'p1', finish:'none'};
-        this.roll1 = this.roll1.bind(this);        
+        this.state= {g_state:'start', disp_modal:true, game_mode:'pvc', p1_loc:0, 
+                     p2_loc:0, p1_h:10, p2_h:10, active:'p1', finish:'none', game_msg:'Player 1 Turn'};
+        this.roll1 = this.roll1.bind(this);  
+        this.updateScore = this.updateScore.bind(this);      
     }
     handleClose() {
         this.setState({ disp_modal:false});
@@ -97,7 +99,7 @@ class Game2 extends React.Component
         
         let dest = parseInt(this.state.rolled_num);
         // console.log('f',dest);
-        if(this.state.active=='p1'){
+        if(this.state.game_mode=='pvc'){            
             if(this.state.p1_loc==0)
                 document.getElementById('p1-start').style.display='none';
             else if (this.state.p1_loc==1)
@@ -121,21 +123,146 @@ class Game2 extends React.Component
             dest+=parseInt(this.state.p1_loc);
             // console.log(dest);
             if(dest<=9){                
-                setTimeout((d)=>{console.log('p1'+d);
+                setTimeout((d)=>{
                                 document.getElementById('p1'+d).style.display='block';}
                             ,300,dest.toString());
-                this.setState({g_state:'roll',p1_loc:dest});                
+                    let score = this.updateScore(dest,true);
+                // this.setState({g_state:'roll',p1_loc:dest,p1_h:score}); 
+                // console.log(document.getElementById('p1-health').childNodes[0].childNodes[0]);
+                // document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=score+'%';
+                setTimeout(()=>{
+                    document.getElementById('game-2-msg').style.display='none';
+                    document.getElementById('game-2-comp-msg').style.display='block';
+                },500);
+                document.getElementById('yes').style.display='none';
+                document.getElementById('no').style.display='none'
+                setTimeout(this.roll2.bind(this),1800,dest,score);
+                
             }
             else    
-                this.setState({finish:'p1'});
+                this.setState({finish:'p1',g_state:'g_over'});
         }
-        
-        
+    }
+    
 
+    simulateComp(d,loc,score){
+        let rolledVal = d[d.length-1];        
+        if(Math.random()>.6){
+            document.getElementById('game-2-comp-msg').style.display='none';
+            document.getElementById('game-2-comp-stay-msg').style.display='block';
+            setTimeout(()=>{
+                            document.getElementById('game-2-comp-stay-msg').style.display='none';
+                            document.getElementById('game-2-msg').style.display='block';
+                            },1500);
+            this.setState({p1_h:score,p1_loc:loc,g_state:'roll'});
+        }            
+        else{
+            if(this.state.p2_loc==0)
+                document.getElementById('p2-start').style.display='none';
+            else if (this.state.p2_loc==1)
+                document.getElementById('p21').style.display='none';
+            else if(this.state.p2_loc==2)
+                document.getElementById('p22').style.display='none';
+            else if (this.state.p2_loc==3)
+                document.getElementById('p23').style.display='none';
+            else if(this.state.p2_loc==4)
+                document.getElementById('p24').style.display='none';
+            else if (this.state.p2_loc==5)
+                document.getElementById('p25').style.display='none';
+            else if(this.state.p2_loc==6)
+                document.getElementById('p26').style.display='none';
+            else if (this.state.p2_loc==7)
+                document.getElementById('p27').style.display='none';
+            else if(this.state.p2_loc==8)
+                document.getElementById('p28').style.display='none';
+            else 
+                document.getElementById('p29').style.display='none';
+            let p2_dest=parseInt(this.state.p2_loc)+parseInt(rolledVal);
+            let p2_score; 
+            // console.log(dest);
+            if(p2_dest<=9){
+                p2_score = this.updateScore(p2_dest,false);                
+                setTimeout((d)=>{
+                                document.getElementById('p2'+d).style.display='block';
+                                document.getElementById('game-2-comp-msg').style.display='none';
+                                document.getElementById('game-2-comp-move-msg').style.display='block';
+                                }
+                            ,300,p2_dest.toString());
+                setTimeout(this.endTurn.bind(this),1200,score,p2_score,loc,p2_dest);
+                }
+            else    
+            this.setState({finish:'p2',g_state:'g_over',p1_h:score,p1_loc:dest});
+        }
     }
 
+    endTurn(np1_h,np2_h,np1_dest,np2_dest){
+        // console.log('np1_h',np1_h);
+        // console.log('np2_h',np2_h);
+        // console.log('np1_dest',np1_h);
+        document.getElementById('game-2-comp-move-msg').style.display='none';
+        document.getElementById('game-2-msg').style.display='block';
+        this.setState({p1_h:np1_h, p1_loc:np1_dest, p2_loc:np2_dest, p2_h:np2_h, g_state:'roll',game_msg:'Player 1 Turn'});
+    }
+                    
     stay(){
+        if(this.state.game_mode=='pvc'){
+            document.getElementById('game-2-msg').style.display='none';
+            setTimeout(()=>{
+                document.getElementById('game-2-msg').style.display='none';
+                document.getElementById('game-2-comp-msg').style.display='block';
+            },500);
+            setTimeout(this.roll2.bind(this),1000,this.state.p1_loc,this.state.p1_h);            
+        }
         this.setState({g_state:'roll'})
+    }
+
+    updateScore(loc,isP1){
+        // console.log('updt '+this.state.p1_h,this.state.p2_h);       
+        if(isP1){
+            let type = this.board[parseInt(loc)-1].type;            
+            if(type=='h'){
+                // console.log('up p1-h',parseInt(this.state.p1_h)+10,);
+                document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)+10).toString()+'%';
+                return(parseInt(this.state.p1_h)+10);
+            }
+                
+            else if(type=='u')
+            {
+                if(this.state.p1_h>0)
+                {
+                    // console.log('up p1-u',parseInt(this.state.p1_h)-10,);
+                    document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)-10).toString()+'%';
+                    return(parseInt(this.state.p1_h)-10);
+                }                    
+                else return(this.state.p1_h); 
+            }
+            else
+                return(this.state.p1_h); 
+                                   
+            
+        }
+        else{
+            let type = this.board[parseInt(loc)-1].type;            
+            if(type=='h')
+            {
+                // console.log('up p2-h',parseInt(this.state.p2_h)+10,);
+                document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)+10).toString()+'%';
+                return(parseInt(this.state.p2_h)+10);
+            }
+                
+            else if(type=='u')
+            {
+                if(this.state.p2_h>0)
+                {
+                    // console.log('up p2-u',parseInt(this.state.p2_h)-10,);
+                    document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)-10).toString()+'%';
+                    return(parseInt(this.state.p2_h)-10);
+                }                    
+                else return(this.state.p2_h); 
+            }
+            else
+                return(this.state.p2_h); 
+        }
     }
 
     modeSelect(mode){
@@ -172,6 +299,30 @@ class Game2 extends React.Component
             setTimeout(this.getRolled.bind(this),1300,choice);
         }
         
+    }
+
+    roll2(loc,score){
+        let rnd = Math.random();
+        let choice;
+        if (rnd<0.33)
+            choice='dice1';
+        else if(rnd>=0.33 && rnd <=0.66)
+            choice='dice2';
+        else
+            choice='dice3';
+        let d1=document.getElementById('dice1');
+        let d2=document.getElementById('dice2');
+        let d3=document.getElementById('dice3');
+        d1.style.display='none';
+        d2.style.display='none';
+        d3.style.display='none';
+        document.getElementById('dice-gif').style.display='block';
+        // console.log(document.getElementById('dice-gif').style.display);
+        setTimeout((d)=>{            
+            document.getElementById('dice-gif').style.display='none';
+            document.getElementById(d).style.display='block';
+        },1200,choice);
+        setTimeout(this.simulateComp.bind(this),1800,choice,loc,score);        
     }
     renderGameOver(){
         if(this.state.finish=='p1'){
@@ -220,7 +371,14 @@ class Game2 extends React.Component
         return(
             <div id='game-2-msg-wrapper'>
                 <div id='game-2-msg'>
-                    <strong>Player 1 Turn</strong>
+                    <strong>{this.state.game_msg}</strong>
+                </div>
+                <div id='game-2-comp-msg'>
+                <strong>Computer's Turn</strong> 
+                </div>
+                <div id='game-2-comp-move-msg' > <strong>Computer choose to move</strong> 
+                </div>
+                <div id='game-2-comp-stay-msg' > <strong>Computer choose to Stay</strong> 
                 </div>
             </div>
         );
@@ -236,9 +394,10 @@ class Game2 extends React.Component
         );        
     }
     render(){
+        // console.log('rndr '+this.state.p1_h,this.state.p2_h);
         return(
             <div className='game-2-area'>
-                <Modal show={this.state.disp_modal} onHide={this.handleClose.bind(this)} centered>
+                {/* <Modal show={this.state.disp_modal} onHide={this.handleClose.bind(this)} centered>
                     <Modal.Header closeButton>
                         <Modal.Title>Choose Game Mode</Modal.Title>
                     </Modal.Header>
@@ -259,13 +418,13 @@ class Game2 extends React.Component
                             </Row>
                         </Container>                        
                     </Modal.Footer>
-                </Modal>
+                </Modal> */}
                 {this.renderPlates()}
                 {this.renderChoice()} 
                 {this.renderGameMessages()}
                 {this.renderp1char()}
                 {this.renderp2char()} 
-                {this.renderGameOver()}              
+                {this.renderGameOver()}                              
                 <div id='p1char'>
                 </div>
                 <div id='p2char'> 
