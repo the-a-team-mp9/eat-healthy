@@ -581,6 +581,18 @@ input[type=radio] {
   
 }
 
+#p2p{
+  position: absolute;
+  width:7%;
+  height:12.3%;
+  top:23%;
+  left:91%;  
+  background:url(../images/Pieces/Astronaut_head.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 #dice1{
   position: absolute;
   width:9.3%;

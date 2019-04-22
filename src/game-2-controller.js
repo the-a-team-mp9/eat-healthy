@@ -6,6 +6,18 @@ class Plates extends React.Component{
         super(props);
         // console.log(props);
     }
+    renderp2(){
+        if(this.props.g_mode=='pvc'){
+            return(
+                <div id={'p2'+this.props.id} className='p-char' style={{backgroundImage:'url(../images/Pieces/Robot.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
+                </div>
+            );
+        }
+        return(
+            <div id={'p2'+this.props.id} className='p-char' style={{backgroundImage:'url(../images/Pieces/Astronaut.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
+            </div>
+        );
+    }
     render(){
         if(this.props.type=='h')
             return(
@@ -14,8 +26,7 @@ class Plates extends React.Component{
                     </div>
                     <div id={'p1'+this.props.id} className='p-char' style={{backgroundImage:'url(../images/Pieces/Kid.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
                     </div>
-                    <div id={'p2'+this.props.id} className='p-char' style={{backgroundImage:'url(../images/Pieces/Robot.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
-                    </div>
+                    {this.renderp2()}
                 </div>
             );
         else if(this.props.type=='u'){
@@ -27,8 +38,7 @@ class Plates extends React.Component{
                     </div>
                     <div id={'p1'+this.props.id} className='p-char' style={{backgroundImage:'url(../images/Pieces/Kid.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
                     </div>
-                    <div id={'p2'+this.props.id} className='p-char' style={{backgroundImage:'url(../images/Pieces/Robot.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
-                    </div>
+                    {this.renderp2()}
                 </div>
             );
         }
@@ -40,8 +50,7 @@ class Plates extends React.Component{
                 </div>
                 <div id={'p1'+this.props.id} className='p-char' style={{backgroundImage:'url(../images/Pieces/Kid.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
                 </div>
-                <div id={'p2'+this.props.id} className='p-char' style={{backgroundImage:'url(../images/Pieces/Robot.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
-                </div>
+                {this.renderp2()}
             </div>
             );
         }
@@ -89,7 +98,8 @@ class Game2 extends React.Component
         this.state= {g_state:'start', disp_modal:true, game_mode:'pvc', p1_loc:0, 
                      p2_loc:0, p1_h:20, p2_h:20, active:'p1', finish:'none', game_msg:'Player 1 Turn'};
         this.roll1 = this.roll1.bind(this);  
-        this.updateScore = this.updateScore.bind(this);      
+        this.updateScore = this.updateScore.bind(this);   
+        this.restart = this.restart.bind(this);   
     }
     handleClose() {
         this.setState({ disp_modal:false});
@@ -148,27 +158,82 @@ class Game2 extends React.Component
             else    
                 this.setState({finish:'p1',g_state:'g_over'});
         }
+        else{
+            if(this.state.active=='p1'){
+                if(this.state.p1_loc==0)
+                    document.getElementById('p1-start').style.display='none';
+                else if (this.state.p1_loc==1)
+                    document.getElementById('p11').style.display='none';
+                else if(this.state.p1_loc==2)
+                    document.getElementById('p12').style.display='none';
+                else if (this.state.p1_loc==3)
+                    document.getElementById('p13').style.display='none';
+                else if(this.state.p1_loc==4)
+                    document.getElementById('p14').style.display='none';
+                else if (this.state.p1_loc==5)
+                    document.getElementById('p15').style.display='none';
+                else if(this.state.p1_loc==6)
+                    document.getElementById('p16').style.display='none';
+                else if (this.state.p1_loc==7)
+                    document.getElementById('p17').style.display='none';
+                else if(this.state.p1_loc==8)
+                    document.getElementById('p18').style.display='none';
+                else 
+                    document.getElementById('p19').style.display='none';
+                dest+=parseInt(this.state.p1_loc);
+                    // console.log(dest);
+                    if(dest<=9){                
+                        setTimeout((d)=>{
+                                        document.getElementById('p1'+d).style.display='block';}
+                                    ,300,dest.toString());
+                            let score = this.updateScore(dest,true);
+                    this.setState({p1_h:score,active:'p2',game_msg:'Player 2 Turn',g_state:'roll',p1_loc:dest})
+                }
+                else
+                    this.setState({finish:'p1',g_state:'g_over'});                
+            }
+            else{
+                if(this.state.p2_loc==0)
+                    document.getElementById('p2-start').style.display='none';
+                else if (this.state.p2_loc==1)
+                    document.getElementById('p21').style.display='none';
+                else if(this.state.p2_loc==2)
+                    document.getElementById('p22').style.display='none';
+                else if (this.state.p2_loc==3)
+                    document.getElementById('p23').style.display='none';
+                else if(this.state.p2_loc==4)
+                    document.getElementById('p24').style.display='none';
+                else if (this.state.p2_loc==5)
+                    document.getElementById('p25').style.display='none';
+                else if(this.state.p2_loc==6)
+                    document.getElementById('p26').style.display='none';
+                else if (this.state.p2_loc==7)
+                    document.getElementById('p27').style.display='none';
+                else if(this.state.p2_loc==8)
+                    document.getElementById('p28').style.display='none';
+                else 
+                    document.getElementById('p29').style.display='none';
+                dest+=parseInt(this.state.p2_loc);
+                    // console.log(dest);
+                    if(dest<=9){                
+                        setTimeout((d)=>{
+                                        document.getElementById('p2'+d).style.display='block';}
+                                    ,300,dest.toString());
+                            let score = this.updateScore(dest,false);
+                    this.setState({p2_h:score,active:'p1',game_msg:'Player 1 Turn',g_state:'roll',p2_loc:dest})
+                }
+                else
+                    this.setState({finish:'p2',g_state:'g_over'});
+            }
+        }
     }
     
     clearpawns(){
-        document.getElementById('p21').style.display='none';
-        document.getElementById('p22').style.display='none';
-        document.getElementById('p23').style.display='none';
-        document.getElementById('p24').style.display='none';
-        document.getElementById('p25').style.display='none';
-        document.getElementById('p26').style.display='none';
-        document.getElementById('p27').style.display='none';
-        document.getElementById('p28').style.display='none';
-        document.getElementById('p29').style.display='none';
-        document.getElementById('p11').style.display='none';
-        document.getElementById('p12').style.display='none';
-        document.getElementById('p13').style.display='none';
-        document.getElementById('p14').style.display='none';
-        document.getElementById('p15').style.display='none';
-        document.getElementById('p16').style.display='none';
-        document.getElementById('p17').style.display='none';
-        document.getElementById('p18').style.display='none';
-        document.getElementById('p19').style.display='none';
+        for (let i=1;i<3;i++){
+            for(let j=1;j<10;j++){
+                document.getElementById('p'+i.toString()+j.toString()).style.display='none'
+            }
+        }        
         document.getElementById('game-2-comp-msg').style.display='none';
         document.getElementById('game-2-comp-stay-msg').style.display='none';
         document.getElementById('game-2-comp-move-msg').style.display='none';
@@ -243,9 +308,16 @@ class Game2 extends React.Component
                 document.getElementById('game-2-msg').style.display='none';
                 document.getElementById('game-2-comp-msg').style.display='block';
             },500);
-            setTimeout(this.roll2.bind(this),1000,this.state.p1_loc,this.state.p1_h);            
+            setTimeout(this.roll2.bind(this),1000,this.state.p1_loc,this.state.p1_h);
+            this.setState({g_state:'roll'});            
         }
-        this.setState({g_state:'roll'})
+        else{
+            if(this.state.active=='p1')
+                this.setState({game_msg:'Player 2 turn',active:'p2',g_state:'roll'});
+            else
+                this.setState({game_msg:'Player 1 turn',active:'p1',g_state:'roll'});
+        }
+        
     }
 
     updateScore(loc,isP1){
@@ -391,12 +463,22 @@ class Game2 extends React.Component
         );
     }
     renderp2char(){
-        return(
-            <div id='p2-start' >
-                <div id='p2-char-0' className='food' style={{backgroundImage:'url(../images/Pieces/Robot.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>
+        if(this.state.game_mode=='pvc'){
+            return(
+                <div id='p2-start' >
+                    <div id='p2-char-0' className='food' style={{backgroundImage:'url(../images/Pieces/Robot.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
+        else
+            return(
+                <div id='p2-start' >
+                    <div id='p2-char-0' className='food' style={{backgroundImage:'url(../images/Pieces/Astronaut.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>
+                    </div>
+                </div>
+            );
+        
     }
     renderChoice(){
         if(this.state.g_state=='decide')
@@ -425,13 +507,13 @@ class Game2 extends React.Component
                 <div id='game-2-comp-move-msg' > <strong>Computer choose to move</strong> 
                 </div>
                 <div id='game-2-comp-stay-msg' > <strong>Computer choose to Stay</strong> 
-                </div>
+                </div>                
             </div>
         );
     }
 
     renderPlates(){
-        const board_items = this.board.map((obj)=><Plates key={obj.type+obj.val} val={obj.val} type={obj.type} id={this.board.indexOf(obj)+1}/>);        
+        const board_items = this.board.map((obj)=><Plates g_mode={this.state.game_mode} key={obj.type+obj.val} val={obj.val} type={obj.type} id={this.board.indexOf(obj)+1}/>);        
         return(
             <div>
                 {board_items}
@@ -514,11 +596,20 @@ class Game2 extends React.Component
             
     }
 
+    renderp2head(){
+        if(this.state.game_mode=='pvc'){
+            return(<div id='p2char'></div>);            
+        }
+        else if(this.state.game_mode=='pvp')
+            return(<div id='p2p'></div>);
+        return(<div></div>);
+    }
+
     render(){
         // console.log('rndr '+this.state.p1_h,this.state.p2_h);
         return(
             <div className='game-2-area'>                
-                {/* <Modal show={this.state.disp_modal} onHide={this.handleClose.bind(this)} centered>
+                <Modal show={this.state.disp_modal} onHide={this.handleClose.bind(this)} centered>
                     <Modal.Header closeButton>
                         <Modal.Title>Choose Game Mode</Modal.Title>
                     </Modal.Header>
@@ -539,7 +630,7 @@ class Game2 extends React.Component
                             </Row>
                         </Container>                        
                     </Modal.Footer>
-                </Modal> */}
+                </Modal>
                 {this.renderOverlay()}
                 {this.renderPlates()}
                 {this.renderChoice()} 
@@ -549,8 +640,7 @@ class Game2 extends React.Component
                 {this.renderGameOver()}                              
                 <div id='p1char'>
                 </div>
-                <div id='p2char'> 
-                </div>
+                {this.renderp2head()}
                 <div id='dice1' onClick={this.roll1}>
                 </div>
                 <div id='dice2' onClick={this.roll1}>
