@@ -9,12 +9,12 @@ class Plates extends React.Component{
     renderp2(){
         if(this.props.g_mode=='pvc'){
             return(
-                <div id={'p2'+this.props.id} className='p-char' style={{backgroundImage:'url(../images/Pieces/Robot.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
+                <div id={'p2'+this.props.id} className='p-char2' style={{backgroundImage:'url(../images/Pieces/Robot.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
                 </div>
             );
         }
         return(
-            <div id={'p2'+this.props.id} className='p-char' style={{backgroundImage:'url(../images/Pieces/Astronaut.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
+            <div id={'p2'+this.props.id} className='p-char2' style={{backgroundImage:'url(../images/Pieces/Astronaut.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center',display:'none'}}>
             </div>
         );
     }
@@ -340,10 +340,27 @@ class Game2 extends React.Component
                 }                    
                 else return(this.state.p1_h); 
             }
-            else
-                return(this.state.p1_h); 
-                                   
-            
+            else{
+                let rnd = Math.random();
+                if(rnd<0.25){
+                    document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)+20).toString()+'%';
+                    alert('You got 20 points');
+                    return(parseInt(this.state.p1_h)+20);                    
+                }
+                else if(rnd>=0.25 && rnd<0.5){
+                    document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)+10).toString()+'%';
+                    alert('You got 10 points');
+                    return(parseInt(this.state.p1_h)+10); 
+                }
+                else if(rnd>=0.5 && rnd<0.75){
+                    document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)-10).toString()+'%';
+                    alert('You lost 10 points');
+                    return(parseInt(this.state.p1_h)-10); 
+                }
+                document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)-20).toString()+'%';
+                alert('You lost 20 points');
+                return(parseInt(this.state.p1_h)-20);
+            }
         }
         else{
             let type = this.board[parseInt(loc)-1].type;            
@@ -365,7 +382,28 @@ class Game2 extends React.Component
                 else return(this.state.p2_h); 
             }
             else
-                return(this.state.p2_h); 
+            {
+                let rnd = Math.random();
+                if(rnd<0.25){
+                    document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)+20).toString()+'%';
+                    this.state.game_mode=='pvp'? alert('You got 20 points') :alert('Computer got 20 points');
+                    return(parseInt(this.state.p2_h)+20);                    
+                }
+                else if(rnd>=0.25 && rnd<0.5){
+                    document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)+10).toString()+'%';
+                    this.state.game_mode=='pvp'? alert('You got 10 points') :alert('Computer got 10 points');
+                    return(parseInt(this.state.p2_h)+10); 
+                }
+                else if(rnd>=0.5 && rnd<0.75){
+                    document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)-10).toString()+'%';
+                    this.state.game_mode=='pvp'? alert('You lost 10 points') :alert('Computer lost 10 points');
+                    return(parseInt(this.state.p2_h)-10); 
+                }
+                document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)-20).toString()+'%';
+                this.state.game_mode=='pvp'? alert('You lost 20 points') :alert('Computer lost 20 points');
+                return(parseInt(this.state.p2_h)-20);
+            }
+                 
         }
     }
 
@@ -499,14 +537,14 @@ class Game2 extends React.Component
         return(
             <div id='game-2-msg-wrapper'>
                 <div id='game-2-msg'>
-                    <strong>{this.state.game_msg}</strong>
+                    <strong style={{color:'white',textShadow:'3px 3px #333'}}>{this.state.game_msg}</strong>
                 </div>
                 <div id='game-2-comp-msg'>
-                <strong>Computer's Turn</strong> 
+                <strong style={{color:'white',textShadow:'3px 3px #333'}}>Computer's Turn</strong> 
                 </div>
-                <div id='game-2-comp-move-msg' > <strong>Computer choose to move</strong> 
+                <div id='game-2-comp-move-msg' > <strong style={{color:'white',textShadow:'3px 3px #333'}}>Computer choose to move</strong> 
                 </div>
-                <div id='game-2-comp-stay-msg' > <strong>Computer choose to Stay</strong> 
+                <div id='game-2-comp-stay-msg' > <strong style={{color:'white',textShadow:'3px 3px #333'}}>Computer choose to Stay</strong> 
                 </div>                
             </div>
         );

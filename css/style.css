@@ -774,6 +774,13 @@ input[type=radio] {
   width: 100%;
 }
 
+.p-char2{
+  position: relative;
+  margin-top: 15%;
+  height: 100%;
+  width: 100%;
+}
+
 #end-flag{
   position: absolute;
   height: 12.5%;
