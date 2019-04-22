@@ -776,7 +776,7 @@ input[type=radio] {
 
 .p-char2{
   position: relative;
-  margin-top: 15%;
+  margin-bottom: -60%;
   height: 100%;
   width: 100%;
 }
