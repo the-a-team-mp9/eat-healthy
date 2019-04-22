@@ -87,7 +87,7 @@ class Game2 extends React.Component
             [this.board[i], this.board[j]] = [this.board[j], this.board[i]];
         }
         this.state= {g_state:'start', disp_modal:true, game_mode:'pvc', p1_loc:0, 
-                     p2_loc:0, p1_h:10, p2_h:10, active:'p1', finish:'none', game_msg:'Player 1 Turn'};
+                     p2_loc:0, p1_h:20, p2_h:20, active:'p1', finish:'none', game_msg:'Player 1 Turn'};
         this.roll1 = this.roll1.bind(this);  
         this.updateScore = this.updateScore.bind(this);      
     }
@@ -95,6 +95,12 @@ class Game2 extends React.Component
         this.setState({ disp_modal:false});
     }
     
+    restart(){
+        this.clearpawns();
+        this.setState({g_state:'start', disp_modal:true, game_mode:'pvc', p1_loc:0, 
+        p2_loc:0, p1_h:20, p2_h:20, active:'p1', finish:'none', game_msg:'Player 1 Turn'});
+    }
+
     go(){
         
         let dest = parseInt(this.state.rolled_num);
@@ -144,10 +150,36 @@ class Game2 extends React.Component
         }
     }
     
+    clearpawns(){
+        document.getElementById('p21').style.display='none';
+        document.getElementById('p22').style.display='none';
+        document.getElementById('p23').style.display='none';
+        document.getElementById('p24').style.display='none';
+        document.getElementById('p25').style.display='none';
+        document.getElementById('p26').style.display='none';
+        document.getElementById('p27').style.display='none';
+        document.getElementById('p28').style.display='none';
+        document.getElementById('p29').style.display='none';
+        document.getElementById('p11').style.display='none';
+        document.getElementById('p12').style.display='none';
+        document.getElementById('p13').style.display='none';
+        document.getElementById('p14').style.display='none';
+        document.getElementById('p15').style.display='none';
+        document.getElementById('p16').style.display='none';
+        document.getElementById('p17').style.display='none';
+        document.getElementById('p18').style.display='none';
+        document.getElementById('p19').style.display='none';
+        document.getElementById('game-2-comp-msg').style.display='none';
+        document.getElementById('game-2-comp-stay-msg').style.display='none';
+        document.getElementById('game-2-comp-move-msg').style.display='none';
+        document.getElementById('game-2-msg').style.display='block';
+        document.getElementById('p1-start').style.display='block';
+        document.getElementById('p2-start').style.display='block';
+    }
 
     simulateComp(d,loc,score){
         let rolledVal = d[d.length-1];        
-        if(Math.random()>.6){
+        if(Math.random()>.75){
             document.getElementById('game-2-comp-msg').style.display='none';
             document.getElementById('game-2-comp-stay-msg').style.display='block';
             setTimeout(()=>{
@@ -191,7 +223,7 @@ class Game2 extends React.Component
                 setTimeout(this.endTurn.bind(this),1200,score,p2_score,loc,p2_dest);
                 }
             else    
-            this.setState({finish:'p2',g_state:'g_over',p1_h:score,p1_loc:dest});
+            this.setState({finish:'comp',g_state:'g_over',p1_h:score,p1_loc:loc});
         }
     }
 
@@ -222,8 +254,8 @@ class Game2 extends React.Component
             let type = this.board[parseInt(loc)-1].type;            
             if(type=='h'){
                 // console.log('up p1-h',parseInt(this.state.p1_h)+10,);
-                document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)+10).toString()+'%';
-                return(parseInt(this.state.p1_h)+10);
+                document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)+20).toString()+'%';
+                return(parseInt(this.state.p1_h)+20);
             }
                 
             else if(type=='u')
@@ -231,8 +263,8 @@ class Game2 extends React.Component
                 if(this.state.p1_h>0)
                 {
                     // console.log('up p1-u',parseInt(this.state.p1_h)-10,);
-                    document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)-10).toString()+'%';
-                    return(parseInt(this.state.p1_h)-10);
+                    document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)-20).toString()+'%';
+                    return(parseInt(this.state.p1_h)-20);
                 }                    
                 else return(this.state.p1_h); 
             }
@@ -246,8 +278,8 @@ class Game2 extends React.Component
             if(type=='h')
             {
                 // console.log('up p2-h',parseInt(this.state.p2_h)+10,);
-                document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)+10).toString()+'%';
-                return(parseInt(this.state.p2_h)+10);
+                document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)+20).toString()+'%';
+                return(parseInt(this.state.p2_h)+20);
             }
                 
             else if(type=='u')
@@ -255,8 +287,8 @@ class Game2 extends React.Component
                 if(this.state.p2_h>0)
                 {
                     // console.log('up p2-u',parseInt(this.state.p2_h)-10,);
-                    document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)-10).toString()+'%';
-                    return(parseInt(this.state.p2_h)-10);
+                    document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)-20).toString()+'%';
+                    return(parseInt(this.state.p2_h)-20);
                 }                    
                 else return(this.state.p2_h); 
             }
@@ -328,13 +360,27 @@ class Game2 extends React.Component
         if(this.state.finish=='p1'){
             return(
                 <div id='end'>
-                    <div className='food' style={{backgroundImage:'url(../images/Pieces/Kid_win.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>
+                    <div className='food' style={{backgroundImage:'url(../images/Pieces/Kid.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>
                     </div>
                 </div>
             );
         }
-        else
-            return(<div></div>);
+        else if(this.state.finish=='comp'){
+            return(
+                <div id='end'>
+                    <div className='food' style={{backgroundImage:'url(../images/Pieces/Robot.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>
+                    </div>
+                </div>
+                );
+        }
+        else if(this.state.finish=='p2')
+            return(
+                <div id='end'>
+                    <div className='food' style={{backgroundImage:'url(../images/Pieces/Astronaut.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>
+                    </div>
+                </div>
+            );
+            
     }
     renderp1char(){
         return(
@@ -393,10 +439,85 @@ class Game2 extends React.Component
             
         );        
     }
+
+    renderOverlay(){
+        if(this.state.finish!='none'){
+            if(this.state.p1_h>this.state.p2_h){
+                return(
+                    <div id='overlay' className='overlay-msg'>
+                        <div id='win-scr-row-1' >
+                            <h1 style={{color:'white'}}>
+                                Player 1 Wins
+                            </h1>
+                            <img className='img-responsive' src='../images/Pieces/Kid_win.png' />
+                        </div>
+                        <div id='win-scr-row-2' style={{cursor:'pointer'}}>                    
+                            <img className='restart-button' src='../images/sprites/replay_button.png' onClick={this.restart.bind(this)}></img>
+                        </div>
+                    </div>
+                );
+            }
+            else if(this.state.p1_h<this.state.p2_h){
+                if(this.state.game_mode=='pvc'){
+                    return(
+                        <div id='overlay' className='overlay-msg'>
+                            <div id='win-scr-row-1' >
+                                <h1 style={{color:'white'}}>
+                                    Computer Wins 
+                                </h1>
+                                <img className='img-responsive' src='../images/Pieces/Robot_win.png' />
+                            </div>
+                            <div id='win-scr-row-2' style={{cursor:'pointer'}}>                    
+                                <img className='restart-button' src='../images/sprites/replay_button.png' onClick={this.restart.bind(this)}></img>
+                            </div>
+                        </div>
+                    );
+                }
+                else{
+                    return(
+                        <div id='overlay' className='overlay-msg'>
+                            <div id='win-scr-row-1' >
+                                <h1 style={{color:'white'}}>
+                                    Player 2 Wins 
+                                </h1>
+                                <img className='img-responsive' src='../images/Pieces/Astronaut_win.png' />
+                            </div>
+                            <div id='win-scr-row-2' style={{cursor:'pointer'}}>                    
+                                <img className='restart-button' src='../images/sprites/replay_button.png' onClick={this.restart}></img>
+                            </div>
+                        </div>
+                    );
+                }
+            }
+            else{
+                return(
+                    <div id='overlay' className='overlay-msg'>
+                        <div id='win-scr-row-1' >
+                            <h1 style={{color:'white'}}>
+                                Scores Tie 
+                            </h1>                            
+                        </div>
+                        <div id='win-scr-row-2' style={{cursor:'pointer'}}>                    
+                            <img className='restart-button' src='../images/sprites/replay_button.png' onClick={this.restart}></img>
+                        </div>
+                    </div>
+                );
+            }
+            // return(
+            //     <div id='overlay' className='overlay-msg' hidden>
+
+            //     </div>
+            // );
+        }
+        else
+            return(<div></div>);
+            
+    }
+
     render(){
         // console.log('rndr '+this.state.p1_h,this.state.p2_h);
         return(
-            <div className='game-2-area'>
+            <div className='game-2-area'>                
                 {/* <Modal show={this.state.disp_modal} onHide={this.handleClose.bind(this)} centered>
                     <Modal.Header closeButton>
                         <Modal.Title>Choose Game Mode</Modal.Title>
@@ -419,6 +540,7 @@ class Game2 extends React.Component
                         </Container>                        
                     </Modal.Footer>
                 </Modal> */}
+                {this.renderOverlay()}
                 {this.renderPlates()}
                 {this.renderChoice()} 
                 {this.renderGameMessages()}
@@ -442,7 +564,7 @@ class Game2 extends React.Component
                 </div>
                 <div id='no'>
                 </div> */}
-                <div id='back'>
+                <div id='back' onClick={()=>{window.location.href='/games'}}>                    
                 </div>
                 <div id='p1-health'>
                     <ProgressBar animated striped variant='danger' now={this.state.p1_h}></ProgressBar>
