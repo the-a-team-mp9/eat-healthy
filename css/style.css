@@ -768,15 +768,15 @@ input[type=radio] {
 }
 
 .p-char{
-  position: relative;
-  margin-top: -60%;
+  position: absolute;
+  top: -65%;
   height: 100%;
   width: 100%;
 }
 
 .p-char2{
-  position: relative;
-  margin-bottom: -60%;
+  position: absolute;
+  top: 60%;
   height: 100%;
   width: 100%;
 }
