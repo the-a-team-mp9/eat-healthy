@@ -610,13 +610,13 @@ class Game2 extends React.Component
         return(
             <div className='game-2-area'>                
                 <Modal show={this.state.disp_modal} onHide={this.handleClose.bind(this)} centered>
-                    <Modal.Header closeButton>
+                    <Modal.Header style={{backgroundColor:'rgb(97, 114, 123)',color:'white',borderBottom:'1px solid #36474f'}} closeButton>
                         <Modal.Title>Choose Game Mode</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>                                                       
+                    <Modal.Body style={{backgroundColor:'rgb(97, 114, 123)',color:'white'}}>                                                       
                         Play against the Computer or a Friend                                                          
                     </Modal.Body>
-                    <Modal.Footer style={{textAlign:'center'}}>
+                    <Modal.Footer style={{textAlign:'center' , backgroundColor:'rgb(97, 114, 123)',color:'white',borderTop:'1px solid #36474f'}}>
                     <Container>                            
                             <Row className="justify-content-md-center">
                                 <Col md={12} xs={12} sm={12} lg={12}>

@@ -78,21 +78,28 @@ class Info extends React.Component{
                                         <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px'}}>
                                             <div  style={{paddingLeft:'7px',paddingRight:'7px'}}>
                                                 <p style={{textAlign:'justify',paddingTop:'0',color:'white'}}>
-                                                    In 2014-15, 20% children aged 2-4 were either overweight or obese and
-                                                    about 1 in 4 (27%) children aged 5-17 were either overweight or obese. 
+                                                    In 2014-15, 
+                                                        <strong style={{color:'#ff5542'}}> 20%</strong> children aged 2-4 were either overweight or obese and about 
+                                                        <strong style={{color:'#ff5542'}}> 1 in 4 (27%)</strong> children aged 5-17 were either overweight or obese. 
                                                     The rate of obesity increases with age and girls are affected the most.                                                    
                                                 </p>
+
                                                 <p style={{textAlign:'justify',color:'white'}}>
                                                 Children are considered over weight if their Body Mass Index (BMI) is in the range 25 to 29.9. Children with BMI 30 or greater are considered obese.
                                                 </p>
+
                                                 <p style={{textAlign:'justify',color:'white'}}>
-                                                80% of overweight and obese children retain their problems as they grow up as adults.
+                                                <strong style={{color:'#ff5542'}}>80% </strong> 
+                                                of overweight and obese children retain their problems as they grow up as adults.
                                                 </p>
+
                                                 <p style={{textAlign:'justify',color:'white'}}>
-                                                The trend of childhood obesity has <strong style={{color:'#ff5542'}}>consistently</strong>  increased through the years. 
-                                                In 2017, about 25-30% of children aged 2-11 suffered from obesity or overweight issues.
+                                                The trend of childhood obesity has 
+                                                <strong style={{color:'#ff5542'}}> consistently  
+                                                increased </strong> through the years. 
+                                                In 2017, about  <strong style={{color:'#ff5542'}}>25-30%</strong> of children aged 2-11 suffered from obesity or overweight issues.
                                                 </p>
-                                            </div>                                            
+                                            </div>                                          
                                         </Col>
                                         <Col sm={12} md={12} lg={6} style={{marginBottom:'20px'}}>
                                             <img
@@ -102,11 +109,6 @@ class Info extends React.Component{
                                             /> 
                                         </Col>                                        
                                     </Row>
-                                    {/* <Row className="justify-content-md-center">
-                                        <Col md='auto'>
-                                        {this.renderPagination()}    
-                                        </Col>
-                                    </Row>                                     */}
                                 </Carousel.Item>
                                 <Carousel.Item>
                                     <h1 style={{textAlign:'center',color:'white'}}>
@@ -115,17 +117,21 @@ class Info extends React.Component{
                                     <Row style={{textAlign:'center'}}>
                                         <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px'}}>
                                             <div  style={{paddingLeft:'7px',paddingRight:'7px'}}>
-                                                <p style={{textAlign:'justify',paddingTop:'0'}}>
-                                                    World Health Organization recommends at least 4 servings or 340g of vegetables for daily consumption for 4-8 years old children.
+                                                <p style={{textAlign:'justify',paddingTop:'0',color:'white'}}>
+                                                    World Health Organization recommends at least <strong style={{color:'#46cc67'}}> 4 </strong> 
+                                                    servings or <strong style={{color:'#46cc67'}}> 340g</strong> of vegetables 
+                                                    for daily consumption for 4-8 years old children.
                                                     </p>
-                                                    <p style={{textAlign:'justify'}}>
-                                                    Data from Australian Bureau of Statistics indicates nearly 96% of children aged 4-8 years
-                                                     are not getting the minimum recommended intake of vegetables on a daily basis.
+                                                    <p style={{textAlign:'justify',color:'white'}}>
+                                                    Data from Australian Bureau of Statistics indicates nearly 
+                                                     <strong style={{color:'#ff5542'}}> 96% </strong>  
+                                                    of children aged 4-8 years
+                                                     are  <strong style={{color:'#ff5542'}}>NOT</strong> getting the minimum recommended intake of vegetables on a daily basis.
                                                     </p>
-                                                    <p style={{textAlign:'justify'}}>
-                                                    About 15% of children get less than half a serving of vegetables every day. This is only 1/8th of the recommended intake.
+                                                    <p style={{textAlign:'justify',color:'white'}}>
+                                                    About  <strong style={{color:'#ff5542'}}>15%</strong> of children get less than half a serving of vegetables every day. This is only <strong style={{color:'#ff5542'}}>1/8th</strong> of the recommended intake.
                                                 </p>
-                                            </div>                                            
+                                            </div>                                          
                                         </Col>
                                         <Col sm={12} md={12} lg={6} style={{marginBottom:'20px'}} >
                                             <img
@@ -134,12 +140,7 @@ class Info extends React.Component{
                                                 alt="First slide"
                                             /> 
                                         </Col>                                        
-                                    </Row>
-                                    {/* <Row className="justify-content-md-center">
-                                        <Col md='auto'>
-                                        {this.renderPagination()}    
-                                        </Col>
-                                    </Row>                                                  */}
+                                    </Row>                                   
                                 </Carousel.Item>
                                 <Carousel.Item>
                                 <h1 style={{textAlign:'center',color:'white'}}>
@@ -148,15 +149,15 @@ class Info extends React.Component{
                                     <Row style={{textAlign:'center'}}>
                                         <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px'}}>
                                             <div  style={{paddingLeft:'7px',paddingRight:'7px'}}>
-                                                <p style={{textAlign:'justify',paddingTop:'0'}}>
+                                                <p style={{textAlign:'justify',paddingTop:'0',color:'white'}}>
                                                 We decide what we’re going to eat based on our senses. Our choice of foods is based 
                                                 on how it looks, how it smells, how it feels and how it tastes.
                                                     </p>
-                                                    <p style={{textAlign:'justify'}}>
+                                                    <p style={{textAlign:'justify',color:'white'}}>
                                                     Junk foods are energy dense. They trigger an increased appetite in children due to our primal instincts to survive. 
                                                     With everyday exposure to junk foods, kids develop an aversion to more healthy alternatives like vegetables.
                                                     </p>
-                                                    <p style={{textAlign:'justify'}}>
+                                                    <p style={{textAlign:'justify',color:'white'}}>
                                                     Children tend to continue eating junk food even after they feel full. The reward children feel
                                                      after eating junk foods is a huge motivation for them
                                                      to demand unhealthy foods instead of healthy foods.
@@ -166,16 +167,11 @@ class Info extends React.Component{
                                         <Col sm={12} md={12} lg={6} style={{marginBottom:'20px'}} >
                                             <img
                                                 className="d-block w-100"
-                                                src="../images/Visuals/dataview3.png?text=First slide&bg=373940"
+                                                src="../images/Visuals/dataview3.png"
                                                 alt="First slide"
                                             /> 
                                         </Col>                                        
-                                    </Row>
-                                    {/* <Row className="justify-content-md-center">
-                                        <Col md='auto'>
-                                        {this.renderPagination()}    
-                                        </Col>
-                                    </Row>        */}
+                                    </Row>                                   
                                 </Carousel.Item>
                                 <Carousel.Item>
                                 <h1 style={{textAlign:'center',color:'white'}}>
@@ -184,15 +180,15 @@ class Info extends React.Component{
                                     <Row style={{textAlign:'center'}}>
                                         <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px'}}>
                                             <div  style={{paddingLeft:'7px',paddingRight:'7px'}}>
-                                                <p style={{textAlign:'justify',paddingTop:'0'}}>
+                                                <p style={{textAlign:'justify',paddingTop:'0',color:'white'}}>
                                                 Children can be educated to choose healthy foods by increased rewards for eating them. If external incentives apart 
                                                 from the satisfaction of eating healthy foods outweigh the satisfaction
                                                  of eating unhealthy foods, children voluntarily choose to eat healthily.
                                                     </p>
-                                                    <p style={{textAlign:'justify'}}>
+                                                    <p style={{textAlign:'justify',color:'white'}}>
                                                     Games are very good rewarding mechanisms that can be used to correct and shape children's behaviour.
                                                     </p>
-                                                    <p style={{textAlign:'justify'}}>
+                                                    <p style={{textAlign:'justify',color:'white'}}>
                                                     We have designed 3 interesting video games, which teach kids to identify healthy and unhealthy foods.
                                                     The games provide rewards for choosing to eat healthy foods and penalise for eating unhealthy foods. 
                                                     This provides the incentive to slowly reduce the resistance in children to eat healthy foods.
@@ -217,47 +213,7 @@ class Info extends React.Component{
                         {this.renderButtons()}
                         </Col>
                     </Row>                
-                </Container>
-                {/* <Carousel interval={null} wrap={false} indicators={false}>
-                                <Carousel.Item>
-                                    <h1 style={{textAlign:'center',color:'white'}}>
-                                        CHILDHOOD OBESITY IS ON THE RISE!
-                                    </h1>
-                                    <img
-                                        className="d-block w-100"
-                                        src="../images/Visuals/obesity-trend.jpg?text=First slide&bg=373940"
-                                        alt="First slide"
-                                    />
-                                    <Carousel.Caption>
-                                        <h3>First slide label</h3>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src="../images/Visuals/consumption-of-foods.jpg?text=Second slide&bg=282c34"
-                                        alt="Third slide"
-                                    />
-
-                                    <Carousel.Caption>
-                                        <h3>Second slide label</h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img
-                                        className="d-block w-100"
-                                        src="../images/Visuals/dataview3.png?text=Third slide&bg=20232a"
-                                        alt="Third slide"
-                                    />
-
-                                    <Carousel.Caption>
-                                        <h3>Third slide label</h3>
-                                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                            </Carousel> */}
+                </Container>               
             </div>
         );
     }
