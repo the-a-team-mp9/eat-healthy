@@ -6,17 +6,23 @@ class Games extends React.Component {
         super(props);
     }
 
-    showModal() {
+    showModal(id) {
         if (document.getElementById('modal')) {
             console.log('found modal');
-            document.getElementById('modal').style.display = 'block';
+            document.getElementById('modal').style.display = 'block';            
             document.getElementById('modal').style.zIndex = 10;
+            if(id==1)
+                document.getElementById('caption').style.display = 'block';
+            else if(id==2)
+                document.getElementById('caption1').style.display = 'block';
         }
 
     }
     hideModal() {
         if (document.getElementById('modal')) {
-            document.getElementById('modal').style.display = 'none';
+            document.getElementById('caption').style.display = 'none';
+            document.getElementById('caption1').style.display = 'none';
+            document.getElementById('modal').style.display = 'none';            
             document.getElementById('modal').style.zIndex = 0;
         }
 
@@ -55,15 +61,34 @@ class Games extends React.Component {
                             </h2>
                         </div>
                         <div className='modfull'>
-                            <Button variant='info' style={{ width: '115px' }}>
-                                <a href='/tutorial1' style={{ color: 'white' }}>
-                                    View Tutorial
-                            </a>
+                            <Button variant='info' style={{ width: '115px' }} onClick={()=>{window.location.href='/tutorial1'}}>                                
+                                    View Tutorial                            
                             </Button>
                         </div>
                         <div className='modfull'>
-                            <Button variant='success' style={{ width: '115px' }}>
-                                <a href='/game-1' style={{ color: 'white' }}>Jump to game</a>
+                            <Button variant='success' style={{ width: '115px' }} onClick={()=>{window.location.href='/game-1'}}>
+                                Jump to game
+                            </Button>
+                        </div>
+                        <div className='modfull'>
+                            <Button variant='danger' onClick={this.hideModal}>Close
+                            </Button>
+                        </div>
+                    </div>
+                    <div className='modal1-content' style={{ backgroundColor: "#61727b", paddingBottom: '20px', maxWidth: '150px' }} id='caption1'>
+                        <div className='modfull'>
+                            <h2>
+                                Game 1
+                            </h2>
+                        </div>
+                        <div className='modfull'>
+                            <Button variant='info' style={{ width: '115px' }} onClick={()=>{window.location.href='/tutorial2'}}>                                
+                                    View Tutorial                            
+                            </Button>
+                        </div>
+                        <div className='modfull'>
+                            <Button variant='success' style={{ width: '115px' }} onClick={()=>{window.location.href='/game-2'}}>
+                                 Jump to game
                             </Button>
                         </div>
                         <div className='modfull'>
@@ -77,7 +102,7 @@ class Games extends React.Component {
                         <Row>
                             <Col xs={12} md={6} lg={4} className='wp2 animated fadeInUp' style={{ textAlign: 'center',paddingBottom:'20px' }}>
                                 <div className="img">
-                                    <div style={{ cursor: 'pointer' }} onClick={this.showModal}>
+                                    <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,1)}>
                                         <img src="../images/Game_Icons/Gameicon1.png" alt="Game 1" />
                                     </div>
                                 </div>
@@ -91,12 +116,14 @@ class Games extends React.Component {
                             </Col>
                             <Col xs={12} md={6} lg={4} className='wp2 animated fadeInUp' style={{paddingBottom:'20px'}}>
                                 <div className="img">
-                                    <a href="/game-2">
-                                        <img src="../images/Game_Icons/Gameicon2.png" alt="Game 2" />
-                                    </a>
+                                    <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,2)}>
+                                        <img src="../images/Game_Icons/Gameicon2.png" alt="Eatopoly" />
+                                    </div>
                                 </div>
-                                <h2 style={{ textAlign: "center" }}>Eat-opoly</h2>
-                                <p></p>
+                                <h2 style={{ textAlign: "center" }}>Eat-opoly</h2>                                
+                                <p style={{ textAlign: "center", color: 'white' }}>Roll the dice and earn points by eting healthy foods</p>
+                                <p style={{ textAlign: "center", color: 'white' }}>Play with a friend or the computer</p>
+                                <p style={{ textAlign: "center", color: 'white' }}>Make up your own startegy to win</p>
                             </Col>
                             <Col xs={12} md={6} lg={4} className='wp2 animated fadeInUp' style={{paddingBottom:'20px'}}>
                                 <div className="img">

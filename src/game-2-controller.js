@@ -1,5 +1,10 @@
 import React from 'react';
-import {ProgressBar,Modal,Button, Container, Row,Col} from 'react-bootstrap'
+import {ProgressBar,Modal,Button, Container, Row,Col} from 'react-bootstrap';
+
+let audio_c = new Audio('../sound/res_c_s.wav');
+let audio_w = new Audio('../sound/res_w_s.wav');
+let audio_win = new Audio('../sound/win.wav');
+
 
 class Plates extends React.Component{
     constructor(props){
@@ -326,6 +331,7 @@ class Game2 extends React.Component
             let type = this.board[parseInt(loc)-1].type;            
             if(type=='h'){
                 // console.log('up p1-h',parseInt(this.state.p1_h)+10,);
+                audio_c.play();
                 document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)+20).toString()+'%';
                 return(parseInt(this.state.p1_h)+20);
             }
@@ -335,6 +341,7 @@ class Game2 extends React.Component
                 if(this.state.p1_h>0)
                 {
                     // console.log('up p1-u',parseInt(this.state.p1_h)-10,);
+                    audio_w.play();
                     document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)-20).toString()+'%';
                     return(parseInt(this.state.p1_h)-20);
                 }                    
@@ -367,6 +374,7 @@ class Game2 extends React.Component
             if(type=='h')
             {
                 // console.log('up p2-h',parseInt(this.state.p2_h)+10,);
+                audio_c.play();
                 document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)+20).toString()+'%';
                 return(parseInt(this.state.p2_h)+20);
             }
@@ -376,6 +384,7 @@ class Game2 extends React.Component
                 if(this.state.p2_h>0)
                 {
                     // console.log('up p2-u',parseInt(this.state.p2_h)-10,);
+                    audio_w.play();
                     document.getElementById('p2-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p2_h)-20).toString()+'%';
                     return(parseInt(this.state.p2_h)-20);
                 }                    
@@ -563,6 +572,7 @@ class Game2 extends React.Component
     renderOverlay(){
         if(this.state.finish!='none'){
             if(this.state.p1_h>this.state.p2_h){
+                audio_win.play();
                 return(
                     <div id='overlay' className='overlay-msg'>
                         <div id='win-scr-row-1' >
@@ -594,6 +604,7 @@ class Game2 extends React.Component
                     );
                 }
                 else{
+                    audio_win.play();
                     return(
                         <div id='overlay' className='overlay-msg'>
                             <div id='win-scr-row-1' >
