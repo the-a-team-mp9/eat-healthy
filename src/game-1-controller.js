@@ -91,7 +91,7 @@ class Game_1 extends React.Component
             let j = Math.floor(Math.random() * (i + 1));
             [this.unhealthy_food_arr[i], this.unhealthy_food_arr[j]] = [this.unhealthy_food_arr[j], this.unhealthy_food_arr[i]];
         }
-        this.state = {score:10,h_seq:0,u_seq:0};
+        this.state = {score:10,h_seq:0,u_seq:0,conseq_u:0};
         this.updateClick = this.updateClick.bind(this);
         this.save_progress = this.save_progress.bind(this);
         this.restart = this.restart.bind(this);
@@ -123,6 +123,7 @@ class Game_1 extends React.Component
             // console.log(this.healthy_food_arr);
         }
         let old_score = this.state.score;
+        let consq_u = this.state.conseq_u;
         if(isHealthy){
             audio_c.play();
             if(this.state.score+10>=100)
@@ -130,10 +131,11 @@ class Game_1 extends React.Component
                 this.setState((state)=>{return{score:100 , h_seq:state.h_seq+1, u_seq:this.state.u_seq}});
                 audio_win.play();
                 document.getElementById('overlay').hidden = false;
+                document.getElementById('gameover').hidden = true;
             }
                 
             else
-                this.setState((state)=>{return{score:state.score+10 , h_seq:state.h_seq+1, u_seq:this.state.u_seq}});
+                this.setState((state)=>{return{score:state.score+10 , h_seq:state.h_seq+1, u_seq:this.state.u_seq,conseq_u:0}});
             if(old_score>=15 && old_score<25)
                 char_upgrade_1.play();
             else if (old_score>=40 && old_score<50)
@@ -143,10 +145,14 @@ class Game_1 extends React.Component
         }
         else{
             audio_w.play();
+            if((this.state.conseq_u+1)==5){
+                document.getElementById('overlay').hidden = false;
+                document.getElementById('gameover').style.display='block';
+            }
             if(this.state.score>5)
                 this.setState((state)=>{return{score:state.score-5 , h_seq:state.h_seq, u_seq:this.state.u_seq+1}});
             else
-            this.setState((state)=>{return{score:5 , h_seq:state.h_seq, u_seq:this.state.u_seq+1}});
+            this.setState((state)=>{return{score:5 , h_seq:state.h_seq, u_seq:this.state.u_seq+1,conseq_u:consq_u+1}});
         }
         
 
@@ -205,6 +211,7 @@ class Game_1 extends React.Component
         return(            
             <div className="page" >                
                 <div id="overlay" className="overlay-msg" hidden>
+                    <h1 id='gameover' style={{display:'none', textAlign:'center',color:'white'}}> Oh No you ate too many unhealthy foods</h1>
                     <a href="#">
                     <img className='restart-button' src='../images/sprites/replay_button.png' onClick={this.restart}></img>
                     </a>                    
