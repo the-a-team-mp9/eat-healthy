@@ -117,7 +117,7 @@ class Games extends React.Component {
                             <Col xs={12} md={6} lg={4} className='wp2 animated fadeInUp' style={{paddingBottom:'20px'}}>
                                 <div className="img">
                                     <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,2)}>
-                                        <img src="../images/Game_Icons/Gameicon2.png" alt="Eatopoly" />
+                                        <img src="../images/Game_Icons/Game_2_Logo.png" alt="Eatopoly" />
                                     </div>
                                 </div>
                                 <h2 style={{ textAlign: "center" }}>Eat-opoly</h2>                                

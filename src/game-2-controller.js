@@ -4,7 +4,8 @@ import {ProgressBar,Modal,Button, Container, Row,Col} from 'react-bootstrap';
 let audio_c = new Audio('../sound/res_c_s.wav');
 let audio_w = new Audio('../sound/res_w_s.wav');
 let audio_win = new Audio('../sound/win.wav');
-
+let dice_roll = new Audio('../sound/Dices.wav');
+let audio_loose = new Audio('../sound/Lose_short.wav');
 
 class Plates extends React.Component{
     constructor(props){
@@ -329,8 +330,7 @@ class Game2 extends React.Component
         // console.log('updt '+this.state.p1_h,this.state.p2_h);       
         if(isP1){
             let type = this.board[parseInt(loc)-1].type;            
-            if(type=='h'){
-                // console.log('up p1-h',parseInt(this.state.p1_h)+10,);
+            if(type=='h'){                
                 audio_c.play();
                 document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)+20).toString()+'%';
                 return(parseInt(this.state.p1_h)+20);
@@ -339,8 +339,7 @@ class Game2 extends React.Component
             else if(type=='u')
             {
                 if(this.state.p1_h>0)
-                {
-                    // console.log('up p1-u',parseInt(this.state.p1_h)-10,);
+                {                    
                     audio_w.play();
                     document.getElementById('p1-health').childNodes[0].childNodes[0].style.width=(parseInt(this.state.p1_h)-20).toString()+'%';
                     return(parseInt(this.state.p1_h)-20);
@@ -442,9 +441,11 @@ class Game2 extends React.Component
             d2.style.display='none';
             d3.style.display='none';
             document.getElementById('dice-gif').style.display='block';
+            dice_roll.play();
             // console.log(document.getElementById('dice-gif').style.display);
             setTimeout((d)=>{            
                 document.getElementById('dice-gif').style.display='none';
+                dice_roll.play();
                 document.getElementById(d).style.display='block';
             },1200,choice);
             setTimeout(this.getRolled.bind(this),1300,choice);
@@ -468,6 +469,7 @@ class Game2 extends React.Component
         d2.style.display='none';
         d3.style.display='none';
         document.getElementById('dice-gif').style.display='block';
+        dice_roll.play();
         // console.log(document.getElementById('dice-gif').style.display);
         setTimeout((d)=>{            
             document.getElementById('dice-gif').style.display='none';
@@ -589,6 +591,7 @@ class Game2 extends React.Component
             }
             else if(this.state.p1_h<this.state.p2_h){
                 if(this.state.game_mode=='pvc'){
+                    audio_loose.play();
                     return(
                         <div id='overlay' className='overlay-msg'>
                             <div id='win-scr-row-1' >
