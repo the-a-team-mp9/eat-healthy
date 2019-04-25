@@ -107,9 +107,7 @@ class Game_1 extends React.Component
     restart(){
         document.getElementById('overlay').hidden=true;
         this.save_progress();
-        this.setState({score:10,h_seq:0,u_seq:0});
-        
-        
+        this.setState({score:10,h_seq:0,u_seq:0});                
     }
     updateClick(isHealthy){       
         if(this.u_food_idx>=21){
