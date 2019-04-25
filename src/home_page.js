@@ -55,10 +55,13 @@ class Home extends React.Component{
                             <Nav.Link href="/info">Information</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="/games">Game Zone</Nav.Link>
+                            <Nav.Link href="/bmi">BMI Calculator</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="#about">About us</Nav.Link>
+                            <Nav.Link href="/games">Game Zone</Nav.Link>
+                        </Nav.Item>                        
+                        <Nav.Item>
+                            <Nav.Link href="/about">About us</Nav.Link>
                         </Nav.Item>
                         </Nav>
                     </Navbar.Collapse>

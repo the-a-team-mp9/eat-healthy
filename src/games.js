@@ -44,10 +44,13 @@ class Games extends React.Component {
                                     <Nav.Link href="/info">Information</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
+                                    <Nav.Link href="/bmi">BMI Calculator</Nav.Link>
+                                </Nav.Item>
+                                <Nav.Item>
                                     <Nav.Link href="/games">Game Zone</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link href="#about">About us</Nav.Link>
+                                    <Nav.Link href="/about">About us</Nav.Link>
                                 </Nav.Item>
                             </Nav>
                         </Navbar.Collapse>
@@ -101,7 +104,7 @@ class Games extends React.Component {
                     <Container style={{ textAlign: 'center' }}>
                         <Row>
                             <Col xs={12} md={6} lg={4} className='wp2 animated fadeInUp' style={{ textAlign: 'center',paddingBottom:'20px' }}>
-                                <div className="img">
+                                <div className="img img-responsive">
                                     <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,1)}>
                                         <img src="../images/Game_Icons/Gameicon1.png" alt="Game 1" />
                                     </div>
@@ -115,9 +118,9 @@ class Games extends React.Component {
                                     </a>
                             </Col>
                             <Col xs={12} md={6} lg={4} className='wp2 animated fadeInUp' style={{paddingBottom:'20px'}}>
-                                <div className="img">
+                                <div className="img img-responsive">
                                     <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,2)}>
-                                        <img src="../images/Game_Icons/Game_2_Logo.png" alt="Eatopoly" />
+                                        <img  src="../images/Game_Icons/Game_2_Logo.png" alt="Eatopoly" />
                                     </div>
                                 </div>
                                 <h2 style={{ textAlign: "center" }}>Eat-opoly</h2>                                

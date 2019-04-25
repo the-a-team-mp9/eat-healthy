@@ -1,41 +1,62 @@
 import React from 'react';
-
+import {Navbar,Nav,Container,Row,Col} from 'react-bootstrap';
 class About extends React.Component {
     constructor(props) {
         super(props);
     }
     componentDidMount() {
-        let nav = document.getElementById('navBar');
-        console.log('mount',nav);
-        nav.hidden=false;
-        let home = document.getElementById('home');
-        home.classList.remove('active');
-        let intro = document.getElementById('intro');
-        intro.classList.remove('active');
-        let team = document.getElementById('team');
-        team.classList.add('active');
-        let game = document.getElementById('games');
-        game.classList.remove('active');
+        let bod = document.getElementById('bod');
+
+        if(bod)
+            bod.classList.add('bod1');
+        
     }
     render() {
         return (
             <div>
-                <section className="hero" id="hero">
-                    <div className="container" style={{filter:"alpha(opacity=0)"}} >
-                        <div className="col-md-6" style={{width:"50%"}}>
-                            <p style={{paddingTop:"200px",color:"#fff"}}>
-                                The website is built by the 'A team'
-							</p>
-                            <p style={{paddingTop:"200px",color:"#fff"}}>
-                                Email:The-A-Team@monash.edu
-							</p>
-                        </div>
-                        <div className="col-md-6" style={{width:"50%"}}>				
-                            <div className="img">
-                                <img src="../images/Logo.png" alt="Logo" />
-                            </div>
-                        </div>
-                    </div>
+                <div id='navbar' >
+                    <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+                    <Navbar.Brand href="/">Eat healthy</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav fill variant="tabs" defaultActiveKey="/about" variant="pills">
+                        <Nav.Item id='active'>
+                            <Nav.Link  href="/">Home</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href="/info">Information</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href="/bmi">BMI Calculator</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href="/games">Game Zone</Nav.Link>
+                        </Nav.Item>                        
+                        <Nav.Item>
+                            <Nav.Link href="/about">About us</Nav.Link>
+                        </Nav.Item>
+                        </Nav>
+                    </Navbar.Collapse>
+                    </Navbar>                   
+                </div>
+                <section id="hero">
+                    <Container>
+                        <Row>
+                            <Col xs={12}>
+                                <p style={{color:"#fff"}}>
+                                    The website is built by the 'A team'
+                                </p>
+                                <p style={{color:"#fff"}}>
+                                    Email:The-A-Team@monash.edu
+                                </p>
+                            </Col>
+                            <Col xs={12} style={{textAlign:'center'}}>
+                                <div className="img">
+                                    <img src="../images/Logo.png" alt="Logo" />
+                                </div>
+                            </Col>
+                        </Row>
+                    </Container>                    
                 </section>
             </div>
         );

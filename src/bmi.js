@@ -2,10 +2,8 @@ import React from 'react';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import ToggleButton from 'react-bootstrap/ToggleButton';
-import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import {Nav, Navbar} from 'react-bootstrap';
 // import Alert from 'react-bootstrap/Alert';
 //import Container from 'react-bootstrap/Container';
 
@@ -86,8 +84,9 @@ class BMI extends React.Component {
     }
     showModal(){
         if(document.getElementById('modal')){
-            console.log('found modal');
+            // console.log('found modal');
             document.getElementById('modal').style.display = 'block';
+            document.getElementById('caption').style.display = 'block';
             document.getElementById('modal').style.zIndex = 10;
         }
         
@@ -95,6 +94,7 @@ class BMI extends React.Component {
     hideModal(){
         if(document.getElementById('modal')){
             document.getElementById('modal').style.display = 'none';
+            document.getElementById('caption').style.display = 'none';
             document.getElementById('modal').style.zIndex = 0;
         }
         
@@ -102,7 +102,32 @@ class BMI extends React.Component {
 
     render() {
         return (
-            <div className='page hero'>
+            <div >
+                <div id='navbar' >
+                    <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+                    <Navbar.Brand href="/">Eat healthy</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav fill variant="tabs" defaultActiveKey="/bmi" variant="pills">
+                        <Nav.Item id='active'>
+                            <Nav.Link  href="/">Home</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href="/info">Information</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href="/bmi">BMI Calculator</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
+                            <Nav.Link href="/games">Game Zone</Nav.Link>
+                        </Nav.Item>                        
+                        <Nav.Item>
+                            <Nav.Link href="/about">About us</Nav.Link>
+                        </Nav.Item>
+                        </Nav>
+                    </Navbar.Collapse>
+                    </Navbar>                   
+                </div>
             <div className='modal1' id='modal'>
                 <div className='modal1-content' id='caption'>
                     <div className='modfull'>
@@ -112,16 +137,18 @@ class BMI extends React.Component {
                         BMI Category <span className={this.getClass()}><strong>{this.state.cat}</strong></span>
                     </div>
                     <div className='modfull'>
-                        <Button variant='danger' onClick={this.hideModal}>Close
+                        <Button style={{marginLeft:'10px',marginRight:'10px'}} variant='primary' onClick={()=>{alert('This feature is currently under development');}}> Recommended Diet
+                        </Button >
+                        <Button style={{marginLeft:'10px',marginRight:'10px'}} variant='danger' onClick={this.hideModal}>Close
                         </Button>
-                    </div>                
+                    </div>                                   
                 </div>
             </div>            
                 {/* <h1 className='heading'>
                     Calculate BMI
                 </h1> */}
-                <div className='bmi-container' style={{zIndex:'2'}}>
-                    <div className='bmi-card'>
+                <div className='bmi-container' style={{zIndex:'2',marginBottom:'20px'}}>
+                    <div className='bmi-card' style={{marginTop:'20px'}}>
                         <div className='card1-h'>
                             Calculate BMI
                         </div>
@@ -161,7 +188,7 @@ class BMI extends React.Component {
                                 </ToggleButtonGroup>
                             </ButtonToolbar>
                         </div>
-                        <div style={{ marginTop: '30px' }}>
+                        <div style={{ marginTop: '30px' ,marginBottom:'10px'}}>
                             <input className='btn btn-success btn-lg' name='submit' type='submit' value='Calculate BMI' />
                         </div>
                     </form>
@@ -169,6 +196,15 @@ class BMI extends React.Component {
                 
             </div>
         );
+    }
+    componentDidMount(){        
+        let bod = document.getElementById('bod');
+
+        if(bod)
+            bod.classList.add('bod');
+
+        let width = window.screen.availWidth;
+        let height = window.screen.availHeight;  
     }
 }
 
