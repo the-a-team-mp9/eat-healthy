@@ -158,14 +158,16 @@ class Game_1 extends React.Component
         // console.log('seq '+this.state.seq);
     } 
     save_progress(){
-        console.log('u_clicks',this.state.u_seq);
-        console.log('h_click',this.state.h_seq);
+        //console.log('u_clicks',this.state.u_seq);
+        //console.log('h_click',this.state.h_seq);
         let scores=JSON.parse(localStorage.getItem(document.title+"game-1-scores"));
-        console.log(scores);
-        if (scores.length>0)
-            scores.push({h_score:this.state.h_seq,u_score:this.state.u_seq});
-        else
-            scores = [{h_score:this.state.h_seq,u_score:this.state.u_seq}];
+        //console.log(scores);
+        if(scores){
+            if (scores.length>0)
+                scores.push({h_score:this.state.h_seq,u_score:this.state.u_seq});
+            else
+                scores = [{h_score:this.state.h_seq,u_score:this.state.u_seq}];
+        }        
         localStorage.setItem(document.title+'game-1-scores',JSON.stringify(scores));
 
     }
