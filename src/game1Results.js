@@ -19,7 +19,7 @@ class Game1Results extends React.Component{
         // console.log(scores);
         if (scores){        
             if(scores.length>0){
-                const score_list = scores.map((score)=> <Score  h_score={score.h_score} u_score={score.u_score}></Score>)
+                const score_list = scores.map((score)=> <Score  h_score={score.h_score} u_score={score.u_score} key={score.dt}></Score>)
             return(
                 <div id='hero'>
                     <section id='section' style={{paddingBottom:'20px'}}>
@@ -143,26 +143,7 @@ class Score extends React.Component{
                         </Col>
                     </Row>
                     <hr />
-                </Container>
-                {/* <div className='row'>
-                <div className='col-md-4 '>
-                    <p style={{color:'white',fontSize:'15px',margin:'10px'}}>
-                        Healthy Foods : {this.props.h_score}
-                    </p>
-                    <p style={{color:'white',fontSize:'15px',margin:'10px'}}>
-                        Unhealthy Foods : {this.props.u_score}
-                    </p>
-                </div>
-                <div className='col-md-8 ' style={{paddingTop:'30px'}}>
-                    <div className='progress' >
-                        <div className="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" style={{ width: h_pc+'%'}}>
-                            {h_pc}
-                        </div>
-                        <div className="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" style={{ width: u_pc+'%'}}>
-                            {u_pc}
-                        </div>
-                    </div>
-                </div> */}
+                </Container>               
             </div>                                                        
         );
         else
