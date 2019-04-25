@@ -161,6 +161,7 @@ class Game_1 extends React.Component
         console.log('u_clicks',this.state.u_seq);
         console.log('h_click',this.state.h_seq);
         let scores=JSON.parse(localStorage.getItem(document.title+"game-1-scores"));
+        console.log(scores);
         if (scores.length>0)
             scores.push({h_score:this.state.h_seq,u_score:this.state.u_seq});
         else
