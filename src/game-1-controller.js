@@ -167,7 +167,8 @@ class Game_1 extends React.Component
                 scores.push({h_score:this.state.h_seq,u_score:this.state.u_seq});
             else
                 scores = [{h_score:this.state.h_seq,u_score:this.state.u_seq}];
-        }        
+        }
+        else scores=[];        
         localStorage.setItem(document.title+'game-1-scores',JSON.stringify(scores));
 
     }
