@@ -578,9 +578,11 @@ class Game2 extends React.Component
                 return(
                     <div id='overlay' className='overlay-msg'>
                         <div id='win-scr-row-1' >
-                            <h1 style={{color:'white'}}>
-                                Player 1 Wins
-                            </h1>
+                            <div>
+                                <h1 style={{color:'white'}}>
+                                    Player 1 Wins
+                                </h1>
+                            </div>                            
                             <div>
                                 <img  className='win-img' src='../images/Pieces/Kid_win.png' />
                             </div>
@@ -598,9 +600,11 @@ class Game2 extends React.Component
                     return(
                         <div id='overlay' className='overlay-msg'>
                             <div id='win-scr-row-1' >
-                                <h1 style={{color:'white'}}>
-                                    Computer Wins 
+                            <div>
+                                <h1 style={{color:'white',margin:'0px'}}>
+                                    Computer Wins
                                 </h1>
+                            </div>
                                 <div>
                                     <img className='win-img' src='../images/Pieces/Robot_win.png' />
                                 </div>
@@ -617,9 +621,11 @@ class Game2 extends React.Component
                     return(
                         <div id='overlay' className='overlay-msg'>
                             <div id='win-scr-row-1' >
-                                <h1 style={{color:'white'}}>
-                                    Player 2 Wins 
+                            <div>
+                                <h1 style={{color:'white',margin:'0px'}}>
+                                    Player 2 Wins
                                 </h1>
+                            </div>
                                 <div>
                                     <img  className='win-img' src='../images/Pieces/Astronaut_win.png' />
                                 </div>
@@ -636,7 +642,7 @@ class Game2 extends React.Component
                 return(
                     <div id='overlay' className='overlay-msg'>
                         <div id='win-scr-row-1' >
-                            <h1 style={{color:'white'}}>
+                            <h1 style={{color:'white',margin:'px'}}>
                                 Scores Tie 
                             </h1>                            
                         </div>
@@ -725,6 +731,15 @@ class Game2 extends React.Component
                 </div>
             </div>
         );
+    }
+    componentDidUpdate(){
+        let overlay_p=document.getElementById('win-scr-row-1');
+        if(overlay_p){
+            let img = overlay_p.childNodes[0];
+            if(img)
+                img.style.left = (overlay_p.style.width - img.style.width)/2;
+        }
+
     }
 }
 

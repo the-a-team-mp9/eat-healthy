@@ -809,7 +809,7 @@ input[type=radio] {
   left: 0%;
   width: 100%;
   text-align: center;
-  overflow: hidden;
+ 
 }
 
 #win-scr-row-2{
@@ -822,6 +822,8 @@ input[type=radio] {
 }
 
 .win-img{  
-  height: 100%;
+  position: absolute;
+  height: 90%;
   width: auto;
+  left: calc(30%);
 }
