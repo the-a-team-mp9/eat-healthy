@@ -105,7 +105,7 @@ class Home extends React.Component{
                         <Row  >
                         <Col xs={12} md={6} lg={3} >
                             <Card style={{marginTop:'20px'}}>
-                                <Card.Img variant="top" src="../images/Cards/inf2.jpeg" />
+                                <Card.Img variant="top" src="../images/Cards/inf1.jpg" />
                                 <Card.Body >
                                     <Card.Title style={{minHeight:'50px'}}>Obesity Trends</Card.Title>
                                     <Card.Text style={{textAlign:'left',height:'130px'}}>
@@ -118,7 +118,7 @@ class Home extends React.Component{
                         </Col>
                         <Col xs={12} md={6} lg={3}>
                             <Card style={{marginTop:'20px'}}>
-                                <Card.Img variant="top" src="../images/Cards/inf1.jpeg" />
+                                <Card.Img variant="top" src="../images/Cards/inf2.jpg" />
                                 <Card.Body >
                                     <Card.Title style={{minHeight:'50px'}}> Vegetable consumption</Card.Title>
                                     <Card.Text style={{textAlign:'left',height:'130px'}}>
@@ -131,7 +131,7 @@ class Home extends React.Component{
                         </Col>                        
                         <Col xs={12} md={6} lg={3}>
                             <Card style={{marginTop:'20px'}}>
-                                <Card.Img variant="top" src="../images/Cards/inf2.jpeg" />
+                                <Card.Img variant="top" src="../images/Cards/inf3.jpeg" />
                                 <Card.Body>
                                     <Card.Title style={{minHeight:'50px'}}>Why kids refuse healthy food</Card.Title>
                                     <Card.Text style={{textAlign:'left',height:'130px'}}>
@@ -144,7 +144,7 @@ class Home extends React.Component{
                         </Col>
                         <Col xs={12} md={6} lg={3}>
                             <Card style={{marginTop:'20px'}}>
-                                <Card.Img variant="top" src="../images/Cards/inf2.jpeg" />
+                                <Card.Img variant="top" src="../images/Cards/inf4.jpg" />
                                 <Card.Body >
                                     <Card.Title style={{minHeight:'50px'}}>Teach kids to eat healthy</Card.Title>
                                     <Card.Text style={{textAlign:'left',height:'130px'}}>
