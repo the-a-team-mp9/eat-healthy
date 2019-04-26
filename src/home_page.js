@@ -112,7 +112,7 @@ class Home extends React.Component{
                                         Victoria ranks first in childhood obesity in all of Australia. Read more 
                                         about the upwards trend in childhood obesity over the years.
                                     </Card.Text>
-                                    <Button variant="info"> <a href='/info'style={{color:'white'}}>Learn More</a> </Button>
+                                    <Button variant="info" onClick={()=>{window.location.href = '/info'}}> Learn More </Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -125,7 +125,7 @@ class Home extends React.Component{
                                         About 94% of children don't consume the recommended amount of vegetables. 
                                         Learn more about including vegetables in children's diet.
                                     </Card.Text>
-                                    <Button variant="info"><a href='/info-1'style={{color:'white'}}>Learn More</a></Button>
+                                    <Button variant="info" onClick={()=>{window.location.href = '/info-1'}}>Learn More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>                        
@@ -138,7 +138,7 @@ class Home extends React.Component{
                                         Wondering why children ressist eating healthy despite 
                                         teaching them the imporatance of a healthy diet? 
                                     </Card.Text>
-                                    <Button variant="info"><a href='/info-2' style={{color:'white'}}>Learn More</a></Button>
+                                    <Button variant="info" onClick={()=>{window.location.href = '/info-2'}}>Learn More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -150,7 +150,7 @@ class Home extends React.Component{
                                     <Card.Text style={{textAlign:'left',height:'130px'}}>
                                     Learn how to teach children to like eating healthy foods instead of forcing them to eat healthy.
                                     </Card.Text>
-                                    <Button variant="info"><a href='/info-3'style={{color:'white'}}>Learn More</a></Button>
+                                    <Button variant="info" onClick={()=>{window.location.href = '/info-3'}}>Learn More</Button>
                                 </Card.Body>
                             </Card>
                         </Col>

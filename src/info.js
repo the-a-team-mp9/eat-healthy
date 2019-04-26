@@ -26,7 +26,7 @@ class Info extends React.Component{
         return(
         <div style={{textAlign:'center'}}>
             <Button variant='outline-info' disabled={this.state.section_id == 0} onClick={this.updateActive.bind(this,(parseInt(this.state.section_id)-1))}> {'<<'}  </Button>
-            <Button variant='outline-info' style={{marginLeft:'20px',marginRight:'20px'}}><a style={{color:'white'}} href='/'>Home</a>   </Button>
+            <Button variant='outline-info' style={{marginLeft:'20px',marginRight:'20px'}} onClick={()=>{window.location.href = '/'}}>Home</Button>
             <Button variant='outline-info' disabled={this.state.section_id == 3} onClick={this.updateActive.bind(this,(parseInt(this.state.section_id)+1))}>  {'>>'} </Button>
         </div>)
         ; 
