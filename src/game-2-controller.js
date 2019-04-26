@@ -581,7 +581,10 @@ class Game2 extends React.Component
                             <h1 style={{color:'white'}}>
                                 Player 1 Wins
                             </h1>
-                            <img className='img img-responsive' src='../images/Pieces/Kid_win.png' />
+                            <div>
+                                <img  className='win-img' src='../images/Pieces/Kid_win.png' />
+                            </div>
+                            
                         </div>
                         <div id='win-scr-row-2' style={{cursor:'pointer'}}>                    
                             <img className='restart-button' src='../images/sprites/replay_button.png' onClick={()=>{window.location.href='/game-2'}}></img>
@@ -598,7 +601,10 @@ class Game2 extends React.Component
                                 <h1 style={{color:'white'}}>
                                     Computer Wins 
                                 </h1>
-                                <img className='img img-responsive' src='../images/Pieces/Robot_win.png' />
+                                <div>
+                                    <img className='win-img' src='../images/Pieces/Robot_win.png' />
+                                </div>
+                                
                             </div>
                             <div id='win-scr-row-2' style={{cursor:'pointer'}}>                    
                                 <img className='restart-button' src='../images/sprites/replay_button.png' onClick={()=>{window.location.href='/game-2'}}></img>
@@ -614,7 +620,10 @@ class Game2 extends React.Component
                                 <h1 style={{color:'white'}}>
                                     Player 2 Wins 
                                 </h1>
-                                <img className='img img-responsive' src='../images/Pieces/Astronaut_win.png' />
+                                <div>
+                                    <img  className='win-img' src='../images/Pieces/Astronaut_win.png' />
+                                </div>
+                                
                             </div>
                             <div id='win-scr-row-2' style={{cursor:'pointer'}}>                    
                                 <img className='restart-button' src='../images/sprites/replay_button.png' onClick={()=>{window.location.href='/game-2'}}></img>
