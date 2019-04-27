@@ -13,6 +13,7 @@ import {BMI} from './bmi';
 import {Tutorial} from './tutorial1';
 import {Game2} from './game-2-controller';
 import {Tutorial2} from './tutorial2';
+import {DLL} from './dll';
 
 class App extends React.Component
 {
@@ -40,6 +41,7 @@ class App extends React.Component
         <Route path='/tutorial1' exact component = {Tutorial} />
         <Route path='/tutorial2' exact component = {Tutorial2} />
         <Route path='/game-2' exact component={Game2} />
+        <Route path='/data' exact component={DLL} />
       </Router>
       </div>
              
