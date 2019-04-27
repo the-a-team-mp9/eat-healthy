@@ -42,7 +42,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
         {from:'./images',to:'images'} 
-    ])
+    ]),
+    new Dotenv()
 
   ],
   devServer: {
