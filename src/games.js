@@ -81,7 +81,7 @@ class Games extends React.Component {
                     <div className='modal1-content' style={{ backgroundColor: "#61727b", paddingBottom: '20px', maxWidth: '150px' }} id='caption1'>
                         <div className='modfull'>
                             <h2>
-                                Game 1
+                                Game 2
                             </h2>
                         </div>
                         <div className='modfull'>
