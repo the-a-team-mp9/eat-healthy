@@ -12,7 +12,7 @@ class DLL extends React.Component{
         return(<div>Hi</div>);
     }
     componentDidMount(){
-        db.collection('BMITrend').get().then((snap)=>{
+        db.collection('BMI Trend').get().then((snap)=>{
             snap.forEach((doc)=>{
                 console.log(doc.id,doc.data());
             });

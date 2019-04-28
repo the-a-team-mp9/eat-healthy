@@ -42,7 +42,7 @@ class About extends React.Component {
                 <section id="hero">
                     <Container>
                         <Row>
-                            <Col xs={12}>
+                            <Col xs={12} md={6} l={6}>
                                 <p style={{color:"#fff"}}>
                                     The website is built by the 'A team'
                                 </p>
@@ -50,7 +50,7 @@ class About extends React.Component {
                                     Email:The-A-Team@monash.edu
                                 </p>
                             </Col>
-                            <Col xs={12} style={{textAlign:'center'}}>
+                            <Col xs={12} md={6} lg={6} style={{textAlign:'center'}}>
                                 <div className="img">
                                     <img src="../images/Logo.png" alt="Logo" />
                                 </div>
