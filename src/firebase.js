@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-console.log(process.env.API_KEY);
+// console.log(process.env.API_KEY);
 
 const config={
     apiKey: process.env.API_KEY,
