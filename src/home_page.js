@@ -79,11 +79,7 @@ class Home extends React.Component{
                                 <h1 className="animated fadeInDown" style={{ color: 'aliceblue', textAlign: "center" }}> THE WAY THEY LIKE IT.</h1>
                             </Col>                            
                         </Row>
-                        <Row className="justify-content-md-center" style={{textAlign:'center'}}>
-                            <Col xs={12} md={12}>
-                                <a href="#info" className="learn-more-btn" style={{width:'273px'}}>Learn More</a>
-                            </Col>                            
-                        </Row>
+                        
                         <Row className="justify-content-md-center" style={{textAlign:'center',marginBottom:'20px'}}>
                             <Col xs={12} md={12}>
                                 <a href="/games" className="learn-more-btn">Jump to Game Zone</a>
