@@ -4,6 +4,7 @@ class About extends React.Component {
     constructor(props) {
         super(props);
     }
+    // Bootstrap the body element once the DOM is rendered
     componentDidMount() {
         let bod = document.getElementById('bod');
 

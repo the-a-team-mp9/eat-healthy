@@ -101,11 +101,22 @@
 }
 .restart-button{
   position: absolute;
-  width: 36%;
+  width: 25%;
   height: auto;
   z-index: 11;
   top: 37%;
-  left:30%;
+  left:23%;
+  font-size: large;
+  opacity: 1;
+}
+
+.back-button{
+  position: absolute;
+  width: 25%;
+  height: auto;
+  z-index: 11;
+  top: 37%;
+  left:53%;
   font-size: large;
   opacity: 1;
 }

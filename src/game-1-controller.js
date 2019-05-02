@@ -1,3 +1,4 @@
+// Initialize all audio files used in the game
 let char_upgrade_1 = new Audio("../sound/char_up2.wav");
 let char_upgrade_2 = new Audio('../sound/char_up3.wav');
 let char_upgrade_3 = new Audio('../sound/char_up4.wav');
@@ -8,7 +9,10 @@ let audio_win = new Audio('../sound/win.wav');
 import React from "react";
 
 
-
+//This class renders the images of foods that are displayed on plates
+// The prop img_id points the name of the image to be rendered.
+// The prop isHealthy indicates the type of food and consequently the 
+// folder from where the image should be picked
 class Food extends React.Component{
     constructor(props){
         super(props);                      
@@ -28,6 +32,8 @@ class Food extends React.Component{
             );
     }
 }
+
+// Creating a helper funtion to shuffle an array
 let shfl = (arr) =>{
     for (let i = arr.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -35,6 +41,9 @@ let shfl = (arr) =>{
       }
 }
 
+
+//This class renders the charecter sprite displayed in the game. 
+// The prop score is used to display which image/sprite is to be displayed.
 class CharSprite extends React.Component{
     constructor(props){
         super(props);
@@ -63,6 +72,8 @@ class CharSprite extends React.Component{
     }
 }
 
+// This class renders the health bar. 
+// The prop score is used to update the health bar
 class ProgressBar extends React.Component{
     constructor(props){
         super(props);
@@ -81,16 +92,24 @@ class Game_1 extends React.Component
 {
     constructor(props){
         super(props);
+        // Create an Array of 27 numbers corresponding to 
+        // 27 healthy food images used in the game.
         this.healthy_food_arr = Array.from(Array(27), (x, index) => 0 + index * 1);
+        // shuffle the array
         for (let i = this.healthy_food_arr.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
             [this.healthy_food_arr[i], this.healthy_food_arr[j]] = [this.healthy_food_arr[j], this.healthy_food_arr[i]];
         }
+
+        // Create an Array of 27 numbers corresponding to 
+        // 20 healthy food images used in the game.
         this.unhealthy_food_arr = Array.from(Array(20), (x, index) => 0 + index * 1);
+        // shuffle the array
         for (let i = this.unhealthy_food_arr.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
             [this.unhealthy_food_arr[i], this.unhealthy_food_arr[j]] = [this.unhealthy_food_arr[j], this.unhealthy_food_arr[i]];
         }
+
         this.state = {score:10,h_seq:0,u_seq:0,conseq_u:0};
         this.updateClick = this.updateClick.bind(this);
         this.save_progress = this.save_progress.bind(this);
@@ -98,17 +117,26 @@ class Game_1 extends React.Component
         this.h_food_idx=0;
         this.u_food_idx=0;
     }
+    // Helper to shuffle array
     shuffle(arr){
         for (let i = arr.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
             [arr[i], arr[j]] = [arr[j], arr[i]];
           }
     }
+
+    // Triggered to clear scores, save the progress of the game and start over
     restart(){
         document.getElementById('overlay').hidden=true;
         this.save_progress();
         this.setState({score:10,h_seq:0,u_seq:0});                
     }
+
+    // Track the food clicked on.
+    // If the food counters have have reached the end of the array,
+    // Reshuffle the array. Update Score and play the corresponding 
+    // audio file. If the score reaches 100. Manipulate DOM to display
+    // the overlay screen. 
     updateClick(isHealthy){       
         if(this.u_food_idx>=21){
             this.shuffle(this.unhealthy_food_arr);
@@ -144,8 +172,10 @@ class Game_1 extends React.Component
         else{
             audio_w.play();
             if((this.state.conseq_u+1)==5){
+                // console.log(document.getElementById('gameover').style.display);
                 document.getElementById('overlay').hidden = false;
-                document.getElementById('gameover').style.display='block';
+                document.getElementById('gameover').style.display = 'block';
+                document.getElementById('gamewin').hidden = true;
             }
             if(this.state.score>5)
                 this.setState((state)=>{return{score:state.score-5 , h_seq:state.h_seq, u_seq:this.state.u_seq+1}});
@@ -157,6 +187,11 @@ class Game_1 extends React.Component
         // console.log(this.state.score+' score');
         // console.log('seq '+this.state.seq);
     } 
+
+    // Save scores to browser local storage
+    // Get localstorage item (if exists) or initialise an empty array
+    // Add the no of healthy and unhealthy foods clicked on to the array
+    // Stringify the array and store it on localstorage
     save_progress(){
         //console.log('u_clicks',this.state.u_seq);
         //console.log('h_click',this.state.h_seq);
@@ -172,6 +207,11 @@ class Game_1 extends React.Component
         localStorage.setItem(document.title+'game-1-scores',JSON.stringify(scores));
 
     }
+
+    // Function used to randomly pick 3 foods for display
+    // Choose 2 unhealthy foods and 1 healthy food or vice versa
+    // Based on RNG. Shuflle the created array to randomise order.
+    // Call Food class to render the food images within plates.
     render_food(){
         let food_arr = Array(3);
         
@@ -213,9 +253,13 @@ class Game_1 extends React.Component
         return(            
             <div className="page" >                
                 <div id="overlay" className="overlay-msg" hidden>
-                    <h1 id='gameover' style={{display:'none', textAlign:'center',color:'white'}}> Oh No you ate too many unhealthy foods</h1>
+                    <h1 id='gameover' style={{display:'none', textAlign:'center',color:'white'}}> Oh No!!! You ate too many unhealthy foods</h1>
+                    <h1 id='gamewin' style={{ textAlign:'center',color:'white'}}> Congratulations You won !!!!!</h1>
                     <a href="#">
                     <img className='restart-button' src='../images/sprites/replay_button.png' onClick={this.restart}></img>
+                    </a> 
+                    <a href="#">
+                    <img className='back-button' src='../images/sprites/exit_button.png' onClick={()=>{window.location.href='/games';}}></img>
                     </a>                    
                 </div>
                                 
@@ -243,6 +287,8 @@ class Game_1 extends React.Component
         </div>            
         );
     }
+
+    // Bootstrap the body element once the DOM is rendered
     componentDidMount(){
         
         let width = window.screen.availWidth;

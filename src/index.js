@@ -1,3 +1,10 @@
+/*
+          Entry point to the application. 
+          Import all pages from the respective classes and set up react routes 
+*/
+
+
+
 import React from "react";
 import ReactDOM from "react-dom";
 import {Game_1} from "./game-1-controller";

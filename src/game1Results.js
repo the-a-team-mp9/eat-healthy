@@ -5,6 +5,8 @@ class Game1Results extends React.Component{
     constructor(props){
         super(props);        
     }
+
+    // Get scores stored on browser (if exists). push an empty array in it's place
     clearScores(){
         let scores=JSON.parse(localStorage.getItem(document.title+"game-1-scores"));
         if (scores){
@@ -57,10 +59,7 @@ class Game1Results extends React.Component{
                 </div>
                 );
 
-        }
-            
-            
-        
+        }                                
         else
             return(
                 <div id='hero'>
@@ -77,6 +76,7 @@ class Game1Results extends React.Component{
 
         
     }
+    // Bootstrap the body element once the DOM is rendered
     componentDidMount(){        
         let bod = document.getElementById('bod');
 

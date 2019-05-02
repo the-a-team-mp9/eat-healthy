@@ -1,12 +1,16 @@
 import React from 'react';
 import {ProgressBar,Modal,Button, Container, Row,Col} from 'react-bootstrap';
 
+// Initialize all audio files used in the game
 let audio_c = new Audio('../sound/res_c_s.wav');
 let audio_w = new Audio('../sound/res_w_s.wav');
 let audio_win = new Audio('../sound/win.wav');
 let dice_roll = new Audio('../sound/Dices.wav');
 let audio_loose = new Audio('../sound/Lose_short.wav');
 
+// This class renders Plates and the food in each plate.
+// Additionally, pawns for P1 and P2 are rendered above and
+// Below the plates respectively which are hidden by default
 class Plates extends React.Component{
     constructor(props){
         super(props);
@@ -70,6 +74,8 @@ class Game2 extends React.Component
         let h_foods=[];
         let u_foods=[];
         let rnd;
+        // Use RNG to pick 4 random numbers between 
+        // 0 - 27 and push them to h_foods array
         for(let i=0;i<4;i++){
             rnd = Math.floor(Math.random()*28);            
             while(h_foods.indexOf(rnd)!=-1){
@@ -77,7 +83,9 @@ class Game2 extends React.Component
             }
                 
             h_foods.push(rnd);
-        }        
+        }
+        // Use RNG to pick 4 random numbers between 
+        // 0 - 20 and push them to h_foods array        
         for(let i=0;i<4;i++){
             rnd = Math.floor(Math.random()*21);
             while(u_foods.indexOf(rnd)!=-1)
@@ -87,6 +95,8 @@ class Game2 extends React.Component
                 
             u_foods.push(rnd);
         }
+        // init new arrays that store JSON onjects with the type of food and 
+        // img number from h_food array and u_food array
         let h_foods_t=[];
         let u_foods_t=[];
         h_foods.forEach(val => {
@@ -95,8 +105,12 @@ class Game2 extends React.Component
         u_foods.forEach(val => {
             u_foods_t.push({type:'u', val:val})
         });
+        // Create JSON array for random event
         let r_events_t=[{type:'r',val:1}];
+        // Concat the 3 arrays (4 healthy foods, 4 unhealthy foods and 1 random event)
+        // To form the 9 items used on the board for the current game.
         this.board= h_foods_t.concat(u_foods_t,r_events_t);
+        // Shuffle the array 
         for (let i = this.board.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
             [this.board[i], this.board[j]] = [this.board[j], this.board[i]];
@@ -110,15 +124,23 @@ class Game2 extends React.Component
     handleClose() {
         this.setState({ disp_modal:false});
     }
-    
+    // Manipulate DOM to clear the pawns displayed and set state to begining of the game
     restart(){
         this.clearpawns();
         this.setState({g_state:'start', disp_modal:true, game_mode:'pvc', p1_loc:0, 
         p2_loc:0, p1_h:20, p2_h:20, active:'p1', finish:'none', game_msg:'Player 1 Turn'});
     }
 
-    go(){
-        
+    // Function that simulates pawn movement.
+    // Manipulate dom to clear current location of pawn (depending on who's turn it was)
+    // calculate destination by adding rolled number to the current location.
+    // If destination is within the 9 board items, use setTimeout to trigger -> 
+    // DOM manipulation to dsiplay the pawn on destination plate -> updateScore ->
+    // setState to reflect the updated score.
+    // If game mode is PVC, use setTimeout to trigger -> DOM manipulation to display
+    // game messages -> roll2. 
+    // In all cases, trigger DOM Manipulation to change the diplay of go and stay icons
+    go(){        
         let dest = parseInt(this.state.rolled_num);
         // console.log('f',dest);
         if(this.state.game_mode=='pvc'){            
@@ -233,7 +255,7 @@ class Game2 extends React.Component
             }
         }
     }
-    
+    // Function that manipulates DOM to hide all pawns displayed on plates
     clearpawns(){
         for (let i=1;i<3;i++){
             for(let j=1;j<10;j++){
@@ -248,11 +270,15 @@ class Game2 extends React.Component
         document.getElementById('p2-start').style.display='block';
     }
 
+    // Function that simulates the coputer's decision to stay or move
     simulateComp(d,loc,score){
-        let rolledVal = d[d.length-1];        
+        let rolledVal = d[d.length-1];
+        // Use RNG to decide wheather to move or stay        
         if(Math.random()>.75){
+            // if staying, Manipulate DOM to change game message
             document.getElementById('game-2-comp-msg').style.display='none';
             document.getElementById('game-2-comp-stay-msg').style.display='block';
+            
             setTimeout(()=>{
                             document.getElementById('game-2-comp-stay-msg').style.display='none';
                             document.getElementById('game-2-msg').style.display='block';
@@ -260,6 +286,7 @@ class Game2 extends React.Component
             this.setState({p1_h:score,p1_loc:loc,g_state:'roll'});
         }            
         else{
+            // if moving, clear current pawn
             if(this.state.p2_loc==0)
                 document.getElementById('p2-start').style.display='none';
             else if (this.state.p2_loc==1)
@@ -282,9 +309,11 @@ class Game2 extends React.Component
                 document.getElementById('p29').style.display='none';
             let p2_dest=parseInt(this.state.p2_loc)+parseInt(rolledVal);
             let p2_score; 
-            // console.log(dest);
+            // console.log(dest);            
             if(p2_dest<=9){
-                p2_score = this.updateScore(p2_dest,false);                
+                // if dest is within the 9 boards of the game, update score
+                p2_score = this.updateScore(p2_dest,false); 
+                //setTimeout to simulate pawn movement and change game message -> endTurn                
                 setTimeout((d)=>{
                                 document.getElementById('p2'+d).style.display='block';
                                 document.getElementById('game-2-comp-msg').style.display='none';
@@ -298,6 +327,8 @@ class Game2 extends React.Component
         }
     }
 
+    // The final method in computer's Turn
+    // Change game message and setState with new scores, game message, state and active player
     endTurn(np1_h,np2_h,np1_dest,np2_dest){
         // console.log('np1_h',np1_h);
         // console.log('np2_h',np2_h);
@@ -306,7 +337,8 @@ class Game2 extends React.Component
         document.getElementById('game-2-msg').style.display='block';
         this.setState({p1_h:np1_h, p1_loc:np1_dest, p2_loc:np2_dest, p2_h:np2_h, g_state:'roll',game_msg:'Player 1 Turn'});
     }
-                    
+        
+    // Function triggers change of plyaers turn
     stay(){
         if(this.state.game_mode=='pvc'){
             document.getElementById('game-2-msg').style.display='none';
@@ -326,9 +358,15 @@ class Game2 extends React.Component
         
     }
 
+    // Function that calculates new scores,
+    // params - loc -> destination location; 
+    // isP1 -> bool value which indicates which player's score is to be updated
+
     updateScore(loc,isP1){
         // console.log('updt '+this.state.p1_h,this.state.p2_h);       
         if(isP1){
+            // if player1, depending on food type in destinatopn plate,
+            // calculate the new score and manipulate DOM to update the health bar
             let type = this.board[parseInt(loc)-1].type;            
             if(type=='h'){                
                 audio_c.play();
@@ -369,6 +407,7 @@ class Game2 extends React.Component
             }
         }
         else{
+            // if player 2 do the same as above but for player 2 score and health bar
             let type = this.board[parseInt(loc)-1].type;            
             if(type=='h')
             {
@@ -415,18 +454,24 @@ class Game2 extends React.Component
         }
     }
 
+    //Function to trigger change in game mode
+    // param mode -> game mode
     modeSelect(mode){
         this.setState({game_mode:mode,disp_modal:false});        
     }
 
+    // Function to get the rolled number and update state
+    // param d -> number rolled on the dice
     getRolled(d){
         // console.log(parseInt(d[d.length-1]));
         this.setState({g_state:'decide',rolled_num:parseInt(d[d.length-1])});
     }
 
+    // Function that simulates the roll of dice
     roll1(){
         if(this.state.g_state=='start' || this.state.g_state =='roll'){
             let rnd = Math.random();
+            // RNG to choose which number is rolled
             let choice;
             if (rnd<0.33)
                 choice='dice1';
@@ -437,22 +482,27 @@ class Game2 extends React.Component
             let d1=document.getElementById('dice1');
             let d2=document.getElementById('dice2');
             let d3=document.getElementById('dice3');
+            // Manipulate DOM to hide the 3 dice images
             d1.style.display='none';
             d2.style.display='none';
             d3.style.display='none';
+            // Manipulate DOm to display gif that simulates dice roll
             document.getElementById('dice-gif').style.display='block';
             dice_roll.play();
             // console.log(document.getElementById('dice-gif').style.display);
+            // setTimeout to hide gif and display the dice whose number was drawn by the RNG
             setTimeout((d)=>{            
                 document.getElementById('dice-gif').style.display='none';
                 dice_roll.play();
                 document.getElementById(d).style.display='block';
             },1200,choice);
+            //setTimeout to trigger getRolled with the rolled number
             setTimeout(this.getRolled.bind(this),1300,choice);
         }
         
     }
 
+    // Same functionality as roll1, but additionally use setTimeout to trigger simulateComp (used when computer rolls the dice)
     roll2(loc,score){
         let rnd = Math.random();
         let choice;
@@ -477,6 +527,9 @@ class Game2 extends React.Component
         },1200,choice);
         setTimeout(this.simulateComp.bind(this),1800,choice,loc,score);        
     }
+
+    // Function that displays the pawn of the player (who passed the board) 
+    // next to the end flag when the game is over
     renderGameOver(){
         if(this.state.finish=='p1'){
             return(
@@ -503,6 +556,8 @@ class Game2 extends React.Component
             );
             
     }
+
+    //Function that renders player 1 char sprite at the starting position
     renderp1char(){
         return(
             <div id='p1-start' >
@@ -511,6 +566,7 @@ class Game2 extends React.Component
             </div>
         );
     }
+    //Function that renders player 2 char sprite at the starting position
     renderp2char(){
         if(this.state.game_mode=='pvc'){
             return(
@@ -529,6 +585,7 @@ class Game2 extends React.Component
             );
         
     }
+    // Function that displays the 2 choice buttons
     renderChoice(){
         if(this.state.g_state=='decide')
             return(
@@ -543,7 +600,7 @@ class Game2 extends React.Component
         else
             return(<div></div>);
     }
-
+    // Function that displays the game messages
     renderGameMessages(){
         return(
             <div id='game-2-msg-wrapper'>
@@ -560,7 +617,7 @@ class Game2 extends React.Component
             </div>
         );
     }
-
+    // Function that renders the plates and the food within the plates
     renderPlates(){
         const board_items = this.board.map((obj)=><Plates g_mode={this.state.game_mode} key={obj.type+obj.val} val={obj.val} type={obj.type} id={this.board.indexOf(obj)+1}/>);        
         return(
@@ -570,7 +627,7 @@ class Game2 extends React.Component
             
         );        
     }
-
+    // Function that displays the overlay
     renderOverlay(){
         if(this.state.finish!='none'){
             if(this.state.p1_h>this.state.p2_h){
@@ -590,6 +647,7 @@ class Game2 extends React.Component
                         </div>
                         <div id='win-scr-row-2' style={{cursor:'pointer'}}>                    
                             <img className='restart-button' src='../images/sprites/replay_button.png' onClick={()=>{window.location.href='/game-2'}}></img>
+                            <img className='back-button' src='../images/sprites/exit_button.png' onClick={()=>{window.location.href='/games'}}></img>
                         </div>
                     </div>
                 );
@@ -612,6 +670,7 @@ class Game2 extends React.Component
                             </div>
                             <div id='win-scr-row-2' style={{cursor:'pointer'}}>                    
                                 <img className='restart-button' src='../images/sprites/replay_button.png' onClick={()=>{window.location.href='/game-2'}}></img>
+                                <img className='back-button' src='../images/sprites/exit_button.png' onClick={()=>{window.location.href='/games'}}></img>
                             </div>
                         </div>
                     );
@@ -633,6 +692,7 @@ class Game2 extends React.Component
                             </div>
                             <div id='win-scr-row-2' style={{cursor:'pointer'}}>                    
                                 <img className='restart-button' src='../images/sprites/replay_button.png' onClick={()=>{window.location.href='/game-2'}}></img>
+                                <img className='back-button' src='../images/sprites/exit_button.png' onClick={()=>{window.location.href='/games'}}></img>
                             </div>
                         </div>
                     );
@@ -648,6 +708,7 @@ class Game2 extends React.Component
                         </div>
                         <div id='win-scr-row-2' style={{cursor:'pointer'}}>                    
                             <img className='restart-button' src='../images/sprites/replay_button.png' onClick={this.restart}></img>
+                            <img className='back-button' src='../images/sprites/exit_button.png' onClick={()=>{window.location.href='/games'}}></img>
                         </div>
                     </div>
                 );
@@ -662,7 +723,7 @@ class Game2 extends React.Component
             return(<div></div>);
             
     }
-
+    // Fuction that dsiplays player 2 image above the health bar
     renderp2head(){
         if(this.state.game_mode=='pvc'){
             return(<div id='p2char'></div>);            
@@ -732,6 +793,8 @@ class Game2 extends React.Component
             </div>
         );
     }
+
+    // Bootstrap the body element once the DOM is rendered
     componentDidUpdate(){
         let overlay_p=document.getElementById('win-scr-row-1');
         if(overlay_p){

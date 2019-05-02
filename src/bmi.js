@@ -4,8 +4,6 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import Button from 'react-bootstrap/Button';
 import {Nav, Navbar} from 'react-bootstrap';
-// import Alert from 'react-bootstrap/Alert';
-//import Container from 'react-bootstrap/Container';
 
 
 
@@ -13,6 +11,7 @@ class BMI extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 'height': 1, 'weight': 1, 'gender': 'm', 'isCm': true, 'isKg': true, 'show': false, 'bmi':0, cat:'Normal'};
+        //Bind all class methods to the context (this)
         this.handleHeightChange = this.handleHeightChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleWeightChange = this.handleWeightChange.bind(this);
@@ -23,14 +22,18 @@ class BMI extends React.Component {
         this.hideModal = this.hideModal.bind(this);
     }
 
+    // Track changes made to height in the form (2 way data binding)
     handleHeightChange(e) {
         // console.log(e.target.value);
         this.setState({ 'height': e.target.value });
-        //alert(e);
+        
     }
+    // Track changes made to weight in the form (2 way data binding)
     handleWeightChange(e) {
         this.setState({ 'weight': e.target.value });
     }
+
+    // Return the css class used for the text for the word that displays the category of the BMI 
     getClass(){
         if(this.state.cat=='Underweight' || this.state.cat == 'Overweight')
             return 'info1'
@@ -38,6 +41,9 @@ class BMI extends React.Component {
             return 'danger1'
         return 'success1'
     }
+
+    // Triggered on submit. Convert the height and weight 
+    // to SI units and calculate the BMI 
     handleSubmit(event) {        
         // console.log(this.state);
         let hinMeters;
@@ -67,14 +73,18 @@ class BMI extends React.Component {
         this.showModal();
         
     }
+
+    // Track changes to unit used for height
     changeHUnit(e) {
         // console.log(e);
         this.setState({ 'isCm': e });
     }
+    // Track changes to unit used for weight
     changeWUnit(e) {
         // console.log(e);
         this.setState({ 'isKg': e });
     }
+    // Track changes to gender
     changeGender(e) {
         this.setState({ 'gender': e });
     }
@@ -82,6 +92,8 @@ class BMI extends React.Component {
     handleClose() {
         this.setState({ show: false });
     }
+
+    //Manipulate DOM to display Modal
     showModal(){
         if(document.getElementById('modal')){
             // console.log('found modal');
@@ -91,6 +103,7 @@ class BMI extends React.Component {
         }
         
     }
+    //Manipulate DOM to hide Modal
     hideModal(){
         if(document.getElementById('modal')){
             document.getElementById('modal').style.display = 'none';
@@ -143,10 +156,7 @@ class BMI extends React.Component {
                         </Button>
                     </div>                                   
                 </div>
-            </div>            
-                {/* <h1 className='heading'>
-                    Calculate BMI
-                </h1> */}
+            </div>                            
                 <div className='bmi-container' style={{zIndex:'2',marginBottom:'20px'}}>
                     <div className='bmi-card' style={{marginTop:'20px'}}>
                         <div className='card1-h'>
@@ -197,6 +207,8 @@ class BMI extends React.Component {
             </div>
         );
     }
+
+    // Bootstrap the body element once the DOM is rendered
     componentDidMount(){        
         let bod = document.getElementById('bod');
 

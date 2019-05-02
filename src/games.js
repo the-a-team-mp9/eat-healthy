@@ -65,7 +65,7 @@ class Games extends React.Component {
                         </div>
                         <div className='modfull'>
                             <Button variant='info' style={{ width: '115px' }} onClick={()=>{window.location.href='/tutorial1'}}>                                
-                                    View Tutorial                            
+                                    Watch Tutorial                            
                             </Button>
                         </div>
                         <div className='modfull'>
@@ -86,7 +86,7 @@ class Games extends React.Component {
                         </div>
                         <div className='modfull'>
                             <Button variant='info' style={{ width: '115px' }} onClick={()=>{window.location.href='/tutorial2'}}>                                
-                                    View Tutorial                            
+                                    Watch Tutorial                            
                             </Button>
                         </div>
                         <div className='modfull'>

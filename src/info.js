@@ -4,24 +4,19 @@ import {Container,Row,Col,Pagination,Carousel,Navbar,Nav, ButtonGroup,Button} fr
 class Info extends React.Component{
     constructor(props){        
         super(props);
-        this.state={section_id:this.props.section_id} 
-        //this.updateActive = this.updateActive.bind(this);
-        // this.selectNext = this.selectNext.bind(this);
-        // this.selectPrev = this.selectNext.bind(this);       
+        this.state={section_id:this.props.section_id}  
     }
+
+    //Function that updates which section (topic) is currently displayed
     updateActive(sec_id){
         console.log(sec_id);
         if(sec_id>=0 && sec_id <=3)
             this.setState({section_id:sec_id});
     }
-    // selectNext(){
-    //     this.setState((old_state)=>( {section_id:old_state.section_id++} ));
-    // }
-    // selectPrev(){
-    //     this.setState((old_state)=>( {section_id:old_state.section_id--} ));        
-    // }
+    
     handleSelect(selectedIndex, e) {        
     }
+    //Function that renders the navigation buttons 
     renderButtons(){
         return(
         <div style={{textAlign:'center'}}>
@@ -30,17 +25,7 @@ class Info extends React.Component{
             <Button variant='outline-info' disabled={this.state.section_id == 3} onClick={this.updateActive.bind(this,(parseInt(this.state.section_id)+1))}>  {'>>'} </Button>
         </div>)
         ; 
-    }
-    renderPagination(){
-        return(
-            <Pagination style={{textAlign:'center'}}>                           
-                <Pagination.Item onClick={this.updateActive.bind(this,0)} style={{display:'inline-block'}} active={this.state.section_id==0} >{1}</Pagination.Item>                
-                <Pagination.Item onClick={this.updateActive.bind(this,1)} style={{display:'inline-block'}} active={this.state.section_id==1} >{2}</Pagination.Item>
-                <Pagination.Item onClick={this.updateActive.bind(this,2)} style={{display:'inline-block'}} active={this.state.section_id==2} >{3}</Pagination.Item>
-                <Pagination.Item onClick={this.updateActive.bind(this,3)} style={{display:'inline-block'}} active={this.state.section_id==3} >{4}</Pagination.Item>                
-            </Pagination> 
-        );
-    }
+    }    
     render(){
         return(
             <div>
@@ -220,6 +205,7 @@ class Info extends React.Component{
             </div>
         );
     }
+    // Bootstrap the body element once the DOM is rendered
     componentDidMount(){
         let bod = document.getElementById('bod');
         if(bod)
