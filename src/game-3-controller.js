@@ -1,49 +1,65 @@
 import React from 'react';
-import {brekkie,lunch,dinner} from './food-list';
+import {brekkie,lunch,dinner,breakkie_h,lunch_h,dinner_h} from './food-list';
+import {Modal,Container,Row,Col,Button} from 'react-bootstrap';
 
+// Creating a helper funtion to shuffle an array
+let shfl = (arr) =>{
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+}
 
 class Game3 extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {gState:'start'};
+        this.state = {gState:'start',disp_modal:true,isBoy:true};
         let lunch_arr=[];
         let break_arr=[];
         let dinner_arr=[];
         let choice;
-        //Randomly pick 3 foods each from breakkie, lunch and dinner        
+        //Randomly pick 2 foods each from breakkie, lunch and dinner        
         for(let i=0;i<3;i++){
-            for(let j=0;j<3;j++){ 
-                choice = Math.floor(Math.random()*22);               
-                if(i==0){                    
+            for(let j=0;j<2;j++){                 
+                if(i==0){
+                    choice = Math.floor(Math.random()*(brekkie.length-1));
                     while(break_arr.indexOf(choice)!=-1){
-                        choice = Math.floor(Math.random()*22);
+                        choice = Math.floor(Math.random()*(brekkie.length-1));
                     }
                     break_arr.push(choice);
                 }
-                else if(i==1){                    
+                else if(i==1){
+                    choice = Math.floor(Math.random()*(lunch.length-1));
                     while(lunch_arr.indexOf(choice)!=-1){
-                        choice =  Math.floor(Math.random()*22);
+                        choice = Math.floor(Math.random()*(lunch.length-1));
                     }
                     lunch_arr.push(choice);
                 }
                 else{
+                    choice = Math.floor(Math.random()*(dinner.length-1))
                     while(dinner_arr.indexOf(choice)!=-1){
-                        choice =  Math.floor(Math.random()*22);
+                        choice = Math.floor(Math.random()*(dinner.length-1))
                     }
                     dinner_arr.push(choice);
                 }
             }
-        }
-        // console.log('b_rr',break_arr);
-        // console.log('l_rr',lunch_arr);
-        // console.log('d_rr',dinner_arr);
-        // initialise the 3 lists that store the details for brekfast,lunch and dinner choices
-        this.brekkie_list = [brekkie[break_arr[0]],brekkie[break_arr[1]],brekkie[break_arr[2]]];
-        this.lunch_list = [lunch[lunch_arr[0]],lunch[lunch_arr[1]],lunch[lunch_arr[2]]];
-        this.dinner_list = [dinner[dinner_arr[0]],dinner[dinner_arr[1]],dinner[dinner_arr[2]]];
+        }        
+        this.brekkie_list = [brekkie[break_arr[0]],brekkie[break_arr[1]]];
+        this.lunch_list = [lunch[lunch_arr[0]],lunch[lunch_arr[1]]];
+        this.dinner_list = [dinner[dinner_arr[0]],dinner[dinner_arr[1]]];
+
+        this.brekkie_list.push(breakkie_h[Math.floor(Math.random()*(breakkie_h.length-1))]);
+        this.lunch_list.push(lunch_h[Math.floor(Math.random()*(lunch_h.length-1))]);
+        this.dinner_list.push(dinner_h[Math.floor(Math.random()*(dinner_h.length-1))]);
+
+        shfl(this.brekkie_list);
+        shfl(this.lunch_list);
+        shfl(this.dinner_list);
         this.selected_food = [];
         // console.log(dinner_arr);
+        // console.log(lunch_arr);
+        // console.log(break_arr);        
     }
     renderButton(){
         if(this.state.gState=='start')
@@ -53,6 +69,10 @@ class Game3 extends React.Component{
         else if(this.state.gState=='confirm')
             return(
                 <div id='menu-button' onClick={this.calculateScore.bind(this)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Background/Confirm_button.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+            );
+        else if(this.state.gState=='score')
+            return(
+                <div id='game-3-restart-btn' onClick={()=>{window.location.href='/game-3';}}></div>
             );
     }
     renderClocks(){
@@ -119,7 +139,7 @@ class Game3 extends React.Component{
                     <div id='selected-item2' style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Lunch/'+this.selected_food[1].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
                 </div>
             );
-        else if(this.state.gState=='confirm')
+        else if(this.state.gState=='confirm' || this.state.gState=='score')
             return(
                 <div>
                     <div id='breakfast-clock'></div>
@@ -133,26 +153,52 @@ class Game3 extends React.Component{
     }
     renderGameChar(){
         if(this.state.gState=='score'){
-            if(this.state.score<21)
-                return(
-                    <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/0-20.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
-                );
-            else if(this.state.score<41)
-                return(
-                    <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/20-40.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
-                );
-            else if(this.state.score<61)
-                return(
-                    <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/40-60.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
-                );
-            else if(this.state.score<81)
-                return(
-                    <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/60-80.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
-                );
-            else
-                return(
-                    <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/80-100.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
-                );
+            if(this.state.isBoy){
+                if(this.state.score<21)
+                    return(
+                    <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/boy/0-20.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    );
+                else if(this.state.score<41)
+                    return(
+                        <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/boy/20-40.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    );
+                else if(this.state.score<61)
+                    return(
+                        <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/boy/40-60.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    );
+                else if(this.state.score<81)
+                    return(
+                        <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/boy/60-80.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    );
+                else
+                    return(
+                        <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/boy/80-100.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    );
+            }
+            else{
+                if(this.state.score<21)
+                    return(
+                    <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/girl/0-20.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    );
+                else if(this.state.score<41)
+                    return(
+                        <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/girl/20-40.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    );
+                else if(this.state.score<61)
+                    return(
+                        <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/girl/40-60.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    );
+                else if(this.state.score<81)
+                    return(
+                        <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/girl/60-80.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    );
+                else
+                    return(
+                        <div id='game3-char' style={{backgroundImage:'url(../images/Game-3_Image_Assets/FinishPoses/girl/80-100.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    );
+
+            }
+            
         }
             
     }
@@ -160,14 +206,48 @@ class Game3 extends React.Component{
         if(this.state.gState=='score')
             return(
                 <div id='game3-msg'>
-                    <p style={{fontSize:'x-large',textAlign:'left',color:'white'}}>Score: {this.state.score}</p>
+                    <h2 style={{fontSize:'1.5em',color:'white'}}>Score: {this.state.score}</h2>
                 </div>
             );            
+    }
+    renderGameMsgs(){
+        if(this.state.gState=='start')
+            return(
+                <div>
+                    <div id='game-3-start-msg1'><h2 style={{color:'white',textAlign:'justified',fontSize:'1.5em'}}>Click the red button to begin</h2></div>
+                    <div id='game-3-start-msg2'><h2 style={{color:'white',textAlign:'justified',fontSize:'1.5em'}}>Choose the menu for today</h2></div>
+                </div>
+            );
+        else if(this.state.gState=='breakfast' || this.state.gState=='lunch' || this.state.gState=='dinner')
+            return(
+                <div id='game-3-select-msg'><h2 style={{color:'white',textAlign:'center',fontSize:'1.5em'}}>select {this.state.gState}</h2></div>
+            );
     }    
     render(){
         //console.log(brekkie);
         return(
         <div className='game-3-area'>
+            <Modal show={this.state.disp_modal} onHide={this.handleClose.bind(this)} centered>
+                <Modal.Body style={{textAlign:'center'}}>
+                    <p style={{margin:'0px',color:'black'}}>
+                        Select Gender
+                    </p>
+                </Modal.Body>                                
+                <Modal.Footer style={{textAlign:'center' ,color:'white'}}>
+                    <Container>                            
+                        <Row className="justify-content-md-center show-grid">
+                            <Col md={12} xs={12} sm={12} lg={12}>
+                                <Button style={{marginRight:'10px',marginLeft:'10px'}} variant="info" onClick={this.selectGender.bind(this,true)}>
+                                   BOY
+                                </Button>
+                                <Button style={{marginRight:'10px',marginLeft:'10px'}} variant="info" onClick={this.selectGender.bind(this,false)}>
+                                    GIRL
+                                </Button>
+                            </Col>
+                        </Row>
+                    </Container>                        
+                </Modal.Footer>
+            </Modal>
             <div id='menu-card'></div>
             <div id='game-3-back' onClick={this.goBack.bind(this)}></div>
             {this.renderClocks()}     
@@ -175,12 +255,22 @@ class Game3 extends React.Component{
             {this.renderButton()}
             {this.renderSelectedFood()}
             {this.renderGameChar()}   
-            {this.renderScore()}   
+            {this.renderScore()}  
+            {this.renderGameMsgs()} 
         </div>
         );
     }
+    handleClose(){
+        this.setState({ disp_modal:false});
+    }
+    selectGender(isBoy){
+        if(!isBoy)
+            this.setState({isBoy:false,disp_modal:false});
+        else   
+            this.setState({disp_modal:false});
+    }
     goBack(){
-        if(this.state.gState=='start')
+        if(this.state.gState=='start' || this.state.gState=='score')
             window.location.href='/games';
         else if(this.state.gState=='breafast')
             this.setState({gState:'start'});
@@ -190,8 +280,8 @@ class Game3 extends React.Component{
             this.setState({gState:'lunch'});
         else if(this.state.gState=='confirm')
             this.setState({gState:'dinner'});
-        else
-            window.location.href='/game-3'
+        // else
+        //     window.location.href='/games';
     }
     start(){
         this.setState({gState:'breakfast'})
@@ -217,22 +307,36 @@ class Game3 extends React.Component{
         let grain_content = 0;
         let fruit = 0;
         let protien_content = 0;
+        let food_score_lt_3 = false;
         this.selected_food.forEach((food)=>{
             score+=food.score;
             veg_content+=food.veg;
             protien_content+=food.protein;
             grain_content+=food.grain;
-            fruit+=food.fruit
+            fruit+=food.fruit;
+            if(food.score<=3)
+                food_score_lt_3 = true;
         });
-        score*=3
-        veg_content/=3
-        protien_content/=3
-        grain_content/=3
+        score*=3;        
+        protien_content/=3;
+        grain_content/=3;        
         console.log('sc',score);
         console.log('vg',veg_content);
         console.log('gc',grain_content);
         console.log('f',fruit);
         console.log('p',protien_content);
+        if(veg_content>3)
+            score+=5;
+        if(fruit>=2)
+            score+=5;
+        if(protien_content>=1.5 && protien_content<=2.5)
+            score+=5;
+        if(grain_content>=1.5 && grain_content<=2.5)
+            score+=5;
+        if(food_score_lt_3)
+            score-=8;
+        if(score>100)
+            score=100;
         this.setState({gState:'score',score:score});
     }
 }

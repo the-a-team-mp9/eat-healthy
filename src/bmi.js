@@ -116,6 +116,7 @@ class BMI extends React.Component {
     render() {
         return (
             <div >
+                
                 <div id='navbar' >
                     <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
                     <Navbar.Brand href="/">Eat healthy</Navbar.Brand>
@@ -204,8 +205,8 @@ class BMI extends React.Component {
                     </form>
                 </div>
                 <Container>
-                    <Row>
-                        <Col style={{backgroundColor:'rgba(44, 44, 44,0.85)'}}>
+                    <Row className="justify-content-md-center">
+                        <Col md={8} lg={6} style={{backgroundColor:'rgba(44, 44, 44,0.85)'}}>
                         <p style={{color:'white'}}>
                             B.M.I is the acronym for Body Mass Index. It is widely used as an indicator for obesity.
                             BMI can vary rapidly in children due to a higher physical growth rate compared to teenagers.                            
@@ -227,7 +228,8 @@ class BMI extends React.Component {
                         </p>
                         </Col>
                     </Row>
-                </Container> 
+                </Container>
+                
             </div>
         );
     }

@@ -1,8 +1,8 @@
-let brekkie = [
+let brekkie= [
 
     {
-
-        imgName: '1b1.png',
+	
+	imgName: '1b1.png',
 
         protein: 0,
 
@@ -11,8 +11,7 @@ let brekkie = [
         grain: 3,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     },
 
     {
@@ -26,11 +25,10 @@ let brekkie = [
         grain: 3,
 
         veg: 2,
-
-        fruit: 1
+	    fruit: 1
     }
 
-    ,
+,
 
     {
 
@@ -43,10 +41,9 @@ let brekkie = [
         grain: 2,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -59,10 +56,9 @@ let brekkie = [
         grain: 2,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -75,10 +71,9 @@ let brekkie = [
         grain: 2,
 
         veg: 1,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -91,10 +86,9 @@ let brekkie = [
         grain: 2,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -107,10 +101,9 @@ let brekkie = [
         grain: 0,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -123,10 +116,9 @@ let brekkie = [
         grain: 3,
 
         veg: 0,
-
-        fruit: 2
+	    fruit: 2
     }
-    ,
+,
 
     {
 
@@ -139,10 +131,9 @@ let brekkie = [
         grain: 3,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -155,10 +146,9 @@ let brekkie = [
         grain: 2,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -171,10 +161,9 @@ let brekkie = [
         grain: 2,
 
         veg: 3,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -187,10 +176,9 @@ let brekkie = [
         grain: 0,
 
         veg: 3,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -203,162 +191,16 @@ let brekkie = [
         grain: 2,
 
         veg: 1,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
-
-    {
-
-        imgName: '7b14.png',
-
-        protein: 2,
-
-        score: 7,
-
-        grain: 2,
-
-        veg: 3,
-
-        fruit: 0
-    }
-    ,
-
-    {
-
-        imgName: '7b15.png',
-
-        protein: 3,
-
-        score: 7,
-
-        grain: 2,
-
-        veg: 2,
-
-        fruit: 2
-    }
-    ,
-
-    {
-
-        imgName: '7b16.png',
-
-        protein: 2,
-
-        score: 7,
-
-        grain: 0,
-
-        veg: 3,
-
-        fruit: 0
-    }
-    ,
-
-    {
-
-        imgName: '8b17.png',
-
-        protein: 1,
-
-        score: 8,
-
-        grain: 3,
-
-        veg: 0,
-
-        fruit: 3
-    }
-    ,
-
-    {
-
-        imgName: '8b18.png',
-
-        protein: 1,
-
-        score: 8,
-
-        grain: 1,
-
-        veg: 3,
-
-        fruit: 0
-    }
-    ,
-
-    {
-
-        imgName: '9b19.png',
-
-        protein: 1,
-
-        score: 9,
-
-        grain: 2,
-
-        veg: 2,
-
-        fruit: 3
-    }
-    ,
-
-    {
-
-        imgName: '9b20.png',
-
-        protein: 1,
-
-        score: 9,
-
-        grain: 2,
-
-        veg: 2,
-
-        fruit: 0
-    }
-    ,
-
-    {
-
-        imgName: '10b21.png',
-
-        protein: 2,
-
-        score: 10,
-
-        grain: 2,
-
-        veg: 2,
-
-        fruit: 3
-    }
-    ,
-
-    {
-
-        imgName: '10b22.png',
-
-        protein: 1,
-
-        score: 10,
-
-        grain: 2,
-
-        veg: 2,
-
-        fruit: 3
-    }
-
 ]
 
 
 let lunch = [
 
     {
-
-        imgName: '1l1.png',
+	
+	imgName: '1l1.png',
 
         protein: 0,
 
@@ -367,10 +209,9 @@ let lunch = [
         grain: 3,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -383,11 +224,10 @@ let lunch = [
         grain: 3,
 
         veg: 0,
-
-        fruit: 1
+	    fruit: 1
     }
 
-    ,
+,
 
     {
 
@@ -400,11 +240,10 @@ let lunch = [
         grain: 3,
 
         veg: 1,
-
-        fruit: 1
+	    fruit: 1
     }
 
-    ,
+,
 
     {
 
@@ -417,11 +256,10 @@ let lunch = [
         grain: 2,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
 
-    ,
+,
 
     {
 
@@ -434,11 +272,10 @@ let lunch = [
         grain: 2,
 
         veg: 1,
-
-        fruit: 0
+	    fruit: 0
     }
 
-    ,
+,
 
     {
 
@@ -451,11 +288,10 @@ let lunch = [
         grain: 3,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
 
-    ,
+,
 
     {
 
@@ -468,10 +304,9 @@ let lunch = [
         grain: 2,
 
         veg: 1,
-
-        fruit: 1
+	    fruit: 1
     }
-    ,
+,
 
     {
 
@@ -484,10 +319,9 @@ let lunch = [
         grain: 3,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -500,10 +334,9 @@ let lunch = [
         grain: 2,
 
         veg: 1,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -516,11 +349,10 @@ let lunch = [
         grain: 2,
 
         veg: 1,
-
-        fruit: 0
+	    fruit: 0
     }
 
-    ,
+,
 
     {
 
@@ -533,10 +365,9 @@ let lunch = [
         grain: 0,
 
         veg: 3,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -549,184 +380,16 @@ let lunch = [
         grain: 2,
 
         veg: 2,
-
-        fruit: 3
+	    fruit: 3
     }
-    ,
-
-    {
-
-        imgName: '7l13.png',
-
-        protein: 3,
-
-        score: 7,
-
-        grain: 0,
-
-        veg: 2,
-
-        fruit: 0
-    }
-    ,
-
-    {
-
-        imgName: '7l14.png',
-
-        protein: 1,
-
-        score: 7,
-
-        grain: 2,
-
-        veg: 2,
-
-        fruit: 0
-    }
-    ,
-
-    {
-
-        imgName: '7l15.png',
-
-        protein: 1,
-
-        score: 7,
-
-        grain: 3,
-
-        veg: 2,
-
-        fruit: 0
-    }
-
-    ,
-
-    {
-
-        imgName: '7l16.png',
-
-        protein: 0,
-
-        score: 7,
-
-        grain: 2,
-
-        veg: 3,
-
-        fruit: 0
-    }
-    ,
-
-    {
-
-        imgName: '7l17.png',
-
-        protein: 3,
-
-        score: 7,
-
-        grain: 0,
-
-        veg: 0,
-
-        fruit: 1
-    }
-
-    ,
-
-    {
-
-        imgName: '8l18.png',
-
-        protein: 3,
-
-        score: 8,
-
-        grain: 1,
-
-        veg: 1,
-
-        fruit: 1
-    }
-
-    ,
-
-    {
-
-        imgName: '8l19.png',
-
-        protein: 1,
-
-        score: 8,
-
-        grain: 2,
-
-        veg: 2,
-
-        fruit: 3
-    }
-
-    ,
-
-    {
-
-        imgName: '9l20.png',
-
-        protein: 2,
-
-        score: 9,
-
-        grain: 0,
-
-        veg: 3,
-
-        fruit: 0
-    }
-
-    ,
-
-    {
-
-        imgName: '10l21.png',
-
-        protein: 3,
-
-        score: 10,
-
-        grain: 2,
-
-        veg: 2,
-
-        fruit: 2
-    }
-
-    ,
-
-    {
-
-        imgName: '10l22.png',
-
-        protein: 2,
-
-        score: 10,
-
-        grain: 2,
-
-        veg: 3,
-
-        fruit: 2
-    }
-
 ]
 
 
-let dinner = [
+let dinner=[
 
     {
-
-        imgName: '1d1.png',
+	
+	imgName: '1d1.png',
 
         protein: 0,
 
@@ -735,10 +398,9 @@ let dinner = [
         grain: 3,
 
         veg: 0,
-
-        fruit: 1
+	    fruit: 1
     }
-    ,
+,
 
     {
 
@@ -751,11 +413,10 @@ let dinner = [
         grain: 2,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
 
-    ,
+,
 
     {
 
@@ -768,10 +429,9 @@ let dinner = [
         grain: 2,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -784,11 +444,10 @@ let dinner = [
         grain: 1,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
 
-    ,
+,
 
     {
 
@@ -801,10 +460,9 @@ let dinner = [
         grain: 2,
 
         veg: 1,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -817,10 +475,9 @@ let dinner = [
         grain: 2,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -833,10 +490,9 @@ let dinner = [
         grain: 2,
 
         veg: 0,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -849,10 +505,9 @@ let dinner = [
         grain: 2,
 
         veg: 0,
-
-        fruit: 3
+	    fruit: 3
     }
-    ,
+,
 
     {
 
@@ -865,11 +520,10 @@ let dinner = [
         grain: 2,
 
         veg: 1,
-
-        fruit: 0
+	    fruit: 0
     }
 
-    ,
+,
 
     {
 
@@ -882,10 +536,9 @@ let dinner = [
         grain: 0,
 
         veg: 3,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -898,11 +551,312 @@ let dinner = [
         grain: 0,
 
         veg: 1,
-
-        fruit: 0
+	    fruit: 0
     }
 
-    ,
+]
+let breakkie_h= [
+
+    {
+
+        imgName: '7b14.png',
+
+        protein: 2,
+
+        score: 7,
+
+        grain: 2,
+
+        veg: 3,
+	    fruit: 0
+    }
+,
+
+    {
+
+        imgName: '7b15.png',
+
+        protein: 3,
+
+        score: 7,
+
+        grain: 2,
+
+        veg: 2,
+	    fruit: 2
+    }
+,
+
+    {
+
+        imgName: '7b16.png',
+
+        protein: 2,
+
+        score: 7,
+
+        grain: 0,
+
+        veg: 3,
+	    fruit: 0
+    }
+,
+
+    {
+
+        imgName: '8b17.png',
+
+        protein: 1,
+
+        score: 8,
+
+        grain: 3,
+
+        veg: 0,
+	    fruit: 3
+    }
+,
+
+    {
+
+        imgName: '8b18.png',
+
+        protein: 1,
+
+        score: 8,
+
+        grain: 1,
+
+        veg: 3,
+	    fruit: 0
+    }
+,
+
+    {
+
+        imgName: '9b19.png',
+
+        protein: 1,
+
+        score: 9,
+
+        grain: 2,
+
+        veg: 2,
+	    fruit: 3
+    }
+,
+
+    {
+
+        imgName: '9b20.png',
+
+        protein: 1,
+
+        score: 9,
+
+        grain: 2,
+
+        veg: 2,
+	    fruit: 0
+    }
+,
+
+    {
+
+        imgName: '10b21.png',
+
+        protein: 2,
+
+        score: 10,
+
+        grain: 2,
+
+        veg: 2,
+	    fruit: 3
+    }
+,
+
+    {
+
+        imgName: '10b22.png',
+
+        protein: 1,
+
+        score: 10,
+
+        grain: 2,
+
+        veg: 2,
+	    fruit: 3
+    }
+
+]
+
+
+let lunch_h = [
+
+
+    {
+
+        imgName: '7l13.png',
+
+        protein: 3,
+
+        score: 7,
+
+        grain: 0,
+
+        veg: 2,
+	    fruit: 0
+    }
+,
+
+    {
+
+        imgName: '7l14.png',
+
+        protein: 1,
+
+        score: 7,
+
+        grain: 2,
+
+        veg: 2,
+	    fruit: 0
+    }
+,
+
+    {
+
+        imgName: '7l15.png',
+
+        protein: 1,
+
+        score: 7,
+
+        grain: 3,
+
+        veg: 2,
+	    fruit: 0
+    }
+
+,
+
+    {
+
+        imgName: '7l16.png',
+
+        protein: 0,
+
+        score: 7,
+
+        grain: 2,
+
+        veg: 3,
+	    fruit: 0
+    }
+,
+
+    {
+
+        imgName: '7l17.png',
+
+        protein: 3,
+
+        score: 7,
+
+        grain: 0,
+
+        veg: 0,
+	    fruit: 1
+    }
+
+,
+
+    {
+
+        imgName: '8l18.png',
+
+        protein: 3,
+
+        score: 8,
+
+        grain: 1,
+
+        veg: 1,
+	    fruit: 1
+    }
+
+,
+
+    {
+
+        imgName: '8l19.png',
+
+        protein: 1,
+
+        score: 8,
+
+        grain: 2,
+
+        veg: 2,
+	    fruit: 3
+    }
+
+,
+
+    {
+
+        imgName: '9l20.png',
+
+        protein: 2,
+
+        score: 9,
+
+        grain: 0,
+
+        veg: 3,
+	    fruit: 0
+    }
+
+,
+
+    {
+
+        imgName: '10l21.png',
+
+        protein: 3,
+
+        score: 10,
+
+        grain: 2,
+
+        veg: 2,
+	    fruit: 2
+    }
+
+,
+
+    {
+
+        imgName: '10l22.png',
+
+        protein: 2,
+
+        score: 10,
+
+        grain: 2,
+
+        veg: 3,
+	    fruit: 2
+    }
+
+]
+
+
+let dinner_h=[
+
 
     {
 
@@ -915,10 +869,9 @@ let dinner = [
         grain: 3,
 
         veg: 1,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -931,11 +884,10 @@ let dinner = [
         grain: 2,
 
         veg: 2,
-
-        fruit: 3
+	    fruit: 3
     }
 
-    ,
+,
 
     {
 
@@ -948,11 +900,10 @@ let dinner = [
         grain: 0,
 
         veg: 2,
-
-        fruit: 0
+	    fruit: 0
     }
 
-    ,
+,
 
     {
 
@@ -965,11 +916,10 @@ let dinner = [
         grain: 0,
 
         veg: 0,
-
-        fruit: 3
+	    fruit: 3
     }
 
-    ,
+,
 
     {
 
@@ -982,10 +932,9 @@ let dinner = [
         grain: 2,
 
         veg: 3,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -998,10 +947,9 @@ let dinner = [
         grain: 1,
 
         veg: 2,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -1014,10 +962,9 @@ let dinner = [
         grain: 2,
 
         veg: 2,
-
-        fruit: 0
+	    fruit: 0
     }
-    ,
+,
 
     {
 
@@ -1030,11 +977,10 @@ let dinner = [
         grain: 0,
 
         veg: 3,
-
-        fruit: 0
+	    fruit: 0
     }
 
-    ,
+,
 
     {
 
@@ -1047,11 +993,10 @@ let dinner = [
         grain: 1,
 
         veg: 0,
-
-        fruit: 3
+	    fruit: 3
     }
 
-    ,
+,
 
     {
 
@@ -1064,11 +1009,10 @@ let dinner = [
         grain: 2,
 
         veg: 3,
-
-        fruit: 2
+	    fruit: 2
     }
 
-    ,
+,
 
     {
 
@@ -1081,10 +1025,9 @@ let dinner = [
         grain: 2,
 
         veg: 3,
-
-        fruit: 2
+	    fruit: 2
     }
 
 ]
 
-export{brekkie,lunch,dinner}
+export{brekkie,lunch,dinner,breakkie_h,lunch_h,dinner_h}

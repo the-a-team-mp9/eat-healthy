@@ -858,9 +858,9 @@ input[type=radio] {
   width: 52%;
   left:24%;
   top:1%;
-  background-image: url(../images/Game-3_Image_Assets/Background/Menu_Dietitian.png);
+  background-image: url(../images/Game-3_Image_Assets/Background/Menu.png);
   background-position: center; 
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
@@ -879,10 +879,10 @@ input[type=radio] {
 
 #game-3-clock{
   position: absolute;
-  height: 38%;
-  width: 23.8%;
-  left: 5.5%;
-  top:37.4%;
+  height: 35.2%;
+  width: 19.5%;
+  left: 2.3%;
+  top:22.5%;
 }
 
 #menu-item1{
@@ -923,10 +923,10 @@ input[type=radio] {
 
 #breakfast-clock{
   position: absolute;
-  height: 20.7%;
-  width: 11.5%;
-  left: 68.5%;
-  top:12.7%;
+  height: 15.7%;
+  width: 8.5%;
+  left: 72.5%;
+  top: 15.5%;
   background-image: url(../images/Game-3_Image_Assets/Background/clock_morning.png);
   background-position: center; 
   background-size: contain;
@@ -935,10 +935,10 @@ input[type=radio] {
 
 #lunch-clock{
   position: absolute;
-  height: 20.7%;
-  width: 11.5%;
-  left: 68.5%;
-  top:40.3%;
+  height: 15.7%;
+  width: 8.5%;
+  left: 72.5%;
+  top: 41.9%;
   background-image: url(../images/Game-3_Image_Assets/Background/clock_noon.png);
   background-position: center; 
   background-size: contain;
@@ -947,10 +947,10 @@ input[type=radio] {
 
 #dinner-clock{
   position: absolute;
-  height: 20.7%;
-  width: 11.5%;
-  left: 68.5%;
-  top:68.2%;
+  height: 15.7%;
+  width: 8.5%;
+  left: 72.5%;
+  top: 70.2%;
   background-image: url(../images/Game-3_Image_Assets/Background/clock_evening.png);
   background-position: center; 
   background-size: contain;
@@ -995,4 +995,41 @@ input[type=radio] {
   height: auto;
   left: 2%;
   top:25%;
+}
+
+#game-3-start-msg1{
+  position: absolute;  
+  width: 22%;
+  height: auto;
+  left: 2%;
+  top:37.7%;
+}
+
+#game-3-start-msg2{
+  position: absolute;  
+  width: 22%;
+  height: auto;
+  left: 75%;
+  top:37.7%;
+}
+
+#game-3-select-msg{
+  position: absolute;  
+  width: 22%;
+  height: auto;
+  left: 2.3%;
+  top:65.5%;
+}
+
+#game-3-restart-btn{
+  position: absolute;
+  width: 6.3%;
+  height: 9.6%;
+  left: 13.8%;
+  top: 4.2%;
+  background-image: url(../images/Game-3_Image_Assets/Background/button_Replay.png);
+  background-position: center; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
