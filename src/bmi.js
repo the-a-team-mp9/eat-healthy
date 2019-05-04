@@ -3,7 +3,7 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import Button from 'react-bootstrap/Button';
-import {Nav, Navbar} from 'react-bootstrap';
+import {Nav, Navbar,Container,Row,Col} from 'react-bootstrap';
 
 
 
@@ -156,7 +156,7 @@ class BMI extends React.Component {
                         </Button>
                     </div>                                   
                 </div>
-            </div>                            
+            </div>                                          
                 <div className='bmi-container' style={{zIndex:'2',marginBottom:'20px'}}>
                     <div className='bmi-card' style={{marginTop:'20px'}}>
                         <div className='card1-h'>
@@ -203,7 +203,31 @@ class BMI extends React.Component {
                         </div>
                     </form>
                 </div>
-                
+                <Container>
+                    <Row>
+                        <Col style={{backgroundColor:'rgba(44, 44, 44,0.85)'}}>
+                        <p style={{color:'white'}}>
+                            B.M.I is the acronym for Body Mass Index. It is widely used as an indicator for obesity.
+                            BMI can vary rapidly in children due to a higher physical growth rate compared to teenagers.                            
+                        </p>
+                        <p style={{color:'white'}}>                            
+                            The value of BMI is used to categorise the obesity of individuals as                       
+                        </p>
+                        <p style={{color:'white'}}>
+                            1. Under weight : BMI {' < '} 18.5
+                        </p>
+                        <p style={{color:'white'}}>
+                            2. Normal : BMI >= 18.6 to {' < '} 25
+                        </p>
+                        <p style={{color:'white'}}>
+                            3. Overweight : BMI > 25 {' <= '} 30
+                        </p>
+                        <p style={{color:'white'}}>
+                            4. Obese : BMI > 40
+                        </p>
+                        </Col>
+                    </Row>
+                </Container> 
             </div>
         );
     }
