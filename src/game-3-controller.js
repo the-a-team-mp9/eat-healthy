@@ -64,7 +64,7 @@ class Game3 extends React.Component{
     renderButton(){
         if(this.state.gState=='start')
             return(
-                <div id='menu-button' onClick={this.start.bind(this)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Background/Start_button.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                <div id='menu-button' onClick={this.start.bind(this)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Background/START_button.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
             );
         else if(this.state.gState=='confirm')
             return(
