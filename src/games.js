@@ -103,7 +103,7 @@ class Games extends React.Component {
                 <section className=" game" id="game">
                     <Container style={{ textAlign: 'center' }}>
                         <Row>
-                            <Col xs={12} md={6} lg={4} className='wp2 animated fadeInUp' style={{ textAlign: 'center',paddingBottom:'20px' }}>
+                            <Col xs={12} md={6} lg={4} className=' animated  fadeInUp' style={{ textAlign: 'center',paddingBottom:'20px' }}>
                                 <div className="img img-responsive">
                                     <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,1)}>
                                         <img src="../images/Game_Icons/Gameicon1.png" alt="Game 1" />
@@ -117,7 +117,7 @@ class Games extends React.Component {
                                     Game 1 Scores
                                     </a>
                             </Col>
-                            <Col xs={12} md={6} lg={4} className='wp2 animated fadeInUp' style={{paddingBottom:'20px'}}>
+                            <Col xs={12} md={6} lg={4} className=' animated  fadeInUp' style={{paddingBottom:'20px'}}>
                                 <div className="img img-responsive">
                                     <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,2)}>
                                         <img  src="../images/Game_Icons/Game_2_Logo.png" alt="Eatopoly" />
@@ -128,10 +128,10 @@ class Games extends React.Component {
                                 <p style={{ textAlign: "center", color: 'white' }}>Play with a friend or the computer</p>
                                 <p style={{ textAlign: "center", color: 'white' }}>Make up your own startegy to win</p>
                             </Col>
-                            <Col xs={12} md={6} lg={4} className='wp2 animated fadeInUp' style={{paddingBottom:'20px'}}>
+                            <Col xs={12} md={6} lg={4} className=' animated  fadeInUp' style={{paddingBottom:'20px'}}>
                                 <div className="img">
                                     <a href="game-3">
-                                        <img src="../images/Game_Icons/Gameicon2.png" alt="Game 2" />
+                                        <img src="../images/Game_Icons/Game_3_Logo.png" alt="Game 2" />
                                     </a>
                                 </div>
                                 <h2 style={{ textAlign: "center" }}>Dietecian</h2>

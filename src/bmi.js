@@ -61,11 +61,11 @@ class BMI extends React.Component {
         // console.log('hinm',hinMeters);
         // console.log('winK',winKg);
         let bMi = (winKg/(hinMeters*hinMeters)).toFixed(2);
-        if(bMi<18.5)
+        if(bMi<14.3)
             bmiCat='Underweight';
-        else if(bMi>=18.5 && bMi<25)
+        else if(bMi>=14.3 && bMi<17.9)
             bmiCat='Normal';
-        else if(bMi>=25 && bMi<30)
+        else if(bMi>=17.9 && bMi<20)
             bmiCat='Overweight';
         else
             bmiCat='Obese';
@@ -209,22 +209,23 @@ class BMI extends React.Component {
                         <Col md={8} lg={6} style={{backgroundColor:'rgba(44, 44, 44,0.85)'}}>
                         <p style={{color:'white'}}>
                             B.M.I is the acronym for Body Mass Index. It is widely used as an indicator for obesity.
-                            BMI can vary rapidly in children due to a higher physical growth rate compared to teenagers.                            
+                            BMI can vary rapidly in children due to a higher physical growth rate compared to teenagers.
+                            The values of BMI used to classify an individual into categories are different for different age groups.
                         </p>
                         <p style={{color:'white'}}>                            
-                            The value of BMI is used to categorise the obesity of individuals as                       
+                            The value of BMI is used to categorise the obesity of children (in the age group 4-8 years) as                    
                         </p>
-                        <p style={{color:'white'}}>
-                            1. Under weight : BMI {' < '} 18.5
+                        <p style={{color:'white', margin:'0px'}}>
+                            1. Under weight : BMI {' < '} 14.3
                         </p>
-                        <p style={{color:'white'}}>
-                            2. Normal : BMI >= 18.6 to {' < '} 25
+                        <p style={{color:'white',margin:'0px'}}>
+                            2. Normal : BMI >= 14.3 to {' < '} 17.9
                         </p>
-                        <p style={{color:'white'}}>
-                            3. Overweight : BMI > 25 {' <= '} 30
+                        <p style={{color:'white',margin:'0px'}}>
+                            3. Overweight : BMI > 17.9 {' <= '} 20
                         </p>
-                        <p style={{color:'white'}}>
-                            4. Obese : BMI > 40
+                        <p style={{color:'white',margin:'0px'}}>
+                            4. Obese : BMI > 20
                         </p>
                         </Col>
                     </Row>

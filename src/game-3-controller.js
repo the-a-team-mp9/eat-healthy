@@ -64,7 +64,7 @@ class Game3 extends React.Component{
     renderButton(){
         if(this.state.gState=='start')
             return(
-                <div id='menu-button' onClick={this.start.bind(this)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Background/Start_button1.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                <div id='menu-button' onClick={this.start.bind(this)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Background/Start_button.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
             );
         else if(this.state.gState=='confirm')
             return(
@@ -203,11 +203,23 @@ class Game3 extends React.Component{
             
     }
     renderScore(){
+        let score_msg;
+        if(this.state.score>=80)
+            score_msg='Congratulations!!! You chose a balanced diet';
+        else if(this.state.score>=60 && this.state.score<80 )
+            score_msg='Good Job. You choose good foods';
+        else if(this.state.score>=40 && this.state.score< 60)
+            score_msg='You can eat better. Keep trying';
+        else
+            score_msg='Oh No. You choose unhealthy foods. Try again';
         if(this.state.gState=='score')
             return(
-                <div id='game3-msg'>
-                    <h2 style={{fontSize:'1.5em',color:'white'}}>Score: {this.state.score}</h2>
-                </div>
+                <div>
+                    <div id='game3-msg'>
+                        <h2 style={{fontSize:'1.5em',color:'white'}}>Score: {this.state.score}</h2>
+                    </div>
+                    <div id='game-3-start-msg1'><h3 style={{color:'white',textAlign:'justify'}}>{score_msg}</h3></div>
+                </div>                
             );            
     }
     renderGameMsgs(){
@@ -221,6 +233,12 @@ class Game3 extends React.Component{
         else if(this.state.gState=='breakfast' || this.state.gState=='lunch' || this.state.gState=='dinner')
             return(
                 <div id='game-3-select-msg'><h2 style={{color:'white',textAlign:'center',fontSize:'1.5em'}}>select {this.state.gState}</h2></div>
+            );
+        else if(this.state.gState=='confirm')
+            return(
+                <div id='game-3-start-msg1'>
+                    <h2 style={{fontSize:'1.5em',color:'white'}}>Click the red button to confirm</h2>
+                </div>
             );
     }    
     render(){
