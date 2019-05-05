@@ -223,14 +223,14 @@ class Game3 extends React.Component{
             );            
     }
     renderGameMsgs(){
-        if(this.state.gState=='start')
-            return(
-                <div>
-                    <div id='game-3-start-msg1'><h2 style={{color:'white',textAlign:'justified',fontSize:'1.5em'}}>Click the red button to begin</h2></div>
-                    <div id='game-3-start-msg2'><h2 style={{color:'white',textAlign:'justified',fontSize:'1.5em'}}>Choose the menu for today</h2></div>
-                </div>
-            );
-        else if(this.state.gState=='breakfast' || this.state.gState=='lunch' || this.state.gState=='dinner')
+        // if(this.state.gState=='start')
+        //     return(
+        //         <div>
+        //             <div id='game-3-start-msg1'><h2 style={{color:'white',textAlign:'justified',fontSize:'1.5em'}}>Click the red button to begin</h2></div>
+        //             <div id='game-3-start-msg2'><h2 style={{color:'white',textAlign:'justified',fontSize:'1.5em'}}>Choose the menu for today</h2></div>
+        //         </div>
+        //     );
+        if(this.state.gState=='breakfast' || this.state.gState=='lunch' || this.state.gState=='dinner')
             return(
                 <div id='game-3-select-msg'><h2 style={{color:'white',textAlign:'center',fontSize:'1.5em'}}>select {this.state.gState}</h2></div>
             );
@@ -290,7 +290,7 @@ class Game3 extends React.Component{
     goBack(){
         if(this.state.gState=='start' || this.state.gState=='score')
             window.location.href='/games';
-        else if(this.state.gState=='breafast')
+        else if(this.state.gState=='breakfast')
             this.setState({gState:'start'});
         else if(this.state.gState=='lunch')
             this.setState({gState:'breakfast'});
