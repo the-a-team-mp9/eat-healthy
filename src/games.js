@@ -160,7 +160,7 @@ class Games extends React.Component {
                                         <img src="../images/Game_Icons/Game_3_Logo.png" alt="Game 3" />
                                     </div>
                                 </div>
-                                <h2 style={{ textAlign: "center" }}>Dietecian</h2>
+                                <h2 style={{ textAlign: "center" }}>Dietician</h2>
                                 <p style={{ textAlign: "center", color: 'white' }}>Select breakfast lunch and dinner from a variety of dishes</p>
                                 <p style={{ textAlign: "center", color: 'white' }}>Choose a balanced diet to get a high score</p>
                             </Col>
