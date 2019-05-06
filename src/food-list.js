@@ -11,7 +11,10 @@ let brekkie= [
         grain: 3,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+	
+	    description: 'Five donuts'
     },
 
     {
@@ -25,7 +28,10 @@ let brekkie= [
         grain: 3,
 
         veg: 2,
-	    fruit: 1
+
+	    fruit: 1,
+
+	    description: 'Three pieces of cakes'
     }
 
 ,
@@ -41,7 +47,10 @@ let brekkie= [
         grain: 2,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One cheese burger, three chicken wings and one bottle of soft-drink'
     }
 ,
 
@@ -56,7 +65,10 @@ let brekkie= [
         grain: 2,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One hotdog, two chicken wings and one bottle of soft-drink'
     }
 ,
 
@@ -71,7 +83,10 @@ let brekkie= [
         grain: 2,
 
         veg: 1,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Two sausages, two donuts and salami slices'
     }
 ,
 
@@ -86,7 +101,10 @@ let brekkie= [
         grain: 2,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One poached egg, two donuts, two slices of bacon and some fries'
     }
 ,
 
@@ -101,7 +119,10 @@ let brekkie= [
         grain: 0,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One beef steak and some sausage slices'
     }
 ,
 
@@ -116,7 +137,10 @@ let brekkie= [
         grain: 3,
 
         veg: 0,
-	    fruit: 2
+
+	    fruit: 2,
+
+	    description: 'Two waffles with whipped cream, raspberries and blue berries'
     }
 ,
 
@@ -131,7 +155,10 @@ let brekkie= [
         grain: 3,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Three pancakes with honey butter'
     }
 ,
 
@@ -146,7 +173,10 @@ let brekkie= [
         grain: 2,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One bowl of cereal with banana slices and three poached eggs'
     }
 ,
 
@@ -161,7 +191,10 @@ let brekkie= [
         grain: 2,
 
         veg: 3,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Two sausages, two bread slices and salami slices'
     }
 ,
 
@@ -176,7 +209,10 @@ let brekkie= [
         grain: 0,
 
         veg: 3,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One poached egg and veggie salad'
     }
 ,
 
@@ -191,7 +227,10 @@ let brekkie= [
         grain: 2,
 
         veg: 1,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One poached egg, two bacon slices, some fries and peas'
     }
 ]
 
@@ -209,7 +248,10 @@ let lunch = [
         grain: 3,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Five colorful donuts'
     }
 ,
 
@@ -224,7 +266,10 @@ let lunch = [
         grain: 3,
 
         veg: 0,
-	    fruit: 1
+
+	    fruit: 1,
+
+	    description: 'Three pieces of cakes'
     }
 
 ,
@@ -240,7 +285,10 @@ let lunch = [
         grain: 3,
 
         veg: 1,
-	    fruit: 1
+
+	    fruit: 1,
+
+	    description: 'One piece of cake, one donut, one cheese burger, two strawberries and some carrots'
     }
 
 ,
@@ -256,7 +304,10 @@ let lunch = [
         grain: 2,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One cheese burger, three chicken wings and one bottle of soft-drink'
     }
 
 ,
@@ -272,7 +323,10 @@ let lunch = [
         grain: 2,
 
         veg: 1,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Sushi combo with mustard and soy sauce (raw fish)'
     }
 
 ,
@@ -288,7 +342,10 @@ let lunch = [
         grain: 3,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Two sausages and fries'
     }
 
 ,
@@ -304,7 +361,10 @@ let lunch = [
         grain: 2,
 
         veg: 1,
-	    fruit: 1
+
+	    fruit: 1,
+
+	    description: 'Four wicked wings, some cherry tomatoes, peas and mashed potatoes'
     }
 ,
 
@@ -319,7 +379,10 @@ let lunch = [
         grain: 3,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One salami pizza'
     }
 ,
 
@@ -334,7 +397,10 @@ let lunch = [
         grain: 2,
 
         veg: 1,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Two baked chicken legs and fries with tomato sauce'
     }
 ,
 
@@ -349,7 +415,10 @@ let lunch = [
         grain: 2,
 
         veg: 1,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One poached egg, two bacon slices, some fries and peas'
     }
 
 ,
@@ -365,7 +434,10 @@ let lunch = [
         grain: 0,
 
         veg: 3,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Veggie salad'
     }
 ,
 
@@ -380,7 +452,10 @@ let lunch = [
         grain: 2,
 
         veg: 2,
-	    fruit: 3
+
+	    fruit: 3,
+
+	    description: 'One bowl of cereal with banana slices and berries, one poached eggs and asparagus'
     }
 ]
 
@@ -398,7 +473,10 @@ let dinner=[
         grain: 3,
 
         veg: 0,
-	    fruit: 1
+
+	    fruit: 1,
+
+	    description: 'Three pieces of cakes'
     }
 ,
 
@@ -413,7 +491,10 @@ let dinner=[
         grain: 2,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One piece of cherry cake'
     }
 
 ,
@@ -429,7 +510,10 @@ let dinner=[
         grain: 2,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One hotdog, two wicked wings and one bottle of soft-drink'
     }
 ,
 
@@ -444,7 +528,10 @@ let dinner=[
         grain: 1,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Four poached eggs and fries with ketchup'
     }
 
 ,
@@ -460,7 +547,10 @@ let dinner=[
         grain: 2,
 
         veg: 1,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Sushi combo with mustard and soy sauce (raw fish)'
     }
 ,
 
@@ -475,7 +565,10 @@ let dinner=[
         grain: 2,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One cheese burger, three wicked wings and one bottle of soft-drink'
     }
 ,
 
@@ -490,7 +583,10 @@ let dinner=[
         grain: 2,
 
         veg: 0,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Two baked chicken legs and fries with tomato sauce'
     }
 ,
 
@@ -505,7 +601,10 @@ let dinner=[
         grain: 2,
 
         veg: 0,
-	    fruit: 3
+
+	    fruit: 3,
+
+	    description: 'One serve of rice, one poached egg, some kiwi slices and strawberry'
     }
 ,
 
@@ -520,7 +619,10 @@ let dinner=[
         grain: 2,
 
         veg: 1,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'One poached egg, two bacon slices, some fries and peas'
     }
 
 ,
@@ -536,7 +638,10 @@ let dinner=[
         grain: 0,
 
         veg: 3,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Five beef patties and veggie salad'
     }
 ,
 
@@ -551,7 +656,10 @@ let dinner=[
         grain: 0,
 
         veg: 1,
-	    fruit: 0
+
+	    fruit: 0,
+
+	    description: 'Raw salmon with lettuce and lemon'
     }
 
 ]
@@ -568,7 +676,10 @@ let breakkie_h= [
         grain: 2,
 
         veg: 3,
-	    fruit: 0
+	
+        fruit: 0,
+        
+        description: 'A serve of rice, two meat patties, some fruit and veggie salad'
     }
 ,
 
@@ -583,7 +694,10 @@ let breakkie_h= [
         grain: 2,
 
         veg: 2,
-	    fruit: 2
+        
+	    fruit: 2,
+        
+        description: 'Four steaks, mashed potatoes, pea, carrot, banana and some berries'
     }
 ,
 
@@ -598,7 +712,10 @@ let breakkie_h= [
         grain: 0,
 
         veg: 3,
-	    fruit: 0
+        
+	    fruit: 0,
+        
+        description: 'A big grilled chicken leg with half lemon, some carrot and asparagus'
     }
 ,
 
@@ -613,7 +730,10 @@ let breakkie_h= [
         grain: 3,
 
         veg: 0,
-	    fruit: 3
+        
+	    fruit: 3,
+        
+        description: 'Cereal with banana and berries, two croissants and one egg'
     }
 ,
 
@@ -628,7 +748,10 @@ let breakkie_h= [
         grain: 1,
 
         veg: 3,
-	    fruit: 0
+        
+	    fruit: 0,
+        
+        description: 'One croissant and one egg with some veggie salad'
     }
 ,
 
@@ -643,7 +766,10 @@ let breakkie_h= [
         grain: 2,
 
         veg: 2,
-	    fruit: 3
+        
+	    fruit: 3,
+        
+        description: 'Two sandwiches with some fruits'
     }
 ,
 
@@ -658,7 +784,10 @@ let breakkie_h= [
         grain: 2,
 
         veg: 2,
-	    fruit: 0
+        
+	    fruit: 0,
+        
+        description: 'Scrambled egg, spagetti with tomato and celery'
     }
 ,
 
@@ -673,7 +802,10 @@ let breakkie_h= [
         grain: 2,
 
         veg: 2,
-	    fruit: 3
+        
+	    fruit: 3,
+        
+        description: 'One sandwich with one egg and some cherry tomato'
     }
 ,
 
@@ -688,7 +820,10 @@ let breakkie_h= [
         grain: 2,
 
         veg: 2,
-	    fruit: 3
+        
+	    fruit: 3,
+        
+        description: 'Cereal with banana and berries, asparagus and one egg'
     }
 
 ]
@@ -708,7 +843,10 @@ let lunch_h = [
         grain: 0,
 
         veg: 2,
-	    fruit: 0
+        
+	    fruit: 0,
+        
+        description: 'Lobster and lettuce'
     }
 ,
 
@@ -723,7 +861,10 @@ let lunch_h = [
         grain: 2,
 
         veg: 2,
-	    fruit: 0
+        
+	    fruit: 0,
+        
+        description: 'Two Sandwiches'
     }
 ,
 
@@ -738,7 +879,10 @@ let lunch_h = [
         grain: 3,
 
         veg: 2,
-	    fruit: 0
+        
+	    fruit: 0,
+        
+        description: 'Thai seafood Fried rice with Thai sweet chili sauce and vegetables'
     }
 
 ,
@@ -754,7 +898,10 @@ let lunch_h = [
         grain: 2,
 
         veg: 3,
-	    fruit: 0
+        
+	    fruit: 0,
+        
+        description: 'Chicken salad roll with lettuce, sweet corn, mayonnaise and tomato sauce with three tomatoes'
     }
 ,
 
@@ -769,7 +916,10 @@ let lunch_h = [
         grain: 0,
 
         veg: 0,
-	    fruit: 1
+        
+	    fruit: 1,
+        
+        description: 'Rosted fish with cherry tomato, lemon and sauce'
     }
 
 ,
@@ -785,7 +935,10 @@ let lunch_h = [
         grain: 1,
 
         veg: 1,
-	    fruit: 1
+        
+	    fruit: 1,
+        
+        description: 'One steak with some fires, cherry tomato, broccoli and sauce'
     }
 
 ,
@@ -801,7 +954,10 @@ let lunch_h = [
         grain: 2,
 
         veg: 2,
-	    fruit: 3
+        
+	    fruit: 3,
+        
+        description: 'Two sandwichs with some fruits'
     }
 
 ,
@@ -817,7 +973,10 @@ let lunch_h = [
         grain: 0,
 
         veg: 3,
-	    fruit: 0
+        
+	    fruit: 0,
+        
+        description: 'One steak, four pieces of sausage with some carrots and asparagus'
     }
 
 ,
@@ -833,7 +992,10 @@ let lunch_h = [
         grain: 2,
 
         veg: 2,
-	    fruit: 2
+        
+	    fruit: 2,
+        
+        description: 'Four steaks, mashed potatoes, peas, carrot, banana and some berries'
     }
 
 ,
@@ -849,7 +1011,10 @@ let lunch_h = [
         grain: 2,
 
         veg: 3,
-	    fruit: 2
+	    
+        fruit: 2,
+        
+        description: 'A serve of rice, two steaks, some banana and blue berries and veggie salad'
     }
 
 ]
@@ -869,7 +1034,10 @@ let dinner_h=[
         grain: 3,
 
         veg: 1,
-	    fruit: 0
+        
+        fruit: 0,
+        
+        description: 'Curry noodles, one egg and some cucumber'
     }
 ,
 
@@ -884,7 +1052,10 @@ let dinner_h=[
         grain: 2,
 
         veg: 2,
-	    fruit: 3
+
+        fruit: 3,
+        
+        description: 'Cereal with banana and berries, asparagus and one egg'
     }
 
 ,
@@ -900,7 +1071,10 @@ let dinner_h=[
         grain: 0,
 
         veg: 2,
-	    fruit: 0
+        
+        fruit: 0,
+        
+        description: 'Yakitori with color peppers and tomato sauce'
     }
 
 ,
@@ -916,7 +1090,10 @@ let dinner_h=[
         grain: 0,
 
         veg: 0,
-	    fruit: 3
+        
+        fruit: 3,
+        
+        description: 'Fruit platter with kiwi, watermelon, white grape and purple grape'
     }
 
 ,
@@ -932,7 +1109,10 @@ let dinner_h=[
         grain: 2,
 
         veg: 3,
-	    fruit: 0
+        
+        fruit: 0,
+        
+        description: 'Bibimbap with meat, vegetables, egg and Korean mixs rice sauce'
     }
 ,
 
@@ -947,7 +1127,10 @@ let dinner_h=[
         grain: 1,
 
         veg: 2,
-	    fruit: 0
+        
+        fruit: 0,
+        
+        description: 'Beef brisket, potato and carrot'
     }
 ,
 
@@ -962,7 +1145,10 @@ let dinner_h=[
         grain: 2,
 
         veg: 2,
-	    fruit: 0
+        
+        fruit: 0,
+        
+        description: 'A steak with fries and some carrots and peas'
     }
 ,
 
@@ -977,7 +1163,10 @@ let dinner_h=[
         grain: 0,
 
         veg: 3,
-	    fruit: 0
+         
+	    fruit: 0,
+        
+        description: 'A big grilled chicken leg with half lemon, some carrot and asparagus'
     }
 
 ,
@@ -993,7 +1182,10 @@ let dinner_h=[
         grain: 1,
 
         veg: 0,
-	    fruit: 3
+        
+        fruit: 3,
+        
+        description: 'A big steak with some fries, mushrooms and some blue berries and strawberries'
     }
 
 ,
@@ -1009,7 +1201,10 @@ let dinner_h=[
         grain: 2,
 
         veg: 3,
-	    fruit: 2
+
+        fruit: 2,
+        
+        description: 'A serve of rice, two meat patty, some fruit and veggie salad'
     }
 
 ,
@@ -1025,7 +1220,10 @@ let dinner_h=[
         grain: 2,
 
         veg: 3,
-	    fruit: 2
+
+        fruit: 2,
+        
+        description: 'A serve of rice, two steaks, some banana and blue berries and veggie salad'
     }
 
 ]

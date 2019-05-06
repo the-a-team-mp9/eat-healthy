@@ -1034,3 +1034,9 @@ input[type=radio] {
   background-repeat: no-repeat;
   cursor: pointer;
 }
+.select-buttons{
+  width: 40%;
+  height: auto;
+  display: inline-block;
+  cursor: pointer;  
+}

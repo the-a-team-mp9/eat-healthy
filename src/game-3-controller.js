@@ -14,7 +14,7 @@ class Game3 extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {gState:'start',disp_modal:true,isBoy:true};
+        this.state = {gState:'start',disp_modal:true,isBoy:true,foodSelected:false};
         let lunch_arr=[];
         let break_arr=[];
         let dinner_arr=[];
@@ -100,25 +100,25 @@ class Game3 extends React.Component{
         if(this.state.gState=='breakfast')
             return(
                 <div>
-                    <div id='menu-item1' onClick={this.getBreakfastChoice.bind(this,0)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Breakfast/'+this.brekkie_list[0].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
-                    <div id='menu-item2' onClick={this.getBreakfastChoice.bind(this,1)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Breakfast/'+this.brekkie_list[1].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
-                    <div id='menu-item3' onClick={this.getBreakfastChoice.bind(this,2)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Breakfast/'+this.brekkie_list[2].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    <div id='menu-item1' onClick={this.getMealChoice.bind(this,0)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Breakfast/'+this.brekkie_list[0].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    <div id='menu-item2' onClick={this.getMealChoice.bind(this,1)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Breakfast/'+this.brekkie_list[1].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    <div id='menu-item3' onClick={this.getMealChoice.bind(this,2)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Breakfast/'+this.brekkie_list[2].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
                 </div>
             );
         else if(this.state.gState=='lunch')
             return(
                 <div>
-                    <div id='menu-item1' onClick={this.getLunchChoice.bind(this,0)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Lunch/'+this.lunch_list[0].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
-                    <div id='menu-item2' onClick={this.getLunchChoice.bind(this,1)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Lunch/'+this.lunch_list[1].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
-                    <div id='menu-item3' onClick={this.getLunchChoice.bind(this,2)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Lunch/'+this.lunch_list[2].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    <div id='menu-item1' onClick={this.getMealChoice.bind(this,0)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Lunch/'+this.lunch_list[0].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    <div id='menu-item2' onClick={this.getMealChoice.bind(this,1)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Lunch/'+this.lunch_list[1].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    <div id='menu-item3' onClick={this.getMealChoice.bind(this,2)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Lunch/'+this.lunch_list[2].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
                 </div>
             );
         else if(this.state.gState=='dinner')
             return(
                 <div>
-                    <div id='menu-item1' onClick={this.getDinnerChoice.bind(this,0)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Dinner/'+this.dinner_list[0].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
-                    <div id='menu-item2' onClick={this.getDinnerChoice.bind(this,1)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Dinner/'+this.dinner_list[1].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
-                    <div id='menu-item3' onClick={this.getDinnerChoice.bind(this,2)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Dinner/'+this.dinner_list[2].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    <div id='menu-item1' onClick={this.getMealChoice.bind(this,0)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Dinner/'+this.dinner_list[0].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    <div id='menu-item2' onClick={this.getMealChoice.bind(this,1)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Dinner/'+this.dinner_list[1].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    <div id='menu-item3' onClick={this.getMealChoice.bind(this,2)} style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Dinner/'+this.dinner_list[2].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
                 </div>
             );
     }
@@ -240,6 +240,26 @@ class Game3 extends React.Component{
                     <h2 style={{fontSize:'1.5em',color:'white'}}>Click the red button to confirm</h2>
                 </div>
             );
+    }
+    renderModal(){        
+        if(this.state.foodSelected){
+            return(
+                <div className='modal1' id='modal' style={{display:'block',zIndex:'10'}}>
+                    <div className='modal1-content' style={{display:'block', backgroundColor: "rgba(30,30,30,0.85)", paddingBottom: '20px', maxWidth: '150px' }} id='caption'>
+                        <div className='modfull'>
+                            <h2>
+                                {this.state.seletedFood_d}
+                            </h2>
+                        </div>
+                        <div className='modfull'>
+                            <img className='select-buttons' style={{margin: '5px'}} src='../images/Dice_and_Buttons/Yes.png' onClick={this.selectMeal.bind(this)}/>
+                            <img className='select-buttons' style={{margin: '5px'}} src='../images/Dice_and_Buttons/No.png' onClick={this.cancelSelection.bind(this)}/>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+            
     }    
     render(){
         //console.log(brekkie);
@@ -268,6 +288,7 @@ class Game3 extends React.Component{
             </Modal>
             <div id='menu-card'></div>
             <div id='game-3-back' onClick={this.goBack.bind(this)}></div>
+            {this.renderModal()}
             {this.renderClocks()}     
             {this.renderFoods()} 
             {this.renderButton()}
@@ -304,20 +325,34 @@ class Game3 extends React.Component{
     start(){
         this.setState({gState:'breakfast'})
     }    
-    getBreakfastChoice(choice){
-        this.selected_food[0]=this.brekkie_list[choice];
-        console.log(this.selected_food);
-        this.setState({gState:'lunch'})
+    getMealChoice(choice){
+        console.log(choice);
+        if(this.state.gState=='breakfast'){
+            this.selected_food[0]=this.brekkie_list[choice];
+            // console.log(this.selected_food);
+            this.setState({seletedFood_d:this.brekkie_list[choice].description,foodSelected:true});
+        }
+        else if(this.state.gState=='lunch'){
+            this.selected_food[1]=this.lunch_list[choice];
+            console.log(this.selected_food);
+            this.setState({seletedFood_d:this.lunch_list[choice].description,foodSelected:true});
+        }
+        else if(this.state.gState=='dinner'){
+            this.selected_food[2]=this.dinner_list[choice];
+            console.log(this.selected_food);
+            this.setState({seletedFood_d:this.dinner_list[choice].description,foodSelected:true});
+        }
     }
-    getLunchChoice(choice){
-        this.selected_food[1]=this.lunch_list[choice];
-        // console.log(this.selected_food);
-        this.setState({gState:'dinner'})
-    }
-    getDinnerChoice(choice){
-        this.selected_food[2]=this.dinner_list[choice];
-        console.log(this.selected_food);
-        this.setState({gState:'confirm'})
+    selectMeal(){
+        if(this.state.gState=='breakfast')
+            this.setState({gState:'lunch',foodSelected:false});
+        else if(this.state.gState=='lunch')
+            this.setState({gState:'dinner',foodSelected:false});
+        else if(this.state.gState=='dinner')
+            this.setState({gState:'confirm',foodSelected:false});
+    }      
+    cancelSelection(){
+        this.setState({foodSelected:false});
     }
     calculateScore(){
         let score = 0;
