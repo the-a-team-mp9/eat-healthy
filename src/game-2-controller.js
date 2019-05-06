@@ -790,6 +790,8 @@ class Game2 extends React.Component
                 <div id='p2-health'>
                     <ProgressBar animated striped variant='danger' now={this.state.p2_h}></ProgressBar>
                 </div>
+                <div id='p2-score'><strong style={{color:'white',textShadow:'1px 1px #333'}}>P2 Score: {this.state.p2_h}</strong></div>
+                <div id='p1-score'><strong style={{color:'white',textShadow:'1px 1px #333'}}>P1 Score: {this.state.p1_h}</strong></div>
             </div>
         );
     }

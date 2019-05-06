@@ -728,11 +728,27 @@ input[type=radio] {
   left:3.1%;
 }
 
+#p1-score{
+  position: absolute;
+  width:22%;
+  height:4%;
+  top:41.4%;
+  left:3.1%;
+}
+
 #p2-health{
   position: absolute;
   width:22%;
   height:4%;
   top:36.4%;
+  left:74.9%;
+}
+
+#p2-score{
+  position: absolute;
+  width:22%;
+  height:4%;
+  top:41.4%;
   left:74.9%;
 }
 
