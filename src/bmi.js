@@ -10,7 +10,7 @@ import {Nav, Navbar,Container,Row,Col} from 'react-bootstrap';
 class BMI extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { 'height': 1, 'weight': 1, 'gender': 'm', 'isCm': true, 'isKg': true, 'show': false, 'bmi':0, cat:'Normal'};
+        this.state = {'height_in':0, 'height': 1, 'weight': 1, 'gender': 'm', 'isCm': true, 'isKg': true, 'show': false, 'bmi':0, cat:'Normal'};
         //Bind all class methods to the context (this)
         this.handleHeightChange = this.handleHeightChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,6 +28,12 @@ class BMI extends React.Component {
         this.setState({ 'height': e.target.value });
         
     }
+    handleHeightChangeFt(e){
+        this.setState({ 'height': parseInt(e.target.value)*12 });
+    }
+    handleHeightChangeIn(e){
+        this.setState({ 'height_in': parseInt(e.target.value) });
+    }
     // Track changes made to weight in the form (2 way data binding)
     handleWeightChange(e) {
         this.setState({ 'weight': e.target.value });
@@ -41,7 +47,47 @@ class BMI extends React.Component {
             return 'danger1'
         return 'success1'
     }
+    renderHeightInput(){
+        if(this.state.isCm)
+            return (<div>
+                <label id='hlabel' htmlFor='height' style={{ paddingRight: '5px', width: '25%', marginTop: '15px' }}>
+                    Height
+                </label>
+                {/* <input onChange={this.handleHeightChange} id='height' type='number' step='0.01' min='5' required max='170' placeholder='height' style={{ width: '50%', left: '25%', marginTop: '15px',color:'black',maxWidth:'70px' }} /> */}
+                <input onChange={this.handleHeightChange} id='height' type='number' step='0.01'
+                    min='5' required max='170' placeholder='height'
+                    style={{ width: '50%', left: '25%', marginTop: '15px', color: 'black', maxWidth: '90px' }} />
+                            <ButtonToolbar className='cs'>
+                    <ToggleButtonGroup type="radio" name="height" defaultValue={true} onChange={this.changeHUnit}>
+                        <ToggleButton className='pad' value={true} variant='info' className='btn1c'>cm</ToggleButton>
+                        <ToggleButton value={false} variant='info' className='btn1c'>ft</ToggleButton>
+                    </ToggleButtonGroup>
+                </ButtonToolbar>
+            </div>
+            );
+        else   
+            return(
+            <div>
+                 <label id='hlabel' htmlFor='heightft' style={{ paddingRight: '5px', width: '25%', marginTop: '15px' }}>
+                    Height
+                </label>
+                <input onChange={this.handleHeightChangeFt.bind(this)} id='heightft' type='number' 
+                min='1' required max='6' placeholder='ft' 
+                style={{ width: '25%', left: '25%', marginTop: '15px',color:'black',maxWidth:'40px' }} />
 
+                <input onChange={this.handleHeightChangeIn.bind(this)} id='heightininches' type='number' 
+                min='0' required max='12' placeholder='in' 
+                style={{ width: '25%', left: '50%', marginTop: '15px',marginLeft:'10px',color:'black',maxWidth:'40px' }} />
+                <ButtonToolbar className='cs'>
+                    <ToggleButtonGroup type="radio" name="height" defaultValue={false} onChange={this.changeHUnit}>
+                        <ToggleButton className='pad' value={true} variant='info' className='btn1c'>cm</ToggleButton>
+                        <ToggleButton value={false} variant='info' className='btn1c'>ft</ToggleButton>
+                    </ToggleButtonGroup>
+                </ButtonToolbar>
+            </div>
+                
+            );
+    }    
     // Triggered on submit. Convert the height and weight 
     // to SI units and calculate the BMI 
     handleSubmit(event) {        
@@ -51,14 +97,17 @@ class BMI extends React.Component {
         let bmiCat;
         if(this.state.isCm)
             hinMeters = 0.01* this.state.height;
-        else
-            hinMeters = 0.01*this.state.height*2.54;            
+        else{
+            console.log(this.state.height + this.state.height_in);
+            hinMeters = 0.01*(this.state.height + this.state.height_in)*2.54;   
+        }
+                     
         if(this.state.isKg)
             winKg = this.state.weight;
         else
             winKg = this.state.weight*0.453592;
         event.preventDefault();
-        // console.log('hinm',hinMeters);
+        console.log('hinm',hinMeters);
         // console.log('winK',winKg);
         let bMi = (winKg/(hinMeters*hinMeters)).toFixed(2);
         if(bMi<14.3)
@@ -166,23 +215,12 @@ class BMI extends React.Component {
 
                     </div>
                     <form className='form-card' onSubmit={this.handleSubmit} >
-                        <div>
-                            <label id='hlabel' htmlFor='height' style={{ paddingRight: '5px', width: '25%', marginTop: '15px' }}>
-                                Height
-                                    </label>
-                            <input onChange={this.handleHeightChange} id='height' type='number' step='0.01' min='5' required max='170' placeholder='height' style={{ width: '50%', left: '25%', marginTop: '15px',color:'black',maxWidth:'70px' }} />
-                            <ButtonToolbar className='cs'>
-                                <ToggleButtonGroup type="radio" name="height" defaultValue={true} onChange={this.changeHUnit}>
-                                    <ToggleButton className='pad' value={true} variant='info' className='btn1c'>cm</ToggleButton>
-                                    <ToggleButton value={false} variant='info' className='btn1c'>in</ToggleButton>
-                                </ToggleButtonGroup>
-                            </ButtonToolbar>
-                        </div>
+                        {this.renderHeightInput()}                        
                         <div style={{ marginTop: '20px' }}>
                             <label id='wlabel' htmlFor='weight' style={{ paddingRight: '5px', width: '25%', marginTop: '15px' }}>
                                 Weight
                                     </label>
-                            <input onChange={this.handleWeightChange} id='weight' type='number' min='1' step='0.01' required max='180' placeholder='weight' style={{ width: '50%', left: '25%', marginTop: '15px',color:'black', maxWidth:'70px' }} />
+                            <input onChange={this.handleWeightChange} id='weight' type='number' min='1' step='0.01' required max='180' placeholder='weight' style={{ width: '50%', left: '25%', marginTop: '15px',color:'black', maxWidth:'90px' }} />
                             <ButtonToolbar className='cs'>
                                 <ToggleButtonGroup type="radio" name="weight" defaultValue={true} onChange={this.changeWUnit}>
                                     <ToggleButton className='btn1c' value={false} variant='info' >lb</ToggleButton>
