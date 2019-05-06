@@ -15,6 +15,8 @@ class Games extends React.Component {
                 document.getElementById('caption').style.display = 'block';
             else if(id==2)
                 document.getElementById('caption1').style.display = 'block';
+            else if(id==3)
+            document.getElementById('caption2').style.display = 'block';
         }
 
     }
@@ -22,6 +24,7 @@ class Games extends React.Component {
         if (document.getElementById('modal')) {
             document.getElementById('caption').style.display = 'none';
             document.getElementById('caption1').style.display = 'none';
+            document.getElementById('caption2').style.display = 'none';
             document.getElementById('modal').style.display = 'none';            
             document.getElementById('modal').style.zIndex = 0;
         }
@@ -104,23 +107,41 @@ class Games extends React.Component {
                             </Button>
                         </div>
                     </div>
-                </div>
+                    <div id='caption2' className='modal1-content' style={{ backgroundColor: "rgba(30,30,30,0.85)", paddingBottom: '20px', maxWidth: '150px' }} >
+                        <div className='modfull'>
+                            <h2>
+                                Game 3
+                            </h2>
+                        </div>
+                        <div className='modfull'>
+                            <Button variant='info' style={{ width: '115px' }} onClick={()=>{window.location.href='/coming-soon'}}>                                
+                                    Watch Tutorial                            
+                            </Button>
+                        </div>                        
+                        <div className='modfull'>
+                            <Button variant='info' style={{ width: '115px' }} onClick={()=>{window.location.href='/game-3'}}>
+                                 Jump to game
+                            </Button>
+                        </div>
+                        <div className='modfull'>
+                            <Button variant='danger' onClick={this.hideModal}>Close
+                            </Button>
+                        </div>
+                    </div>
+                </div>                                
                 <section className=" game" id="game">
                     <Container style={{ textAlign: 'center' }}>
                         <Row>
                             <Col xs={12} md={6} lg={4} className=' animated  fadeInUp' style={{ textAlign: 'center',paddingBottom:'20px' }}>
                                 <div className="img img-responsive">
                                     <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,1)}>
-                                        <img src="../images/Game_Icons/Gameicon1.png" alt="Game 1" />
+                                        <img src="../images/Game_Icons/Gameicon1.png" alt="Game 2" />
                                     </div>
                                 </div>
                                 <h2 style={{ textAlign: "center" }}>Eat Healthy</h2>
                                 <p style={{ textAlign: "center", color: 'white' }}>Learn to identify good foods</p>
                                 <p style={{ textAlign: "center", color: 'white' }}>Choose good foods to gain points</p>
-                                <p style={{ textAlign: "center", color: 'white' }}>Level up as you eat good foods</p>
-                                <a href='/game-1-results' className='learn-more-btn' style={{ marginTop: '30px' }}>
-                                    Game 1 Scores
-                                    </a>
+                                <p style={{ textAlign: "center", color: 'white' }}>Level up as you eat good foods</p>                                
                             </Col>
                             <Col xs={12} md={6} lg={4} className=' animated  fadeInUp' style={{paddingBottom:'20px'}}>
                                 <div className="img img-responsive">
@@ -134,10 +155,10 @@ class Games extends React.Component {
                                 <p style={{ textAlign: "center", color: 'white' }}>Make up your own startegy to win</p>
                             </Col>
                             <Col xs={12} md={6} lg={4} className=' animated  fadeInUp' style={{paddingBottom:'20px'}}>
-                                <div className="img">
-                                    <a href="game-3">
-                                        <img src="../images/Game_Icons/Game_3_Logo.png" alt="Game 2" />
-                                    </a>
+                                <div className="img img-responsive">
+                                    <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,3)}>
+                                        <img src="../images/Game_Icons/Game_3_Logo.png" alt="Game 3" />
+                                    </div>
                                 </div>
                                 <h2 style={{ textAlign: "center" }}>Dietecian</h2>
                                 <p style={{ textAlign: "center", color: 'white' }}>Select breakfast lunch and dinner from a variety of dishes</p>
