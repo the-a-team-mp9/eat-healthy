@@ -343,6 +343,7 @@ input[type=radio] {
   min-width: 300px;
   background-color: white;
   color: #333;
+  color: rgba(30, 30,30, 0.7);
 }
 
 .modal1-content, #caption {  

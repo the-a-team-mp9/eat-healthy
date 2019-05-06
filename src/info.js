@@ -63,7 +63,7 @@ class Info extends React.Component{
                                         CHILDHOOD OBESITY IS ON THE RISE!
                                     </h1>
                                     <Row style={{textAlign:'center'}}>
-                                        <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px'}}>
+                                        <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px',backgroundColor:"rgba(30,30,30,0.85)"}}>
                                             <div  style={{paddingLeft:'7px',paddingRight:'7px'}}>
                                                 <p style={{textAlign:'justify',paddingTop:'0',color:'white'}}>
                                                     In 2014-15, 
@@ -103,7 +103,7 @@ class Info extends React.Component{
                                         CHILDREN ARE NOT EATING ENOUGH VEGETABLES!
                                     </h1>
                                     <Row style={{textAlign:'center'}}>
-                                        <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px'}}>
+                                        <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px',backgroundColor:"rgba(30,30,30,0.85)"}}>
                                             <div  style={{paddingLeft:'7px',paddingRight:'7px'}}>
                                                 <p style={{textAlign:'justify',paddingTop:'0',color:'white'}}>
                                                     World Health Organization recommends at least <strong style={{color:'#46cc67'}}> 4 </strong> 
@@ -135,7 +135,7 @@ class Info extends React.Component{
                                     WHY DO CHILDREN REFUSE TO EAT HEALTHY FOOD?
                                     </h1>
                                     <Row style={{textAlign:'center'}}>
-                                        <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px'}}>
+                                        <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px',backgroundColor:"rgba(30,30,30,0.85)"}}>
                                             <div  style={{paddingLeft:'7px',paddingRight:'7px'}}>
                                                 <p style={{textAlign:'justify',paddingTop:'0',color:'white'}}>
                                                 We decide what we’re going to eat based on our senses. Our choice of foods is based 
@@ -166,7 +166,7 @@ class Info extends React.Component{
                                     CAN OUR CHILD LEARN TO LIKE HEALTHY FOODS?
                                     </h1>
                                     <Row style={{textAlign:'center'}}>
-                                        <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px'}}>
+                                        <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px',backgroundColor:"rgba(30,30,30,0.85)"}}>
                                             <div  style={{paddingLeft:'7px',paddingRight:'7px'}}>
                                                 <p style={{textAlign:'justify',paddingTop:'0',color:'white'}}>
                                                 Children can be educated to choose healthy foods by increased rewards for eating them. If external incentives apart 

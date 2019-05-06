@@ -57,7 +57,7 @@ class Games extends React.Component {
                     </Navbar>
                 </div>
                 <div className='modal1' id='modal'>
-                    <div className='modal1-content' style={{ backgroundColor: "#61727b", paddingBottom: '20px', maxWidth: '150px' }} id='caption'>
+                    <div className='modal1-content' style={{ backgroundColor: "rgba(30,30,30,0.85)", paddingBottom: '20px', maxWidth: '150px' }} id='caption'>
                         <div className='modfull'>
                             <h2>
                                 Game 1
@@ -69,8 +69,13 @@ class Games extends React.Component {
                             </Button>
                         </div>
                         <div className='modfull'>
-                            <Button variant='success' style={{ width: '115px' }} onClick={()=>{window.location.href='/game-1'}}>
+                            <Button variant='info' style={{ width: '115px' }} onClick={()=>{window.location.href='/game-1'}}>
                                 Jump to game
+                            </Button>
+                        </div>
+                        <div className='modfull'>
+                            <Button variant='info' style={{ width: '115px' }} onClick={()=>{window.location.href='/game-1-results'}}>
+                                 Game 1 scores
                             </Button>
                         </div>
                         <div className='modfull'>
@@ -78,7 +83,7 @@ class Games extends React.Component {
                             </Button>
                         </div>
                     </div>
-                    <div className='modal1-content' style={{ backgroundColor: "#61727b", paddingBottom: '20px', maxWidth: '150px' }} id='caption1'>
+                    <div className='modal1-content' style={{ backgroundColor: "rgba(30,30,30,0.85)", paddingBottom: '20px', maxWidth: '150px' }} id='caption1'>
                         <div className='modfull'>
                             <h2>
                                 Game 2
@@ -88,9 +93,9 @@ class Games extends React.Component {
                             <Button variant='info' style={{ width: '115px' }} onClick={()=>{window.location.href='/tutorial2'}}>                                
                                     Watch Tutorial                            
                             </Button>
-                        </div>
+                        </div>                        
                         <div className='modfull'>
-                            <Button variant='success' style={{ width: '115px' }} onClick={()=>{window.location.href='/game-2'}}>
+                            <Button variant='info' style={{ width: '115px' }} onClick={()=>{window.location.href='/game-2'}}>
                                  Jump to game
                             </Button>
                         </div>
@@ -135,7 +140,8 @@ class Games extends React.Component {
                                     </a>
                                 </div>
                                 <h2 style={{ textAlign: "center" }}>Dietecian</h2>
-                                <p></p>
+                                <p style={{ textAlign: "center", color: 'white' }}>Select breakfast lunch and dinner from a variety of dishes</p>
+                                <p style={{ textAlign: "center", color: 'white' }}>Choose a balanced diet to get a high score</p>
                             </Col>
                         </Row>
                     </Container>
