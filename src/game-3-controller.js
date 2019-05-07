@@ -266,13 +266,20 @@ class Game3 extends React.Component{
         return(
         <div className='game-3-area'>
             <Modal show={this.state.disp_modal} onHide={this.handleClose.bind(this)} centered>
-                <Modal.Body style={{textAlign:'center'}}>
-                    <p style={{margin:'0px',color:'black'}}>
-                        Select Gender
-                    </p>
+                <Modal.Title>
+                    <p style={{textAlign:'center',fontSize:'1em',color:'black'}}>Balanced Diet</p>
+                </Modal.Title>
+                <Modal.Body style={{textAlign:'center',backgroundColor:'#333'}}>
+                <p style={{marginTop:'0px'}}>
+                    Choose foods that provide nutrition according to the food pyramid 
+                </p>
+                    <img src='../images/Game-3_Image_Assets/food_pyramid.png' className='food-pyramid' />
                 </Modal.Body>                                
-                <Modal.Footer style={{textAlign:'center' ,color:'white'}}>
+                <Modal.Footer style={{textAlign:'center' ,color:'white',backgroundColor:'#333'}}>
                     <Container>                            
+                        <Row className='justify-content-center'>
+                            <Col><p style={{margin:'0px',color:'white'}}>Select Gender</p></Col>
+                        </Row>
                         <Row className="justify-content-md-center show-grid">
                             <Col md={12} xs={12} sm={12} lg={12}>
                                 <Button style={{marginRight:'10px',marginLeft:'10px'}} variant="info" onClick={this.selectGender.bind(this,true)}>

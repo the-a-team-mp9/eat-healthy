@@ -1056,3 +1056,8 @@ input[type=radio] {
   display: inline-block;
   cursor: pointer;  
 }
+
+.food-pyramid{
+  width: 90%;
+  height: auto;
+}
