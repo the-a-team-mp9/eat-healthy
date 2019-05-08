@@ -12,11 +12,14 @@ class DLL extends React.Component{
         return(<div>Hi</div>);
     }
     componentDidMount(){
-        db.collection('BMI Trend').get().then((snap)=>{
+        let coll=[]
+        db.collection('Recommendation').where("AgeStart",'==',2).get().then((snap)=>{
             snap.forEach((doc)=>{
-                console.log(doc.id,doc.data());
+                // console.log(doc.id,doc.data());
+                coll.push(doc.data());
             });
         });
+        console.log(coll)
     }
 }
 

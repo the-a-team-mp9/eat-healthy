@@ -22,6 +22,7 @@ import {Game2} from './game-2-controller';
 import {Tutorial2} from './tutorial2';
 import {DLL} from './dll';
 import {Game3} from './game-3-controller';
+import {Tutorial3} from './tutorial3';
 
 class App extends React.Component
 {
@@ -51,6 +52,7 @@ class App extends React.Component
         <Route path='/game-2' exact component={Game2} />
         <Route path='/data' exact component={DLL} />
         <Route path='/game-3' exact component={Game3} />
+        <Route path='/tutorial3' exact component = {Tutorial3} />
       </Router>
       </div>
              

@@ -2,6 +2,11 @@ import React from 'react';
 import {brekkie,lunch,dinner,breakkie_h,lunch_h,dinner_h} from './food-list';
 import {Modal,Container,Row,Col,Button} from 'react-bootstrap';
 
+let audio_breakfast = new Audio('../sound/Breakfast.wav');
+let audio_lunch = new Audio('../sound/Lunch.wav');
+let audio_dinner = new Audio('../sound/Dinner.wav');
+let audio_select = new Audio('../sound/Ding_Bell.wav');
+
 // Creating a helper funtion to shuffle an array
 let shfl = (arr) =>{
     for (let i = arr.length - 1; i > 0; i--) {
@@ -76,21 +81,30 @@ class Game3 extends React.Component{
             );
     }
     renderClocks(){
-        if(this.state.gState=='breakfast')
+        if(this.state.gState=='breakfast'){
+            
             return(
                 <div id='game-3-clock' style={{backgroundImage:'url(../images/Game-3_Image_Assets/Background/clock_morning.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>                    
                 </div>
             );
-        else if(this.state.gState=='lunch')
+        }
+            
+        else if(this.state.gState=='lunch'){
+           
             return(
                 <div id='game-3-clock' style={{backgroundImage:'url(../images/Game-3_Image_Assets/Background/clock_noon.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>                    
                 </div>
             );
-        else if(this.state.gState=='dinner')
+        }
+            
+        else if(this.state.gState=='dinner'){
+           
             return(
                 <div id='game-3-clock' style={{backgroundImage:'url(../images/Game-3_Image_Assets/Background/clock_evening.png)',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}>                    
                 </div>
             );
+        }
+            
     }
     renderFoods(){
         // console.log(this.state.gState,'rndr_foods');
@@ -330,7 +344,8 @@ class Game3 extends React.Component{
         //     window.location.href='/games';
     }
     start(){
-        this.setState({gState:'breakfast'})
+        audio_breakfast.play();
+        this.setState({gState:'breakfast'});
     }    
     getMealChoice(choice){
         console.log(choice);
@@ -352,11 +367,24 @@ class Game3 extends React.Component{
     }
     selectMeal(){
         if(this.state.gState=='breakfast')
+        {
+            audio_select.play();
+            setTimeout((audio)=>{audio.play();},650,audio_lunch);
             this.setState({gState:'lunch',foodSelected:false});
+        }            
         else if(this.state.gState=='lunch')
+        {
+            audio_select.play();
+            setTimeout((audio)=>{audio.play();},650,audio_dinner);
             this.setState({gState:'dinner',foodSelected:false});
+        }
+            
         else if(this.state.gState=='dinner')
+        {
+            audio_select.play();
             this.setState({gState:'confirm',foodSelected:false});
+        }
+            
     }      
     cancelSelection(){
         this.setState({foodSelected:false});
