@@ -19,14 +19,15 @@ class Recomdenation extends React.Component {
         db.collection('Suggestion').get().then((snap)=>{
             snap.forEach((doc)=>{
                 context.sugestions_data.push({'id':doc.id,'data':doc.data()});
-            });            
+            });
+            console.log(context.sugestions_data);           
             context.setState({sugestions_loaded:true});           
         });
         db.collection('Recommendation').get().then((snap)=>{
             snap.forEach((doc)=>{
                 context.recomm.push(doc.data());
             });
-            console.log(context.recomm);            
+            // console.log(context.recomm);            
             context.setState({recomm_loaded:true});            
         });
 
@@ -65,50 +66,42 @@ class Recomdenation extends React.Component {
     }
     renderFruitSuggestion(){
         if(this.state.sugestions_loaded){
-            // console.log(this.sugestions_data.filter((obj)=>{                
-            //     console.log(obj.id);
-            //     return obj.id=="Grain (Cereal)";
-            // })[0].data,'undr');
-            return(this.sugestions_data.filter((obj)=>{                
+            let htmlText = this.sugestions_data.filter((obj)=>{                
                 // console.log(obj.id);
                 return obj.id=="Fruit";
-            })[0].data.Suggestion);
+            })[0].data.Suggestion;
+            return(<div dangerouslySetInnerHTML={{__html:htmlText}}>
+                </div>);
         }                
     }
     renderCerealSuggestion(){
-        if(this.state.sugestions_loaded){
-            // console.log(this.sugestions_data.filter((obj)=>{                
-            //     console.log(obj.id);
-            //     return obj.id=="Grain (Cereal)";
-            // })[0].data,'undr');
-            return(this.sugestions_data.filter((obj)=>{                
+        if(this.state.sugestions_loaded){            
+            let htmlText=this.sugestions_data.filter((obj)=>{                
                 // console.log(obj.id);
                 return obj.id=="Grain (Cereal)";
-            })[0].data.Suggestion);
+            })[0].data.Suggestion
+            return(<div dangerouslySetInnerHTML={{__html:htmlText}}>
+                </div>);
         }
     }
     renderMeatSuggestion(){
         if(this.state.sugestions_loaded){
-            // console.log(this.sugestions_data.filter((obj)=>{                
-            //     console.log(obj.id);
-            //     return obj.id=="Grain (Cereal)";
-            // })[0].data,'undr');
-            return(this.sugestions_data.filter((obj)=>{                
-                // console.log(obj.id);
-                return obj.id=="Meat";
-            })[0].data.Suggestion);
+           let htmlText = this.sugestions_data.filter((obj)=>{                
+            // console.log(obj.id);
+            return obj.id=="Meat";
+        })[0].data.Suggestion;
+        return(<div dangerouslySetInnerHTML={{__html:htmlText}}>
+            </div>);
         }
     }
     renderDairySuggestion(){
         if(this.state.sugestions_loaded){
-            // console.log(this.sugestions_data.filter((obj)=>{                
-            //     console.log(obj.id);
-            //     return obj.id=="Grain (Cereal)";
-            // })[0].data,'undr');
-            return(this.sugestions_data.filter((obj)=>{                
+            let htmlText = this.sugestions_data.filter((obj)=>{                
                 // console.log(obj.id);
                 return obj.id=="Dairy";
-            })[0].data.Suggestion);
+            })[0].data.Suggestion;
+            return(<div dangerouslySetInnerHTML={{__html:htmlText}}>
+                </div>);
         }
     }
     render() {
@@ -179,22 +172,22 @@ class Recomdenation extends React.Component {
                         <Tab eventKey="fruit" title="Fruit" >
                         {this.renderServe('Fruit')}
                             <p>A standard serve of fruit is about 150g or</p>
-                            <p>{this.renderFruitSuggestion()}</p>
+                            {this.renderFruitSuggestion()}
                         </Tab>
                         <Tab eventKey="grain" title="Grains">
                         {this.renderServe('Grain (Cereal)')}                        
                         <p>One standard serve corresponds to </p>
-                        <p>{this.renderCerealSuggestion()}</p>
+                        {this.renderCerealSuggestion()}
                         </Tab>
                         <Tab eventKey="meat" title="Meat" >
                         {this.renderServe('Meat')} 
                         <p>One standard serve corresponds to </p>
-                            <p>{this.renderMeatSuggestion()}</p>
+                            {this.renderMeatSuggestion()}
                         </Tab>
                         <Tab eventKey="dairy" title="Dairy" >
                         {this.renderServe('Dairy')} 
                         <p>One standard serve corresponds to </p>
-                        <p>{this.renderDairySuggestion()}</p>
+                        {this.renderDairySuggestion()}
                         </Tab>
                     </Tabs>
                     </Col>                    
