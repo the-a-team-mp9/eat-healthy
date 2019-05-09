@@ -35,16 +35,18 @@ class Recomdenation extends React.Component {
         this.setState({ 'gender': e });
     }    
     handleAgeChange(event){
-        const target = event.target;        
+        const target = event.target;    
+        // console.log(parseInt(target.value));    
         this.setState({age:parseInt(target.value)})
         // console.log(age);
         
     }
-    renderServe(foodType){        
+    renderServe(foodType){  
+        // console.log(this.state.age)      
         let srv = this.recomm.filter((obj)=>{
             return(parseInt(obj.AgeStart)==this.state.age && obj.Gender == this.state.gender && obj.FoodType==foodType)
         })
-        // console.log(srv);
+        // console.log(srv,'12');
         if(this.state.recomm_loaded){
             return(
                 <p style={{fontSize:'1.3em',color:'white',textAlign:'center'}}>Recommended Servers per day {srv[0].ServesValue}</p>
@@ -52,11 +54,13 @@ class Recomdenation extends React.Component {
         }
     }
     renderVegSuggestion(){
-        if(this.state.sugestions_loaded){            
-            return(this.sugestions_data.filter((obj)=>{                
+        if(this.state.sugestions_loaded){ 
+            let htmltext=this.sugestions_data.filter((obj)=>{                
                 // console.log(obj.id);
                 return obj.id=="Vegetable";
-            })[0].data.Suggestion);
+            })[0].data.Suggestion;           
+            return(<div dangerouslySetInnerHTML={{__html:htmltext}}>
+            </div>);
         }                
     }
     renderFruitSuggestion(){
@@ -170,7 +174,7 @@ class Recomdenation extends React.Component {
                         <Tab eventKey="veg" title="Vegetables">
                         {this.renderServe('Vegetable')}
                         <p>One standard serve of vegetables is about 75g or</p>
-                        <p>{this.renderVegSuggestion()}</p>
+                        {this.renderVegSuggestion()}
                         </Tab>
                         <Tab eventKey="fruit" title="Fruit" >
                         {this.renderServe('Fruit')}

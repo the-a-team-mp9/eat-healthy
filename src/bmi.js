@@ -161,7 +161,87 @@ class BMI extends React.Component {
         }
         
     }
-
+    renderBMICatText(){
+        if(this.state.cat=='Underweight')
+        {
+            if(this.state.gender=='m')
+                return(
+                    <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                        Your child may weigh less than he ideally should. You may need to consider ways for your child to gain weight to bring your BMI to between 14.3 to 17.9.
+                        It is still important to eat a healthy diet - you should still avoid junk food. You might need to consult a pediatrician for a diet plan. 
+                    </p>
+                );
+            return(
+                    <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                        Your child may weigh less than he ideally should. You may need to consider ways for your child to gain weight to bring your BMI to between 14.3 to 17.9.
+                        It is still important to maintain a healthy diet for your child. You should still avoid junk food. You might need to consult a pediatrician for a diet plan. 
+                    </p>
+                );
+            
+        }
+        else if(this.state.cat=='Normal'){
+            if(this.state.gender=='m'){
+                return(
+                    <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                        Your child's BMI is currently within what is considered a healthy weight range.
+                        Being a healthy weight has important benefits, not only on how he feels,
+                        but also to help reduce the risk of heart disease, diabetes and a range of
+                        other conditions in the future.
+                    </p>
+                );
+            }
+            return(
+                <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                    Your child's BMI is currently within what is considered a healthy weight range.
+                    Being a healthy weight has important benefits, not only on how she feels,
+                    but also to help reduce the risk of heart disease, diabetes and a range of
+                    other conditions in the future.
+                </p>
+            );
+            
+        }
+        else if(this.state.cat=='Overweight'){
+            if(this.state.gender=='m'){
+                return(
+                    <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                        Your child's weight appears to be a bit above the ideal range. You should consider helping him loose weight. 
+                        To lose weight, you will generally need to decrease the amount of energy (food) in the diet.
+                        You could encorage him to drink more water and increase the amount of vegetables in his diet.
+                        And do not be disheartened or de-motivated if progress is slow as you try to get his weight within a healthy range. 
+    
+                    </p>
+                );
+            }
+            return(
+                <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                    Your child's weight appears to be a bit above the ideal range. You should consider helping her loose weight. 
+                    To lose weight, you will generally need to decrease the amount of energy (food) in the diet.
+                    You could encorage her to drink more water and increase the amount of vegetables in her diet.
+                    And do not be disheartened or de-motivated if progress is slow as you try to get her weight within a healthy range. 
+                </p>
+            );
+            
+        }
+        else if(this.state.cat=='Obese'){
+            if(this.state.gender=='m'){
+                return(
+                    <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                        Your child currently weighs more than what is ideal . This puts his health at
+                        risk and is of increasing concern as he grows up. Click on Recommended Diet
+                        to learn more about recommendations on eating and tips to loose weight.
+                    </p>
+                );
+            }
+            return(
+                <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                    Your child currently weighs more than what is ideal . This puts her health at
+                    risk and is of increasing concern as she grows up. Click on Recommended Diet
+                    to learn more about recommendations on eating and tips to loose weight.
+                </p>
+            );
+        }
+            
+    }
     render() {
         return (
             <div >
@@ -202,6 +282,7 @@ class BMI extends React.Component {
                     <div className='modfull'>
                         BMI Category <span className={this.getClass()}><strong>{this.state.cat}</strong></span>
                     </div>
+                    {this.renderBMICatText()}
                     <div className='modfull'>
                         <Button style={{marginLeft:'10px',marginRight:'10px'}} variant='primary' onClick={()=>{alert('This feature is currently under development');}}> Recommended Diet
                         </Button >
