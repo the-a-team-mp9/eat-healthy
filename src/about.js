@@ -31,11 +31,14 @@ class About extends React.Component {
                             <Nav.Link href="/bmi">BMI Calculator</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
+                            <Nav.Link href="/recommendation">Recommendation</Nav.Link>
+                        </Nav.Item>
+                        <Nav.Item>
                             <Nav.Link href="/games">Game Zone</Nav.Link>
                         </Nav.Item>                        
                         <Nav.Item>
                             <Nav.Link href="/about">About us</Nav.Link>
-                        </Nav.Item>
+                        </Nav.Item>                        
                         </Nav>
                     </Navbar.Collapse>
                     </Navbar>                   
