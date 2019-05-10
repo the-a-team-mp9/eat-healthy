@@ -53,7 +53,10 @@ class App extends React.Component
         <Route path='/data' exact component={DLL} />
         <Route path='/game-3' exact component={Game3} />
         <Route path='/tutorial3' exact component = {Tutorial3} />
-        <Route path='/recommendation' exact component = {Recomdenation} />
+        <Route path='/recommendation' exact render={()=>(<Recomdenation section_id='0' />)} />
+        <Route path='/recommendation-u' exact render={()=>(<Recomdenation section_id='1' />)} />
+        <Route path='/recommendation-h' exact render={()=>(<Recomdenation section_id='2' />)} />
+        <Route path='/recommendation-o' exact render={()=>(<Recomdenation section_id='3' />)} />
       </Router>
       </div>
              

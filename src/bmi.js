@@ -10,7 +10,7 @@ import {Nav, Navbar,Container,Row,Col} from 'react-bootstrap';
 class BMI extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {'height_in':0, 'height': 1, 'weight': 1, 'gender': 'm', 'isCm': true, 'isKg': true, 'show': false, 'bmi':0, cat:'Normal'};
+        this.state = {'height_in':0, 'height': 1, 'weight': 1, 'gender': 'm', 'isCm': true, 'isKg': true, 'show': false, 'bmi':0, cat:'Healthy'};
         //Bind all class methods to the context (this)
         this.handleHeightChange = this.handleHeightChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -113,7 +113,7 @@ class BMI extends React.Component {
         if(bMi<14.3)
             bmiCat='Underweight';
         else if(bMi>=14.3 && bMi<17.9)
-            bmiCat='Normal';
+            bmiCat='Healthy';
         else if(bMi>=17.9 && bMi<20)
             bmiCat='Overweight';
         else
@@ -179,7 +179,7 @@ class BMI extends React.Component {
                 );
             
         }
-        else if(this.state.cat=='Normal'){
+        else if(this.state.cat=='Healthy'){
             if(this.state.gender=='m'){
                 return(
                     <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
@@ -242,6 +242,14 @@ class BMI extends React.Component {
         }
             
     }
+    redirect(){
+        if(this.state.cat=='Underweight')
+            window.location.href='/recommendation-u'
+        else if(this.state.cat=='Healthy')
+            window.location.href='/recommendation-h'
+        else if(this.state.cat == 'Overweight' || this.state.cat == 'Obese')
+            window.location.href='/recommendation-o'
+    }
     render() {
         return (
             <div >
@@ -284,7 +292,7 @@ class BMI extends React.Component {
                     </div>
                     {this.renderBMICatText()}
                     <div className='modfull'>
-                        <Button style={{marginLeft:'10px',marginRight:'10px'}} variant='primary' onClick={()=>{alert('This feature is currently under development');}}> Recommended Diet
+                        <Button style={{marginLeft:'10px',marginRight:'10px'}} variant='primary' onClick={this.redirect.bind(this)}> Recommended Diet
                         </Button >
                         <Button style={{marginLeft:'10px',marginRight:'10px'}} variant='danger' onClick={this.hideModal}>Close
                         </Button>
@@ -341,7 +349,7 @@ class BMI extends React.Component {
                             1. Under weight : BMI {' < '} 14.3
                         </p>
                         <p style={{color:'white',margin:'0px'}}>
-                            2. Normal : BMI >= 14.3 to {' < '} 17.9
+                            2. Healthy : BMI >= 14.3 to {' < '} 17.9
                         </p>
                         <p style={{color:'white',margin:'0px'}}>
                             3. Overweight : BMI > 17.9 {' <= '} 20

@@ -1061,3 +1061,6 @@ input[type=radio] {
   width: 90%;
   height: auto;
 }
+#tabs-rec-tabpane-veg a:hover{
+  color: 'white';
+}
