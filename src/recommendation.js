@@ -251,7 +251,7 @@ class Recomdenation extends React.Component {
                                     <Nav.Link href="/bmi">BMI Calculator</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link href="#">Recommendation</Nav.Link>
+                                    <Nav.Link href="#">Recommended Diet</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link href="/games">Game Zone</Nav.Link>

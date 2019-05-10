@@ -50,7 +50,7 @@ class Games extends React.Component {
                                     <Nav.Link href="/bmi">BMI Calculator</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link href="/recommendation">Recommendation</Nav.Link>
+                                    <Nav.Link href="/recommendation">Recommended Diet</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link href="/games">Game Zone</Nav.Link>
