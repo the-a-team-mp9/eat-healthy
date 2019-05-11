@@ -107,7 +107,7 @@ class Recomdenation extends React.Component {
     renderproptext(){
         if(this.props.section_id=='0')
             return(
-                <Container style={{backgroundColor:'rgba(40,40,40,0.75)',marginTop:"20px",marginBottom:'35px'}}>
+                <Container style={{backgroundColor:'rgba(40,40,40,0.75)',marginTop:"20px",marginBottom:'35px',paddingBottom:'15px'}}>
                 <Row className='justify-content-md-center' style={{marginTop:'15px'}}>
                         <Col md={'auto'} xs={12} sm={12} lg={'auto'}>
                            <p style={{textDecorationStyle:'none',fontSize:'1.5em',color:'white'}}>Encouraging healthy eating habits</p>
@@ -132,7 +132,7 @@ class Recomdenation extends React.Component {
             );
         if(this.props.section_id=='1')
             return(
-            <Container style={{backgroundColor:'rgba(40,40,40,0.75)',marginTop:"20px",marginBottom:'35px'}}>
+            <Container style={{backgroundColor:'rgba(40,40,40,0.75)',marginTop:"20px",marginBottom:'35px',paddingBottom:'15px'}}>
                 <Row className='justify-content-md-center' style={{marginTop:'15px'}}>
                     <Col md={'12'} xs={12} sm={12} lg={'12'}>
                         <p style={{textDecorationStyle:'none',fontSize:'1.3 em',color:'white'}}>Tips to gain weight healthily</p>
@@ -164,7 +164,7 @@ class Recomdenation extends React.Component {
             );
         if(this.props.section_id=='2'){
             return(
-                <Container style={{backgroundColor:'rgba(40,40,40,0.75)',marginTop:"20px",marginBottom:'35px'}}>
+                <Container style={{backgroundColor:'rgba(40,40,40,0.75)',marginTop:"20px",marginBottom:'35px',paddingBottom:'15px'}}>
                     <Row className='justify-content-md-center' style={{marginTop:'15px'}}>
                         <Col md={'auto'} xs={12} sm={12} lg={'auto'}>
                             <p style={{textDecorationStyle:'none',fontSize:'1.5em',color:'white',fontSize:'1em'}}>Tips to maintain a healthy weight</p>
@@ -195,7 +195,7 @@ class Recomdenation extends React.Component {
         }
         if(this.props.section_id=='3'){
             return(
-                <Container style={{backgroundColor:'rgba(40,40,40,0.75)',marginTop:"20px",marginBottom:'35px'}}>
+                <Container style={{backgroundColor:'rgba(40,40,40,0.75)',marginTop:"20px",marginBottom:'35px',paddingBottom:'15px'}}>
                     <Row className='justify-content-md-center' style={{marginTop:'15px'}}>
                         <Col md={'auto'} xs={12} sm={12} lg={'auto'}>
                             <p style={{textDecorationStyle:'none',fontSize:'1.5em',color:'white'}}>Tips to loose weight</p>
