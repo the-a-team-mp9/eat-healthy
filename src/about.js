@@ -44,19 +44,19 @@ class About extends React.Component {
                     </Navbar>                   
                 </div>
                 <section id="hero">
-                    <Container>
+                    <Container style={{marginTop:'30px'}}>
                         <Row>
-                            <Col xs={12} md={6} l={6}>
+                            {/* <Col xs={12} md={6} l={6}>
                                 <p style={{color:"#fff"}}>
                                     The website is built by the 'A team'
                                 </p>
                                 <p style={{color:"#fff"}}>
                                     Email:The-A-Team@monash.edu
                                 </p>
-                            </Col>
-                            <Col xs={12} md={6} lg={6} style={{textAlign:'center'}}>
+                            </Col> */}
+                            <Col xs={12} md={12} lg={12} style={{textAlign:'center'}}>
                                 <div className="img">
-                                    <img src="../images/Logo.png" alt="Logo" />
+                                    <img src="../images/About_Us_4.png" alt="Logo" />
                                 </div>
                             </Col>
                         </Row>

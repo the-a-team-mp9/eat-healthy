@@ -749,10 +749,10 @@ class Game2 extends React.Component
                             <Row className="justify-content-md-center">
                                 <Col md={12} xs={12} sm={12} lg={12}>
                                     <Button style={{marginRight:'10px',marginLeft:'10px'}} variant="primary" onClick={this.modeSelect.bind(this,'pvp')}>
-                                        PVP
+                                        Singe Player
                                     </Button>
                                     <Button style={{marginRight:'10px',marginLeft:'10px'}} variant="info" onClick={this.modeSelect.bind(this,'pvc')}>
-                                        PVC
+                                        Multiplayer
                                     </Button>
                                 </Col>
                             </Row>

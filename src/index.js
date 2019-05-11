@@ -38,9 +38,9 @@ class App extends React.Component
         <Route path='/' exact component={Home}>
         </Route>        
         <Route path='/info' exact render={()=>(<Info section_id='0' />)} />
-        <Route path='/info-1' exact render={()=>(<Info section_id='1' />)} />
-        <Route path='/info-2' exact render={()=>(<Info section_id='2' />)} />
-        <Route path='/info-3' exact render={()=>(<Info section_id='3' />)} />
+        <Route path='/info-1' exact render={()=>(<Info section_id='2' />)} />
+        <Route path='/info-2' exact render={()=>(<Info section_id='3' />)} />
+        <Route path='/info-3' exact render={()=>(<Info section_id='4' />)} />
         <Route path='/games' exact component={Games}/>
         <Route path='/about' exact component={About}/>
         <Route path='/game-1' exact component={Game_1} />

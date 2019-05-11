@@ -10,7 +10,7 @@ class Info extends React.Component{
     //Function that updates which section (topic) is currently displayed
     updateActive(sec_id){
         console.log(sec_id);
-        if(sec_id>=0 && sec_id <=3)
+        if(sec_id>=0 && sec_id <=4)
             this.setState({section_id:sec_id});
     }
     
@@ -22,7 +22,7 @@ class Info extends React.Component{
         <div style={{textAlign:'center'}}>
             <Button variant='outline-info' disabled={this.state.section_id == 0} onClick={this.updateActive.bind(this,(parseInt(this.state.section_id)-1))}> {'<<'}  </Button>
             <Button variant='outline-info' style={{marginLeft:'20px',marginRight:'20px'}} onClick={()=>{window.location.href = '/'}}>Home</Button>
-            <Button variant='outline-info' disabled={this.state.section_id == 3} onClick={this.updateActive.bind(this,(parseInt(this.state.section_id)+1))}>  {'>>'} </Button>
+            <Button variant='outline-info' disabled={this.state.section_id == 4} onClick={this.updateActive.bind(this,(parseInt(this.state.section_id)+1))}>  {'>>'} </Button>
         </div>)
         ; 
     }    
@@ -95,7 +95,28 @@ class Info extends React.Component{
                                         <Col sm={12} md={12} lg={6} style={{marginBottom:'20px'}}>
                                             <img
                                                 className="d-block w-100"
-                                                src="../images/Visuals/obesity-trend.jpg?text=First slide&bg=373940"
+                                                src="../images/Visuals/obesity-trend.png?text=First slide&bg=373940"
+                                                alt="First slide"
+                                            /> 
+                                        </Col>                                        
+                                    </Row>
+                                </Carousel.Item>
+                                <Carousel.Item>                                    
+                                    <h1 style={{textAlign:'center',color:'white'}}>
+                                        Comparison of Obesity rates
+                                    </h1>
+                                    <Row style={{textAlign:'center'}}>
+                                        <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px',backgroundColor:"rgba(30,30,30,0.85)"}}>
+                                        <img
+                                                className="d-block w-100"
+                                                src="../images/Visuals/obesity-proportion-aus.png?text=First slide&bg=373940"
+                                                alt="First slide"
+                                        />                                          
+                                        </Col>
+                                        <Col sm={12} md={12} lg={6} style={{marginBottom:'20px'}}>
+                                            <img
+                                                className="d-block w-100"
+                                                src="../images/Visuals/obesity-oced-countries.png?text=First slide&bg=373940"
                                                 alt="First slide"
                                             /> 
                                         </Col>                                        

@@ -81,7 +81,7 @@ class Games extends React.Component {
                         </div>
                         <div className='modfull'>
                             <Button variant='info' style={{ width: '115px' }} onClick={()=>{window.location.href='/game-1-results'}}>
-                                 Game 1 scores
+                                 Game scores
                             </Button>
                         </div>
                         <div className='modfull'>
@@ -133,20 +133,22 @@ class Games extends React.Component {
                     </div>
                 </div>                                
                 <section className=" game" id="game">
-                    <Container style={{ textAlign: 'center' }}>
+                    <Container style={{ textAlign: 'center' }}>                                        
                         <Row>
                             <Col xs={12} md={6} lg={4} className=' animated  fadeInUp' style={{ textAlign: 'center',paddingBottom:'20px' }}>
+                                <div style={{color:'white'}}>Game 1</div>
                                 <div className="img img-responsive">
                                     <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,1)}>
                                         <img src="../images/Game_Icons/Gameicon1.png" alt="Game 2" />
                                     </div>
                                 </div>
-                                <h2 style={{ textAlign: "center" }}>Eat Healthy</h2>
+                                <h2 style={{ textAlign: "center" }}>Hunger Game</h2>
                                 <p style={{ textAlign: "center", color: 'white' }}>Learn to identify good foods</p>
                                 <p style={{ textAlign: "center", color: 'white' }}>Choose good foods to gain points</p>
                                 <p style={{ textAlign: "center", color: 'white' }}>Level up as you eat good foods</p>                                
                             </Col>
                             <Col xs={12} md={6} lg={4} className=' animated  fadeInUp' style={{paddingBottom:'20px'}}>
+                                <div style={{color:'white'}}>Game 2</div>
                                 <div className="img img-responsive">
                                     <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,2)}>
                                         <img  src="../images/Game_Icons/Game_2_Logo.png" alt="Eatopoly" />
@@ -158,6 +160,7 @@ class Games extends React.Component {
                                 <p style={{ textAlign: "center", color: 'white' }}>Make up your own startegy to win</p>
                             </Col>
                             <Col xs={12} md={6} lg={4} className=' animated  fadeInUp' style={{paddingBottom:'20px'}}>
+                                <div style={{color:'white'}}>Game 3</div>
                                 <div className="img img-responsive">
                                     <div style={{ cursor: 'pointer' }} onClick={this.showModal.bind(this,3)}>
                                         <img src="../images/Game_Icons/Game_3_Logo.png" alt="Game 3" />
