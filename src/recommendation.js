@@ -110,7 +110,7 @@ class Recomdenation extends React.Component {
                 <Container style={{backgroundColor:'rgba(40,40,40,0.75)',marginTop:"20px",marginBottom:'35px',paddingBottom:'30px'}}>
                 <Row className='justify-content-md-center' style={{marginTop:'15px'}}>
                         <Col md={'auto'} xs={12} sm={12} lg={'auto'}>
-                           <p style={{textDecorationStyle:'none',fontSize:'1.5em',color:'white'}}>Encouraging healthy eating habits</p>
+                           <p style={{textDecorationStyle:'none',fontSize:'1.5em',color:'white'}}>The five food groups</p>
                         </Col>
                     </Row>
                     <Row className='justify-cotent-md-center'>
