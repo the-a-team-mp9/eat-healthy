@@ -50,7 +50,7 @@ class Recomdenation extends React.Component {
         // console.log(srv,'12');
         if(this.state.recomm_loaded){
             return(
-                <p style={{fontSize:'1.5em',color:'white',textAlign:'center'}}>Recommended Servers per day {srv[0].ServesValue}</p>
+                <p style={{fontSize:'1.5em',color:'white',textAlign:'center'}}>Recommended Servers per day: {srv[0].ServesValue}</p>
             );
         }
     }
