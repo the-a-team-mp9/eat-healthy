@@ -57,7 +57,7 @@ class About extends React.Component {
                                 Email:
                             </Col>
                         </Row>
-                        <Row>                           
+                        <Row style={{color:'white'}}>                           
                             <Col xs={3} md={3} lg={3} style={{textAlign:'center'}}>
                                 asri003@student.monash.edu
                             </Col>
