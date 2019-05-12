@@ -58,16 +58,16 @@ class About extends React.Component {
                             </Col>
                         </Row>
                         <Row style={{color:'white'}}>                           
-                            <Col xs={3} md={3} lg={3} style={{textAlign:'center'}}>
+                            <Col xs={'auto'} md={'auto'} lg={'auto'} style={{textAlign:'center'}}>
                                 asri003@student.monash.edu
                             </Col>
-                            <Col xs={3} md={3} lg={3} style={{textAlign:'center'}}>
+                            <Col xs={'auto'} md={'auto'} lg={'auto'} style={{textAlign:'center'}}>
                                 wshi0004@student.monash.edu
                             </Col>
-                            <Col xs={3} md={3} lg={3} style={{textAlign:'center'}}>
+                            <Col xs={'auto'} md={'auto'} lg={'auto'} style={{textAlign:'center'}}>
                                 lwan384@student.monash.edu
                             </Col>
-                            <Col xs={3} md={3} lg={3} style={{textAlign:'center'}}>
+                            <Col xs={'auto'} md={'auto'} lg={'auto'} style={{textAlign:'center'}}>
                                 yxuu0042@student.monash.edu
                             </Col>
                         </Row>
