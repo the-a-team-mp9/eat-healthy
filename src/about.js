@@ -44,7 +44,7 @@ class About extends React.Component {
                     </Navbar>                   
                 </div>
                 <section id="hero">
-                    <Container style={{marginTop:'30px'}}>
+                    <Container style={{marginTop:'100px'}}>
                         <Row>
                             {/* <Col xs={12} md={6} l={6}>
                                 <p style={{color:"#fff"}}>
