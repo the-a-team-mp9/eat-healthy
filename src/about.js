@@ -52,11 +52,7 @@ class About extends React.Component {
                                 </div>
                             </Col>
                         </Row>
-                        <Row>                           
-                            <Col xs={12} md={12} lg={12} style={{textAlign:'center'}}>
-                                Email:
-                            </Col>
-                        </Row>
+                        
                         <Row style={{color:'white',marginTop:'45px'}}>                           
                             <Col xs={'auto'} md={'auto'} lg={'auto'} style={{textAlign:'center'}}>
                                 asri003@student.monash.edu
