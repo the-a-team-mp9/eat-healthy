@@ -45,19 +45,30 @@ class About extends React.Component {
                 </div>
                 <section id="hero">
                     <Container style={{marginTop:'100px'}}>
-                        <Row>
-                            {/* <Col xs={12} md={6} l={6}>
-                                <p style={{color:"#fff"}}>
-                                    The website is built by the 'A team'
-                                </p>
-                                <p style={{color:"#fff"}}>
-                                    Email:The-A-Team@monash.edu
-                                </p>
-                            </Col> */}
+                        <Row>                            
                             <Col xs={12} md={12} lg={12} style={{textAlign:'center'}}>
                                 <div className="img">
                                     <img src="../images/About_Us_4.png" alt="Logo" />
                                 </div>
+                            </Col>
+                        </Row>
+                        <Row>                           
+                            <Col xs={12} md={12} lg={12} style={{textAlign:'center'}}>
+                                Email:
+                            </Col>
+                        </Row>
+                        <Row>                           
+                            <Col xs={3} md={3} lg={3} style={{textAlign:'center'}}>
+                                asri003@student.monash.edu
+                            </Col>
+                            <Col xs={3} md={3} lg={3} style={{textAlign:'center'}}>
+                                wshi0004@student.monash.edu
+                            </Col>
+                            <Col xs={3} md={3} lg={3} style={{textAlign:'center'}}>
+                                lwan384@student.monash.edu
+                            </Col>
+                            <Col xs={3} md={3} lg={3} style={{textAlign:'center'}}>
+                                yxuu0042@student.monash.edu
                             </Col>
                         </Row>
                     </Container>                    

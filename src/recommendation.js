@@ -32,9 +32,11 @@ class Recomdenation extends React.Component {
         });
 
     }
+    // Function to handle gender selection
     changeGender(e) {
         this.setState({ 'gender': e });
-    }    
+    }
+    // Function to handle age-group selection    
     handleAgeChange(event){
         const target = event.target;    
         // console.log(parseInt(target.value));    
@@ -42,6 +44,7 @@ class Recomdenation extends React.Component {
         // console.log(age);
         
     }
+    // Function to handle render the serves for the given age and gender selection
     renderServe(foodType){  
         // console.log(this.state.age)      
         let srv = this.recomm.filter((obj)=>{
@@ -54,6 +57,7 @@ class Recomdenation extends React.Component {
             );
         }
     }
+    // Function to handle render the serves of veg for the given age and gender selection
     renderVegSuggestion(){
         if(this.state.sugestions_loaded){ 
             let htmltext=this.sugestions_data.filter((obj)=>{                
@@ -64,6 +68,7 @@ class Recomdenation extends React.Component {
             </div>);
         }                
     }
+    // Function to handle render the serves of fruit for the given age and gender selection
     renderFruitSuggestion(){
         if(this.state.sugestions_loaded){
             let htmlText = this.sugestions_data.filter((obj)=>{                
@@ -74,6 +79,7 @@ class Recomdenation extends React.Component {
                 </div>);
         }                
     }
+    // Function to handle render the serves of cereal for the given age and gender selection
     renderCerealSuggestion(){
         if(this.state.sugestions_loaded){            
             let htmlText=this.sugestions_data.filter((obj)=>{                
@@ -84,6 +90,7 @@ class Recomdenation extends React.Component {
                 </div>);
         }
     }
+    // Function to handle render the serves of meat for the given age and gender selection
     renderMeatSuggestion(){
         if(this.state.sugestions_loaded){
            let htmlText = this.sugestions_data.filter((obj)=>{                
@@ -94,6 +101,7 @@ class Recomdenation extends React.Component {
             </div>);
         }
     }
+    // Function to handle render the serves of dairy for the given age and gender selection
     renderDairySuggestion(){
         if(this.state.sugestions_loaded){
             let htmlText = this.sugestions_data.filter((obj)=>{                
@@ -104,6 +112,7 @@ class Recomdenation extends React.Component {
                 </div>);
         }
     }
+    // Function to handle render the dynamic text based on navigation
     renderproptext(){
         if(this.props.section_id=='0')
             return(
