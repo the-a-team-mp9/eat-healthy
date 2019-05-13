@@ -1,9 +1,13 @@
 import React from "react";
-import { Container, Row, Col, Nav, Navbar, Button } from 'react-bootstrap';
+import { Container, Row, Col, Nav, Navbar, Button, Modal, Form } from 'react-bootstrap';
 
 class Games extends React.Component {
     constructor(props) {
         super(props);
+        this.state={disp_modal:true}
+    }
+    handleClose(){
+        this.setState({disp_modal:false});
     }
 
     showModal(id) {
@@ -29,6 +33,17 @@ class Games extends React.Component {
             document.getElementById('modal').style.zIndex = 0;
         }
 
+    }
+    handleSelect(e){        
+        if(e.target.checked){
+            var d = new Date();
+            d.setTime(d.getTime() + (30*24*60*60*1000));
+            var expires = "expires="+ d.toUTCString();
+            document.cookie = 'remember=yes;'+expires+';path=/';
+        }
+        else{
+            document.cookie = 'remember=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
+        }    
     }
 
     render() {
@@ -62,6 +77,22 @@ class Games extends React.Component {
                         </Navbar.Collapse>
                     </Navbar>
                 </div>
+                <Modal show={this.state.disp_modal} onHide={this.handleClose.bind(this)} centered>    
+                <Modal.Header style={{justifyContent:'center',padding:'0px'}}>
+                    <h2 style={{color:'black'}}>Note to parents</h2>
+                </Modal.Header>                
+                    <Modal.Body > 
+                        The games are designed to be played in a chronological order.
+                        Each game reinforces the learning from the previous game.
+                        For best gaming experience, please let your kids play the games in the following order   <br /> <br /> 
+                        1. Hunger Game  <br />  2. Eatopoly   <br />   3. Dietecian                                                                                          
+                    </Modal.Body>
+                    <Modal.Footer style={{justifyContent:'center'}}> 
+                        <Button variant='danger' onClick={this.handleClose.bind(this)}>Close</Button>                    
+                        <input name='remember' type="checkbox" onChange={this.handleSelect.bind(this)}/>
+                        <label style={{marginBottom:'0px'}} htmlFor='remember' >Don't show again</label>                                                               
+                    </Modal.Footer>
+                </Modal>
                 <div className='modal1' id='modal'>
                     <div className='modal1-content' style={{ backgroundColor: "rgba(30,30,30,0.85)", paddingBottom: '20px', maxWidth: '150px' }} id='caption'>
                         <div className='modfull'>
@@ -132,8 +163,13 @@ class Games extends React.Component {
                         </div>
                     </div>
                 </div>                                
-                <section className=" game" id="game">
-                    <Container style={{ textAlign: 'center' }}>                                        
+                <section style={{paddingTop:'0px'}} className=" game" id="game">
+                    <Container style={{ textAlign: 'center' }}> 
+                        {/* <Row className='justify-content-md-center'>
+                            <Col style={{color:'white',fontSize:'1.2em',marginBottom:'30px'}} md={'auto'} sm={'auto'} lg={'auto'} >
+                            
+                            </Col>
+                        </Row>                                        */}
                         <Row>
                             <Col xs={12} md={6} lg={4} className=' animated  fadeInUp' style={{ textAlign: 'center',paddingBottom:'20px' }}>
                                 <div style={{color:'white'}}>Game 1</div>
@@ -177,9 +213,18 @@ class Games extends React.Component {
             </div>
         );
     }
-    componentDidMount() {        
+    componentDidMount() {
+        // document.cookie = 'remember=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
+        if(document.cookie.length!=0){
+            console.log(document.cookie);
+            var val = document.cookie.split('=');
+            val = val[val.length-1];
+            if(val=='yes')
+            this.setState({disp_modal:false});
+        }        
         let bod = document.getElementById('bod');
-
+        
+        console.log( document.cookie.length);
         if (bod)
             bod.classList.add('bod1');
 

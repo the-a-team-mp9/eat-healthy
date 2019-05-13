@@ -686,6 +686,16 @@ input[type=radio] {
   display: none;
 }
 
+#dice-roll{
+  position: absolute;
+  left:44.8%;
+  width:9.3%;
+  top:32%;
+  height: auto;
+  text-align: center;
+  color: white;
+  text-shadow: black 2px 2px;
+}
 
 #back{
   position: absolute;
@@ -713,6 +723,17 @@ input[type=radio] {
   cursor: pointer;
 }
 
+#move{
+  position: absolute;
+  width:7.2%;
+  height:4%;
+  top:44.4%;
+  left:37.5%;
+  color: white;
+  text-align: center;
+  text-shadow: black 2px 2px;
+}
+
 #no{
   position: absolute;
   width:7.2%;
@@ -724,6 +745,17 @@ input[type=radio] {
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
+}
+
+#stay{
+  position: absolute;
+  width:7.2%;
+  height:4%;
+  top:44.4%;
+  left:54.1%;
+  color: white;
+  text-align: center;
+  text-shadow: black 2px 2px;
 }
 
 #p1-health{

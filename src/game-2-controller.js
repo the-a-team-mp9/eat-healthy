@@ -179,9 +179,10 @@ class Game2 extends React.Component
                     document.getElementById('game-2-comp-msg').style.display='block';
                 },500);
                 document.getElementById('yes').style.display='none';
-                document.getElementById('no').style.display='none'
-                setTimeout(this.roll2.bind(this),1800,dest,score);
-                
+                document.getElementById('no').style.display='none';
+                document.getElementById('stay').style.display='none';
+                document.getElementById('move').style.display='none';
+                setTimeout(this.roll2.bind(this),1800,dest,score);                
             }
             else    
                 this.setState({finish:'p1',g_state:'g_over'});
@@ -592,6 +593,8 @@ class Game2 extends React.Component
                 <div>
                     <div id='yes' onClick={this.go.bind(this)}>
                     </div>
+                    <div id='move'>Move</div> 
+                    <div id='stay'>Stay</div>                    
                     <div id='no' onClick={this.stay.bind(this)}>
                     </div>
                 </div>
@@ -600,6 +603,13 @@ class Game2 extends React.Component
         else
             return(<div></div>);
     }
+
+    // Function that displays the message click dice
+    renderDiceRoll(){
+        if(this.state.g_state=='start'||this.state.g_state=='roll')
+            return(<div id='dice-roll'>Click Dice</div>);
+    }
+
     // Function that displays the game messages
     renderGameMessages(){
         return(
@@ -765,7 +775,8 @@ class Game2 extends React.Component
                 {this.renderGameMessages()}
                 {this.renderp1char()}
                 {this.renderp2char()} 
-                {this.renderGameOver()}                              
+                {this.renderGameOver()}
+                {this.renderDiceRoll()}                           
                 <div id='p1char'>
                 </div>
                 {this.renderp2head()}
