@@ -298,6 +298,10 @@ class Recomdenation extends React.Component {
                             </ButtonToolbar>
                         </Col>                        
                     </Row>
+                    <Row className='justify-content-md-center' style={{backgroundColor:'rgba(30,30,30,0.85)'}}>
+                        <Col md='auto' lg='auto' sm ='auto'>Tip: Both boys and girls may have the same requirements for the 5 food 
+                        groups in different age groups</Col>
+                    </Row>
                     <Row className='justify-content-md-center'>
                     <Col md={'12'} xs={'12'} sm={'12'} lg={'12'} style={{paddingBottom:'25px'}}>
                     <Tabs defaultActiveKey="veg" id='tabs-rec'>
