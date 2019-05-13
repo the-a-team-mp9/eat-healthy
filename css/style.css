@@ -421,6 +421,8 @@ input[type=radio] {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+  height: -webkit-calc(100% + '5px') !important;
+  height:  calc(100% + '50px') !important;
 }
 
 .bod1{
@@ -429,6 +431,8 @@ input[type=radio] {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+  height: -webkit-calc(100% + '5px') !important;
+  height:  calc(100% + '50px') !important;
 }
 
 .bod2{
@@ -437,6 +441,8 @@ input[type=radio] {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+  height: -webkit-calc(100% + '5px') !important;
+  height:  calc(100% + '50px') !important;
 }
 
 .info-text{
