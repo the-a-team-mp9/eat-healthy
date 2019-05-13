@@ -254,7 +254,7 @@ class Recomdenation extends React.Component {
                                     <Nav.Link href="/">Home</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link href="/info">Information</Nav.Link>
+                                    <Nav.Link href="/info">Statistics</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link href="/bmi">BMI Calculator</Nav.Link>
@@ -299,7 +299,7 @@ class Recomdenation extends React.Component {
                         </Col>                        
                     </Row>
                     <Row className='justify-content-md-center' style={{backgroundColor:'rgba(30,30,30,0.85)'}}>
-                        <Col md='auto' lg='auto' sm ='auto' style={{color:'white'}}>Tip: Both boys and girls may have the same requirements for the 5 food 
+                        <Col md='auto' lg='auto' sm ='auto' style={{color:'white'}}>Note: Both boys and girls may have the same requirements for the 5 food 
                         groups in different age groups</Col>
                     </Row>
                     <Row className='justify-content-md-center'>

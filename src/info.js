@@ -30,16 +30,16 @@ class Info extends React.Component{
         return(
             <div>
                  <div id='navbar' >
-                    <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+                    <Navbar  collapseOnSelect expand="lg" bg="dark" variant="dark">
                     <Navbar.Brand href="/">Eat healthy</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav fill variant="tabs" defaultActiveKey="/info" variant="pills">
+                        <Nav fill  variant="tabs" defaultActiveKey="/info" variant="pills">
                         <Nav.Item id='active'>
                             <Nav.Link  href="/">Home</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="/info">Information</Nav.Link>
+                            <Nav.Link href="/info">Statistics</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link href="/bmi">BMI Calculator</Nav.Link>
@@ -90,12 +90,13 @@ class Info extends React.Component{
                                                 increased </strong> through the years. 
                                                 In 2017, about  <strong style={{color:'#ff5542'}}>25-30%</strong> of children aged 2-11 suffered from obesity or overweight issues.
                                                 </p>
+                                                <Button variant='success' onClick={()=>{window.location.href='/bmi'}}>Calculate BMI</Button>
                                             </div>                                          
                                         </Col>
                                         <Col sm={12} md={12} lg={6} style={{marginBottom:'20px'}}>
                                             <img
                                                 className="d-block w-100"
-                                                src="../images/Visuals/obesity-trend.png?text=First slide&bg=373940"
+                                                src="../images/Visuals/obesity-trend.png"
                                                 alt="First slide"
                                             /> 
                                         </Col>                                        
@@ -106,17 +107,17 @@ class Info extends React.Component{
                                         Comparison of Obesity rates
                                     </h1>
                                     <Row style={{textAlign:'center'}}>
-                                        <Col sm={12} md={12} lg={6} className='flex-wrap info-text' style={{marginBottom:'20px',backgroundColor:"rgba(30,30,30,0.85)"}}>
+                                        <Col sm={12} md={12} lg={6}  style={{marginBottom:'20px',backgroundColor:"rgba(30,30,30,0.85)"}}>
                                         <img
                                                 className="d-block w-100"
-                                                src="../images/Visuals/obesity-proportion-aus.png?text=First slide&bg=373940"
+                                                src="../images/Visuals/obesity-proportion-aus.png"
                                                 alt="First slide"
                                         />                                          
                                         </Col>
-                                        <Col sm={12} md={12} lg={6} style={{marginBottom:'20px'}}>
+                                        <Col  sm={12} md={12} lg={6} style={{marginBottom:'20px'}}>
                                             <img
                                                 className="d-block w-100"
-                                                src="../images/Visuals/obesity-oced-countries.png?text=First slide&bg=373940"
+                                                src="../images/Visuals/obesity-oced-countries.png"
                                                 alt="First slide"
                                             /> 
                                         </Col>                                        
@@ -143,12 +144,13 @@ class Info extends React.Component{
                                                     <p style={{textAlign:'justify',color:'white'}}>
                                                     About  <strong style={{color:'#ff5542'}}>15%</strong> of children get less than half a serving of vegetables every day. This is only <strong style={{color:'#ff5542'}}>1/8th</strong> of the recommended intake.
                                                 </p>
+                                                <Button variant='success' onClick={()=>{window.location.href='/recommendation'}}>Get recommended diet</Button>
                                             </div>                                          
                                         </Col>
                                         <Col sm={12} md={12} lg={6} style={{marginBottom:'20px'}} >
                                             <img
                                                 className="d-block w-100"
-                                                src="../images/Visuals/consumption-of-foods.jpg?text=First slide&bg=373940"
+                                                src="../images/Visuals/consumption-of-foods.jpg"
                                                 alt="First slide"
                                             /> 
                                         </Col>                                        
@@ -205,17 +207,17 @@ class Info extends React.Component{
                                                     The games provide rewards for choosing to eat healthy foods and penalise for eating unhealthy foods. 
                                                     This provides the incentive to slowly reduce the resistance in children to eat healthy foods.
                                                 </p>
+                                                <Button variant='success' onClick={()=>{window.location.href='/games'}}>Game Zone</Button>
                                             </div>                                            
                                         </Col>
                                         <Col sm={12} md={12} lg={6} style={{marginBottom:'20px'}} >
                                             <img
                                                 className="d-block w-100"
-                                                src="../images/Visuals/dataview4.png?text=First slide&bg=373940"
+                                                src="../images/Visuals/dataview4.png"
                                                 alt="First slide"
                                             /> 
                                         </Col>                                        
-                                    </Row>
-                                          
+                                    </Row>                                          
                                 </Carousel.Item>
                             </Carousel>                                 
                         </Col>

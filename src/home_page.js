@@ -53,7 +53,7 @@ class Home extends React.Component{
                             <Nav.Link  href="/">Home</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="/info">Information</Nav.Link>
+                            <Nav.Link href="/info">Statistics</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link href="/bmi">BMI Calculator</Nav.Link>                            
@@ -95,9 +95,9 @@ class Home extends React.Component{
                     <Container>
                         <Row style={{textAlign:'center'}}>
                             <Col>
-                            <a href="#info" style={{color:'#fff'}}>Learn More</a>
-								<p></p>
-								<span className="fa fa-angle-double-down"  style={{color:'#fff'}}></span>
+                            <a href="#info" style={{color:'#fff'}}>Learn More
+                                <br/>
+								<span className="fa fa-angle-double-down"  style={{color:'#fff'}}></span></a>								
                             </Col>
                         </Row>
                     </Container>

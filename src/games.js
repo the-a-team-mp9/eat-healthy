@@ -44,7 +44,7 @@ class Games extends React.Component {
                                     <Nav.Link href="/">Home</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link href="/info">Information</Nav.Link>
+                                    <Nav.Link href="/info">Statistics</Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
                                     <Nav.Link href="/bmi">BMI Calculator</Nav.Link>

@@ -25,7 +25,7 @@ class About extends React.Component {
                             <Nav.Link  href="/">Home</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="/info">Information</Nav.Link>
+                            <Nav.Link href="/info">Statistics</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link href="/bmi">BMI Calculator</Nav.Link>
@@ -53,7 +53,7 @@ class About extends React.Component {
                             </Col>
                         </Row>
                         
-                        <Row style={{color:'white',marginTop:'45px'}}>                           
+                        {/* <Row style={{color:'white',marginTop:'45px'}}>                           
                             <Col xs={'auto'} md={'auto'} lg={'auto'} style={{textAlign:'center'}}>
                                 asri003@student.monash.edu
                             </Col>
@@ -66,7 +66,7 @@ class About extends React.Component {
                             <Col xs={'auto'} md={'auto'} lg={'auto'} style={{textAlign:'center'}}>
                                 yxuu0042@student.monash.edu
                             </Col>
-                        </Row>
+                        </Row> */}
                     </Container>                    
                 </section>
             </div>
