@@ -362,7 +362,7 @@ class Game3 extends React.Component{
                 </Modal.Title>
                 <Modal.Body style={{textAlign:'center',backgroundColor:'#333'}}>
                 <p style={{marginTop:'0px',color:'white'}}>
-                    <strong>Refer to the food pyramid shown below when you pick foods for a balanced diet.</strong>
+                    <strong>Refer to the food pyramid shown below when you pick foods.</strong>
                 </p>
                     <img src='../images/Game-3_Image_Assets/food_pyramid1.png' className='food-pyramid' />
                 </Modal.Body>                                
