@@ -207,7 +207,10 @@ class Game_1 extends React.Component
         localStorage.setItem(document.title+'game-1-scores',JSON.stringify(scores));
 
     }
-
+    exit(){
+        this.save_progress();
+        window.location.href='/games';
+    }
     // Function used to randomly pick 3 foods for display
     // Choose 2 unhealthy foods and 1 healthy food or vice versa
     // Based on RNG. Shuflle the created array to randomise order.
@@ -259,7 +262,7 @@ class Game_1 extends React.Component
                     <img className='restart-button' src='../images/sprites/replay_button.png' onClick={this.restart}></img>
                     </a> 
                     <a href="#">
-                    <img className='back-button' src='../images/sprites/exit_button.png' onClick={()=>{window.location.href='/games';}}></img>
+                    <img className='back-button' src='../images/sprites/exit_button.png' onClick={this.exit.bind.this}></img>
                     </a>                    
                 </div>
                                 

@@ -24,6 +24,7 @@ class Game3 extends React.Component{
         let break_arr=[];
         let dinner_arr=[];
         let choice;
+        this.score_arr=[0,0,0,false,false,false,false,false];
         //Randomly pick 2 foods each from breakkie, lunch and dinner        
         for(let i=0;i<3;i++){
             for(let j=0;j<2;j++){                 
@@ -225,7 +226,7 @@ class Game3 extends React.Component{
         else if(this.state.score>=40 && this.state.score< 60)
             score_msg='You can eat better. Keep trying';
         else
-            score_msg='Oh No. You choose unhealthy foods. Try again';
+            score_msg='You must learn to choose healthy foods. Try again';
         if(this.state.gState=='score')
             return(
                 <div>
@@ -405,6 +406,9 @@ class Game3 extends React.Component{
             if(food.score<=3)
                 food_score_lt_3 = true;
         });
+        for(i=0; i<3;i++){
+            this.score_arr[i] = this.selected_food[i].score*3
+        }
         score*=3;        
         protien_content/=3;
         grain_content/=3;        
