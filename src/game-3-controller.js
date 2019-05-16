@@ -24,7 +24,7 @@ class Game3 extends React.Component{
         let break_arr=[];
         let dinner_arr=[];
         let choice;
-        this.score_arr=[0,0,0,false,false,false,false,false];
+        this.score_arr=[0,0,0];
         //Randomly pick 2 foods each from breakkie, lunch and dinner        
         for(let i=0;i<3;i++){
             for(let j=0;j<2;j++){                 
@@ -154,7 +154,7 @@ class Game3 extends React.Component{
                     <div id='selected-item2' style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Lunch/'+this.selected_food[1].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
                 </div>
             );
-        else if(this.state.gState=='confirm' || this.state.gState=='score')
+        else if(this.state.gState=='confirm')
             return(
                 <div>
                     <div id='breakfast-clock'></div>
@@ -217,6 +217,82 @@ class Game3 extends React.Component{
         }
             
     }
+    // Dunction to render stars for each food
+    renderStars(starNo){
+        
+        if(starNo==0)
+            return(
+                <img className=' stars' src='..\images\Game-3_Image_Assets\0Star.png'/>
+            );
+        else if(starNo==1){
+            return(
+                <img className=' stars' src='..\images\Game-3_Image_Assets\1Star.png'/>
+            );
+        }
+        else if(starNo==2){
+            return(
+                <img className=' stars' src='..\images\Game-3_Image_Assets\2Star.png'/>
+            );
+        }
+        else if(starNo==3){
+            return(
+                <img className=' stars' src='..\images\Game-3_Image_Assets\3Star.png'/>
+            );
+        }
+        
+    }
+    // Dunction to render star ratings for the foods chosen
+    renderFoodStars(){
+        let b_star=0;
+        let l_star=0;
+        let d_star=0;
+        // console.log(this.score_arr)
+        if(this.score_arr[0]>4 && this.score_arr[0]<7)
+            b_star=1;
+        else if(this.score_arr[0]==7)
+            b_star=2;
+        else if(this.score_arr[0]>7)
+            b_star=3;
+
+        if(this.score_arr[1]>4 && this.score_arr[1]<7)
+            l_star=1;
+        else if(this.score_arr[1]==7)
+            l_star=2;
+        else if(this.score_arr[1]>7)
+            l_star=3;
+            
+        if(this.score_arr[2]>4 && this.score_arr[2]<7)
+            d_star=1;
+        else if(this.score_arr[2]==7)
+            d_star=2;
+        else if(this.score_arr[2]>7)
+            d_star=3;
+        
+        
+        if(this.state.gState=='score'){
+        // console.log(b_star,'b');
+        // console.log(l_star,'l');
+        // console.log(d_star,'d');
+            return(
+                <div>
+                    <div id='breakfast-star'>
+                    {this.renderStars(b_star)}
+                    </div>
+                    <div id='selected-item1' style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Breakfast/'+this.selected_food[0].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>                    
+                    <div id='lunch-star'>
+                    {this.renderStars(l_star)}
+                    </div>
+                    <div id='selected-item2' style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Lunch/'+this.selected_food[1].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div>
+                    <div id='dinner-star'>
+                    {this.renderStars(d_star)}
+                    </div>
+                    <div id='selected-item3' style={{backgroundImage:'url(../images/Game-3_Image_Assets/Meals/Dinner/'+this.selected_food[2].imgName+')',backgroundRepeat:'no-repeat',backgroundSize:'contain',backgroundPosition:'center'}}></div> 
+                </div>
+            );
+
+        }
+    }
+
     renderScore(){
         let score_msg;
         if(this.state.score>=80)
@@ -285,10 +361,10 @@ class Game3 extends React.Component{
                     <p style={{textAlign:'center',fontSize:'1em',color:'black'}}>Balanced Diet</p>
                 </Modal.Title>
                 <Modal.Body style={{textAlign:'center',backgroundColor:'#333'}}>
-                <p style={{marginTop:'0px'}}>
-                    Refer to the food pyramid shown below when you pick foods for a balanced diet.
+                <p style={{marginTop:'0px',color:'white'}}>
+                    <strong>Refer to the food pyramid shown below when you pick foods for a balanced diet.</strong>
                 </p>
-                    <img src='../images/Game-3_Image_Assets/food_pyramid.png' className='food-pyramid' />
+                    <img src='../images/Game-3_Image_Assets/food_pyramid1.png' className='food-pyramid' />
                 </Modal.Body>                                
                 <Modal.Footer style={{textAlign:'center' ,color:'white',backgroundColor:'#333'}}>
                     <Container>                            
@@ -318,6 +394,7 @@ class Game3 extends React.Component{
             {this.renderGameChar()}   
             {this.renderScore()}  
             {this.renderGameMsgs()} 
+            {this.renderFoodStars()}
         </div>
         );
     }
@@ -349,7 +426,7 @@ class Game3 extends React.Component{
         this.setState({gState:'breakfast'});
     }    
     getMealChoice(choice){
-        console.log(choice);
+        // console.log(choice);
         if(this.state.gState=='breakfast'){
             this.selected_food[0]=this.brekkie_list[choice];
             // console.log(this.selected_food);
@@ -357,12 +434,12 @@ class Game3 extends React.Component{
         }
         else if(this.state.gState=='lunch'){
             this.selected_food[1]=this.lunch_list[choice];
-            console.log(this.selected_food);
+            // console.log(this.selected_food);
             this.setState({seletedFood_d:this.lunch_list[choice].description,foodSelected:true});
         }
         else if(this.state.gState=='dinner'){
             this.selected_food[2]=this.dinner_list[choice];
-            console.log(this.selected_food);
+            // console.log(this.selected_food);
             this.setState({seletedFood_d:this.dinner_list[choice].description,foodSelected:true});
         }
     }
@@ -407,16 +484,16 @@ class Game3 extends React.Component{
                 food_score_lt_3 = true;
         });
         for(let i=0; i<3;i++){
-            this.score_arr[i] = this.selected_food[i].score*3
+            this.score_arr[i] = this.selected_food[i].score;
         }
         score*=3;        
         protien_content/=3;
         grain_content/=3;        
-        console.log('sc',score);
-        console.log('vg',veg_content);
-        console.log('gc',grain_content);
-        console.log('f',fruit);
-        console.log('p',protien_content);
+        // console.log('sc',score);
+        // console.log('vg',veg_content);
+        // console.log('gc',grain_content);
+        // console.log('f',fruit);
+        // console.log('p',protien_content);
         if(veg_content>3)
             score+=5;
         if(fruit>=2)

@@ -988,6 +988,14 @@ input[type=radio] {
   background-repeat: no-repeat;
 }
 
+#breakfast-star{
+  position: absolute;
+  height: 15.7%;
+  width: 8.5%;
+  left: 72.5%;
+  top: 15.5%;
+}
+
 #lunch-clock{
   position: absolute;
   height: 15.7%;
@@ -1000,6 +1008,14 @@ input[type=radio] {
   background-repeat: no-repeat;
 }
 
+#lunch-star{
+  position: absolute;
+  height: 15.7%;
+  width: 8.5%;
+  left: 72.5%;
+  top: 41.9%;
+}
+
 #dinner-clock{
   position: absolute;
   height: 15.7%;
@@ -1010,6 +1026,14 @@ input[type=radio] {
   background-position: center; 
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+#dinner-star{
+  position: absolute;
+  height: 15.7%;
+  width: 8.5%;
+  left: 72.5%;
+  top: 70.2%;
 }
 
 #selected-item1{
@@ -1101,4 +1125,10 @@ input[type=radio] {
 }
 #tabs-rec-tabpane-veg a:hover{
   color: 'white';
+}
+
+.stars{
+  position: absolute;
+  max-width:100%;
+  max-height:100%;
 }
