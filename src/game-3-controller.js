@@ -406,7 +406,7 @@ class Game3 extends React.Component{
             if(food.score<=3)
                 food_score_lt_3 = true;
         });
-        for(i=0; i<3;i++){
+        for(let i=0; i<3;i++){
             this.score_arr[i] = this.selected_food[i].score*3
         }
         score*=3;        

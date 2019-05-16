@@ -208,7 +208,8 @@ class Game_1 extends React.Component
 
     }
     exit(){
-        this.save_progress();
+        console.log('here');
+        this.save_progress();        
         window.location.href='/games';
     }
     // Function used to randomly pick 3 foods for display
@@ -258,12 +259,12 @@ class Game_1 extends React.Component
                 <div id="overlay" className="overlay-msg" hidden>
                     <h1 id='gameover' style={{display:'none', textAlign:'center',color:'white'}}> Oh No!!! You ate too many unhealthy foods</h1>
                     <h1 id='gamewin' style={{ textAlign:'center',color:'white'}}> Congratulations You won !!!!!</h1>
-                    <a href="#">
+                    
                     <img className='restart-button' src='../images/sprites/replay_button.png' onClick={this.restart}></img>
-                    </a> 
-                    <a href="#">
-                    <img className='back-button' src='../images/sprites/exit_button.png' onClick={this.exit.bind.this}></img>
-                    </a>                    
+                     
+                    
+                    <img className='back-button' src='../images/sprites/exit_button.png' onClick={this.exit.bind(this)}></img>
+                                     
                 </div>
                                 
             <div className="game-1-area">                
