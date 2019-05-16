@@ -325,9 +325,9 @@ class Game3 extends React.Component{
     }
     selectGender(isBoy){
         if(!isBoy)
-            this.setState({isBoy:false,disp_modal:false});
+            this.setState({isBoy:false,disp_modal:false,gState:'breakfast'});
         else   
-            this.setState({disp_modal:false});
+            this.setState({disp_modal:false,gState:'breakfast'});
     }
     goBack(){
         if(this.state.gState=='start' || this.state.gState=='score')
