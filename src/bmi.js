@@ -4,13 +4,13 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import Button from 'react-bootstrap/Button';
 import {Nav, Navbar,Container,Row,Col} from 'react-bootstrap';
-
+import {bmi_girl,bmi_boy} from './bmi-ranges';
 
 
 class BMI extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {'height_in':0, 'height': 1, 'weight': 1, 'gender': 'm', 'isCm': true, 'isKg': true, 'show': false, 'bmi':0, cat:'Healthy'};
+        this.state = {age:0,'height_in':0, 'height': 1, 'weight': 1, 'gender': 'm', 'isCm': true, 'isKg': true, 'show': false, 'bmi':0, cat:'Healthy'};
         //Bind all class methods to the context (this)
         this.handleHeightChange = this.handleHeightChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,6 +20,9 @@ class BMI extends React.Component {
         this.changeGender = this.changeGender.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.hideModal = this.hideModal.bind(this);
+        this.u_cat;
+        this.h_cat;
+        this.ov_cat;
     }
 
     // Track changes made to height in the form (2 way data binding)
@@ -47,7 +50,68 @@ class BMI extends React.Component {
             return 'danger1'
         return 'success1'
     }
+
+    renderBMICutoffValues(){
+        
+        if(this.state.age>=2 && this.state.age<=10){
+            if(this.state.gender=='m'){
+                if(bmi_boy.filter((doc)=>{return(parseInt(doc.age)==parseInt(this.state.age))}).length!=0){
+                    this.u_cat = bmi_boy.filter((doc)=>{return(parseInt(doc.age)==parseInt(this.state.age))})[0].underweight;
+                    this.h_cat = bmi_boy.filter((doc)=>{return(parseInt(doc.age)==parseInt(this.state.age))})[0].normal;
+                    this.ov_cat = bmi_boy.filter((doc)=>{return(parseInt(doc.age)==parseInt(this.state.age))})[0].overweight;
+                }               
+                return(
+                    <div>
+                        <p style={{color:'white'}}>                            
+                            The value of BMI is used to categorise the obesity of {this.state.age} year old boys as                    
+                        </p>
+                        <p style={{color:'white', margin:'0px'}}>
+                            1. Under weight : BMI {' < '} {this.u_cat}
+                        </p>
+                        <p style={{color:'white',margin:'0px'}}>
+                            2. Healthy : BMI >= {this.u_cat} to {' < '} {this.h_cat}
+                        </p>
+                        <p style={{color:'white',margin:'0px'}}>
+                            3. Overweight : BMI > {this.h_cat} {' <= '} {this.ov_cat}
+                        </p>
+                        <p style={{color:'white',margin:'0px'}}>
+                            4. Obese : BMI > {this.ov_cat}
+                        </p>
+                    </div>
+                )
+            }
+            else{
+                if(bmi_girl.filter((doc)=>{return(parseInt(doc.age)==parseInt(this.state.age))}).length!=0){
+                    this.u_cat = bmi_girl.filter((doc)=>{return(parseInt(doc.age)==parseInt(this.state.age))})[0].underweight;
+                    this.h_cat = bmi_girl.filter((doc)=>{return(parseInt(doc.age)==parseInt(this.state.age))})[0].normal;
+                    this.ov_cat = bmi_girl.filter((doc)=>{return(parseInt(doc.age)==parseInt(this.state.age))})[0].overweight;
+                }               
+                return(
+                    <div>
+                        <p style={{color:'white'}}>                            
+                            The value of BMI is used to categorise the obesity of {this.state.age} year old girls as                    
+                        </p>
+                        <p style={{color:'white', margin:'0px'}}>
+                            1. Under weight : BMI {' < '} {this.u_cat}
+                        </p>
+                        <p style={{color:'white',margin:'0px'}}>
+                            2. Healthy : BMI >= {this.u_cat} to {' < '} {this.h_cat}
+                        </p>
+                        <p style={{color:'white',margin:'0px'}}>
+                            3. Overweight : BMI > {this.h_cat} {' <= '} {this.ov_cat}
+                        </p>
+                        <p style={{color:'white',margin:'0px'}}>
+                            4. Obese : BMI > {this.ov_cat}
+                        </p>
+                    </div>
+                )
+            }
+        }
+    }
+
+    // Function that renders the input for height 
     renderHeightInput(){
+        // If metric units are chosen, render just 1 input box
         if(this.state.isCm)
             return (<div>
                 <label id='hlabel' htmlFor='height' style={{ paddingRight: '5px', width: '25%', marginTop: '15px' }}>
@@ -65,7 +129,8 @@ class BMI extends React.Component {
                 </ButtonToolbar>
             </div>
             );
-        else   
+        else  
+            // if imerial units are chosen, render 1 input box for feet and 1 iput box for inches
             return(
             <div>
                  <label id='hlabel' htmlFor='heightft' style={{ paddingRight: '5px', width: '25%', marginTop: '15px' }}>
@@ -110,11 +175,12 @@ class BMI extends React.Component {
         console.log('hinm',hinMeters);
         // console.log('winK',winKg);
         let bMi = (winKg/(hinMeters*hinMeters)).toFixed(2);
-        if(bMi<14.3)
+        console.log(this.u_cat,this.h_cat,this.ov_cat);
+        if(bMi<parseFloat(this.u_cat))
             bmiCat='Underweight';
-        else if(bMi>=14.3 && bMi<17.9)
+        else if(bMi>=parseFloat(this.u_cat) && bMi<parseFloat(this.h_cat))
             bmiCat='Healthy';
-        else if(bMi>=17.9 && bMi<20)
+        else if(bMi>=parseFloat(this.h_cat) && bMi<parseFloat(this.ov_cat))
             bmiCat='Overweight';
         else
             bmiCat='Obese';
@@ -142,6 +208,9 @@ class BMI extends React.Component {
         this.setState({ show: false });
     }
 
+    handleAgeChange(e){
+        this.setState({age:parseInt(e.target.value)});
+    }
     //Manipulate DOM to display Modal
     showModal(){
         if(document.getElementById('modal')){
@@ -161,28 +230,31 @@ class BMI extends React.Component {
         }
         
     }
+
+    // Function to display BMI calculated and the category of BMI along with info on what it means and tips
     renderBMICatText(){
         if(this.state.cat=='Underweight')
         {
             if(this.state.gender=='m')
                 return(
-                    <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
-                        Your child may weigh less than he ideally should. You may need to consider ways for your child to gain weight to bring your BMI to between 14.3 to 17.9.
+                    <p style={{color:'black',textAlign:'justify',paddingLeft:'20px',paddingRight:'20px'}}>
+                        Your child may weigh less than he ideally should. You may need to consider ways for your child to gain weight to bring his BMI in the range {this.u_cat} to {this.h_cat}.
                         It is still important to eat a healthy diet - you should still avoid junk food. You might need to consult a pediatrician for a diet plan. 
                     </p>
                 );
             return(
-                    <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
-                        Your child may weigh less than he ideally should. You may need to consider ways for your child to gain weight to bring your BMI to between 14.3 to 17.9.
+                    <p style={{color:'black',textAlign:'justify',paddingLeft:'20px',paddingRight:'20px'}}>
+                        Your child may weigh less than he ideally should. You may need to consider ways for your child to gain weight to bring her BMI to between {this.u_cat} to {this.h_cat}.
                         It is still important to maintain a healthy diet for your child. You should still avoid junk food. You might need to consult a pediatrician for a diet plan. 
                     </p>
+                    
                 );
             
         }
         else if(this.state.cat=='Healthy'){
             if(this.state.gender=='m'){
                 return(
-                    <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                    <p style={{color:'black',textAlign:'justify',paddingLeft:'20px',paddingRight:'20px'}}>
                         Your child's BMI is currently within what is considered a healthy weight range.
                         Being a healthy weight has important benefits, not only on how he feels,
                         but also to help reduce the risk of heart disease, diabetes and a range of
@@ -191,7 +263,7 @@ class BMI extends React.Component {
                 );
             }
             return(
-                <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                <p style={{color:'black',textAlign:'justify',paddingLeft:'20px',paddingRight:'20px'}}>
                     Your child's BMI is currently within what is considered a healthy weight range.
                     Being a healthy weight has important benefits, not only on how she feels,
                     but also to help reduce the risk of heart disease, diabetes and a range of
@@ -203,7 +275,7 @@ class BMI extends React.Component {
         else if(this.state.cat=='Overweight'){
             if(this.state.gender=='m'){
                 return(
-                    <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                    <p style={{color:'black',textAlign:'justify',paddingLeft:'20px',paddingRight:'20px'}}>
                         Your child's weight appears to be a bit above the ideal range. You should consider helping him loose weight. 
                         To lose weight, you will generally need to decrease the amount of energy (food) in the diet.
                         You could encorage him to drink more water and increase the amount of vegetables in his diet.
@@ -213,7 +285,7 @@ class BMI extends React.Component {
                 );
             }
             return(
-                <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                <p style={{color:'black',textAlign:'justify',paddingLeft:'20px',paddingRight:'20px'}}>
                     Your child's weight appears to be a bit above the ideal range. You should consider helping her loose weight. 
                     To lose weight, you will generally need to decrease the amount of energy (food) in the diet.
                     You could encorage her to drink more water and increase the amount of vegetables in her diet.
@@ -225,15 +297,15 @@ class BMI extends React.Component {
         else if(this.state.cat=='Obese'){
             if(this.state.gender=='m'){
                 return(
-                    <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
-                        Your child currently weighs more than what is ideal . This puts his health at
+                    <p style={{color:'black',textAlign:'justify',paddingLeft:'20px',paddingRight:'20px'}}>
+                        Your child currently weighs more than what is ideal. This puts his health at
                         risk and is of increasing concern as he grows up. Click on Recommended Diet
                         to learn more about recommendations on eating and tips to loose weight.
                     </p>
                 );
             }
             return(
-                <p style={{color:'black',textAlign:'justify',paddingLeft:'5px',paddingRight:'5px'}}>
+                <p style={{color:'black',textAlign:'justify',paddingLeft:'20px',paddingRight:'20px'}}>
                     Your child currently weighs more than what is ideal . This puts her health at
                     risk and is of increasing concern as she grows up. Click on Recommended Diet
                     to learn more about recommendations on eating and tips to loose weight.
@@ -307,12 +379,25 @@ class BMI extends React.Component {
 
                     </div>
                     <form className='form-card' onSubmit={this.handleSubmit} >
+                    <div style={{paddingBottom:'15px'}}>
+                        <label id='agelabel' htmlFor='age' style={{ marginLeft:'19px', width: '10%', marginTop: '15px' }}>
+                                Age
+                                    </label>
+                            <input onChange={this.handleAgeChange.bind(this)} name='age' id='age' type='number' min='2' required max='10' placeholder='age' style={{ width: '15%',marginLeft:'10%', marginTop: '15px',color:'black', maxWidth:'45px' }} />
+                            <ButtonToolbar className='cs' style={{ marginTop: '30px',paddingLeft:'12px' }}>
+                                <ToggleButtonGroup type="radio" name="gender" defaultValue={'m'} onChange={this.changeGender}>
+                                    <ToggleButton className='btn2c' value={'m'} variant="info">BOY</ToggleButton>
+                                    <ToggleButton className='btn2c' value={'f'} variant="info">GIRL</ToggleButton>
+                                </ToggleButtonGroup>
+                            </ButtonToolbar>
+                        </div>
                         {this.renderHeightInput()}                        
                         <div style={{ marginTop: '20px' }}>
                             <label id='wlabel' htmlFor='weight' style={{ paddingRight: '5px', width: '25%', marginTop: '15px' }}>
-                                Weight
+                                Weight                                
                                     </label>
-                            <input onChange={this.handleWeightChange} id='weight' type='number' min='1' step='0.01' required max='180' placeholder='weight' style={{ width: '50%', left: '25%', marginTop: '15px',color:'black', maxWidth:'90px' }} />
+                            <input onChange={this.handleWeightChange} name='weight' id='weight' type='number' min='1' step='0.01' required max='180' placeholder='weight' style={{ width: '50%', left: '25%', marginTop: '15px',color:'black', maxWidth:'90px' }} />
+
                             <ButtonToolbar className='cs'>
                                 <ToggleButtonGroup type="radio" name="weight" defaultValue={true} onChange={this.changeWUnit}>
                                     <ToggleButton className='btn1c' value={false} variant='info' >lb</ToggleButton>
@@ -322,13 +407,9 @@ class BMI extends React.Component {
                         </div>
 
                         <div>
-                            <ButtonToolbar className='cs' style={{ marginTop: '30px' }}>
-                                <ToggleButtonGroup type="radio" name="gender" defaultValue={'m'} onChange={this.changeGender}>
-                                    <ToggleButton className='btn2c' value={'m'} variant="info">BOY</ToggleButton>
-                                    <ToggleButton className='btn2c' value={'f'} variant="info">GIRL</ToggleButton>
-                                </ToggleButtonGroup>
-                            </ButtonToolbar>
+                            
                         </div>
+                        
                         <div style={{ marginTop: '30px' ,marginBottom:'10px'}}>
                             <input className='btn btn-success btn-lg' name='submit' type='submit' value='Calculate BMI' />
                         </div>
@@ -336,27 +417,13 @@ class BMI extends React.Component {
                 </div>
                 <Container>
                     <Row className="justify-content-md-center">
-                        <Col md={8} lg={6} style={{backgroundColor:'rgba(44, 44, 44,0.85)'}}>
+                        <Col md={8} lg={6} style={{backgroundColor:'rgba(44, 44, 44,0.85)'}}>                        
                         <p style={{color:'white'}}>
                             B.M.I is the acronym for Body Mass Index. It is widely used as an indicator for obesity.
                             BMI can vary rapidly in children due to a higher physical growth rate compared to teenagers.
                             The values of BMI used to classify an individual into categories are different for different age groups.
                         </p>
-                        <p style={{color:'white'}}>                            
-                            The value of BMI is used to categorise the obesity of children (in the age group 4-8 years) as                    
-                        </p>
-                        <p style={{color:'white', margin:'0px'}}>
-                            1. Under weight : BMI {' < '} 14.3
-                        </p>
-                        <p style={{color:'white',margin:'0px'}}>
-                            2. Healthy : BMI >= 14.3 to {' < '} 17.9
-                        </p>
-                        <p style={{color:'white',margin:'0px'}}>
-                            3. Overweight : BMI > 17.9 {' <= '} 20
-                        </p>
-                        <p style={{color:'white',margin:'0px'}}>
-                            4. Obese : BMI > 20
-                        </p>
+                        {this.renderBMICutoffValues()}                        
                         </Col>
                     </Row>
                 </Container>
