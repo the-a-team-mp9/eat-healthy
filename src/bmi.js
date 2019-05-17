@@ -69,7 +69,7 @@ class BMI extends React.Component {
                             1. Under weight : BMI {' < '} {this.u_cat}
                         </p>
                         <p style={{color:'white',margin:'0px'}}>
-                            2. Healthy : BMI >= {this.u_cat} to {' < '} {this.h_cat}
+                            2. Healthy : BMI >= {this.u_cat} to {' <= '} {this.h_cat}
                         </p>
                         <p style={{color:'white',margin:'0px'}}>
                             3. Overweight : BMI > {this.h_cat} {' <= '} {this.ov_cat}
