@@ -64,10 +64,9 @@ class Home extends React.Component{
                         <Nav.Item>
                             <Nav.Link href="/games">Game Zone</Nav.Link>
                         </Nav.Item>                        
-                        <Nav.Item>
+                        {/* <Nav.Item>
                             <Nav.Link href="/about">About us</Nav.Link>
-                        </Nav.Item>
-                        
+                        </Nav.Item> */}                        
                         </Nav>
                     </Navbar.Collapse>
                     </Navbar>                   
