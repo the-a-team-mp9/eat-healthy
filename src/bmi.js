@@ -380,14 +380,14 @@ class BMI extends React.Component {
                     </div>
                     <form className='form-card' onSubmit={this.handleSubmit} >
                     <div style={{paddingBottom:'15px'}}>
-                        <label id='agelabel' htmlFor='age' style={{ marginLeft:'19px', width: '10%', marginTop: '15px' }}>
+                        <label id='agelabel' htmlFor='age' style={{ paddingRight: '5px', width: '25%', marginTop: '15px' }}>
                                 Age
                                     </label>
-                            <input onChange={this.handleAgeChange.bind(this)} name='age' id='age' type='number' min='2' required max='10' placeholder='age' style={{ width: '15%',marginLeft:'10%', marginTop: '15px',color:'black', maxWidth:'45px' }} />
-                            <ButtonToolbar className='cs' style={{ marginTop: '30px',paddingLeft:'12px' }}>
-                                <ToggleButtonGroup type="radio" name="gender" defaultValue={'m'} onChange={this.changeGender}>
-                                    <ToggleButton className='btn2c' value={'m'} variant="info">BOY</ToggleButton>
-                                    <ToggleButton className='btn2c' value={'f'} variant="info">GIRL</ToggleButton>
+                            <input onChange={this.handleAgeChange.bind(this)} name='age' id='age' type='number' min='2' required max='10' placeholder='age' style={{ width: '50%', left: '25%', marginTop: '15px',color:'black', maxWidth:'90px' }} />
+                            <ButtonToolbar className='cs' style={{ marginTop: '30px'}}>
+                                <ToggleButtonGroup type="radio" name="gender" defaultValue={'f'} onChange={this.changeGender}>
+                                    <ToggleButton className='btn1c' value={'m'} variant="info">boy</ToggleButton>
+                                    <ToggleButton className='btn1c' value={'f'} variant="info">girl</ToggleButton>
                                 </ToggleButtonGroup>
                             </ButtonToolbar>
                         </div>
