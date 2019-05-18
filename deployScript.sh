@@ -8,4 +8,5 @@ pm2 save
 yum -y install nginx
 mv nginxconf /etc/nginx/nginx.conf -f
 service nginx start
+service nginx reload
 
