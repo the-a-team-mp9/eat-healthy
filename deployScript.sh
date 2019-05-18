@@ -5,3 +5,5 @@ npm install
 pm2 start npm --name "p1" -- start
 pm2 startup
 pm2 save
+yum -y install nginx
+
