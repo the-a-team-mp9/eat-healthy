@@ -6,4 +6,6 @@ pm2 start npm --name "p1" -- start
 pm2 startup
 pm2 save
 yum -y install nginx
+mv nginxconf /etc/nginx/nginx.conf -f
+service nginx start
 
